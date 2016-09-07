@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01eccc0dcc882b21ec5dcf86d803cfcd",
-    "content-hash": "562bc6f653cdccc44c0cc0b8422f3518",
+    "hash": "8c29b5d110d994f15339858b46cc8ab4",
+    "content-hash": "c8f3eb0f377101840a9db9c3bb853f36",
     "packages": [
         {
             "name": "composer/installers",
@@ -760,7 +760,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.17.zip",
-                "reference": null,
+                "reference": "195f503ee4350c8be74b9515c21e264384a2fcaf",
                 "shasum": null
             },
             "require": {
@@ -792,6 +792,45 @@
             "description": "Provides a drop-down menu interface to the core Drupal Toolbar.",
             "homepage": "http://drupal.org/project/admin_toolbar",
             "time": "2016-08-19 14:05:31"
+        },
+        {
+            "name": "drupal/config_update",
+            "version": "8.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/config_update.git",
+                "reference": "ac1526df5836a611f04bb421945beddb6306b7f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_update-8.x-1.1.zip",
+                "reference": "ac1526df5836a611f04bb421945beddb6306b7f2",
+                "shasum": null
+            },
+            "require": {
+                "drupal/config": "8.*",
+                "drupal/core": "8.*"
+            },
+            "replace": {
+                "drupal/config_update_ui": "self.version"
+            },
+            "suggest": {
+                "drupal/config": "Required by drupal/config_update_ui",
+                "drupal/core": "Required by drupal/config_update_ui"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides basic revert and update functionality for other modules",
+            "homepage": "https://www.drupal.org/project/config_update",
+            "time": "2016-03-01 16:28:35"
         },
         {
             "name": "drupal/core",
@@ -966,6 +1005,45 @@
             "time": "2016-08-03 14:09:08"
         },
         {
+            "name": "drupal/features",
+            "version": "8.3.0-beta8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/features",
+                "reference": "1edc3b91b51b849fb798612126b50d7d66b5830b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.0-beta8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "drupal/config": "8.*",
+                "drupal/config_update": "8.*",
+                "drupal/core": "8.*"
+            },
+            "replace": {
+                "drupal/features_ui": "self.version"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/features_ui"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-3.x": "8.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Enables administrators to package configuration into modules.",
+            "homepage": "https://www.drupal.org/project/features",
+            "time": "2016-09-02 20:10:53"
+        },
+        {
             "name": "drupal/redis",
             "version": "8.1.0-alpha1",
             "source": {
@@ -976,7 +1054,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.0-alpha1.zip",
-                "reference": null,
+                "reference": "5e5a43dfabe32fd84438edaef20df2974cef5b3b",
                 "shasum": null
             },
             "require": {
@@ -3678,7 +3756,7 @@
             ],
             "description": "Extends the Devel module to simplify testing of accessibility.",
             "homepage": "https://www.drupal.org/project/devel_a11y",
-            "time": "2015-06-21 11:38:28"
+            "time": "2015-06-21 11:41:15"
         },
         {
             "name": "drupal/examples",

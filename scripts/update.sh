@@ -40,7 +40,7 @@ if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
     dblog \
     devel \
     devel_a11y \
-#    features_ui \
+    features_ui \
     field_ui \
     views_ui \
     webprofiler \
