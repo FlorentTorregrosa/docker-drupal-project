@@ -1,27 +1,32 @@
-FROM php:7.0-fpm
-
-ENV DEBCONF_FRONTEND non-interactive
+FROM php:7.0-fpm-alpine
 
 ADD bin/docker-php-pecl-install /usr/local/bin/
 
-RUN apt-get update && apt-get install -y \
+RUN apk add --update \
         git \
         imagemagick \
-        libcurl4-openssl-dev \
-        libfreetype6-dev \
-        libjpeg-turbo-progs \
-        libjpeg62-turbo-dev \
+        curl-dev \
+        freetype-dev \
+        libjpeg-turbo-dev \
+        libltdl \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         libxml2-dev \
         mysql-client \
-        pngquant \
         python \
         ssmtp \
         sudo \
         unzip \
         wget \
-        zlib1g-dev \
+        zlib-dev \
+        # Libraries needed to compile php libraries.
+        autoconf \
+        gcc \
+        grep \
+        libc-dev \
+        libtool \
+        make \
+        sed \
     && docker-php-ext-install \
         bcmath \
         curl \
@@ -34,8 +39,7 @@ RUN apt-get update && apt-get install -y \
         pdo_mysql \
         soap \
         zip \
-    && apt-get clean && apt-get autoremove -q \
-    && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man /tmp/* \
+    && rm -rf /var/cache/apk/* /usr/share/doc /usr/share/man /tmp/* \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 
@@ -69,19 +73,4 @@ RUN cd /usr/local \
 # Install Drush.
 RUN composer global require drush/drush:@stable
 
-
-
-
-
-
-
-RUN docker-php-pecl-install \
-        xdebug
-
-# Install Coder.
-RUN composer global require drupal/coder:8.2.*
-
-# Install Drupal console.
-RUN curl https://drupalconsole.com/installer -L -o /usr/local/bin/drupal \
-    && chmod +x /usr/local/bin/drupal \
-    && drupal init
+WORKDIR /project
