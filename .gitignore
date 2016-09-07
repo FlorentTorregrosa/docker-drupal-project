@@ -46,7 +46,3 @@ node_modules
 
 # Docker.
 docker-compose.yml
-
-# Design.
-design/node_modules
-design/app/*.html

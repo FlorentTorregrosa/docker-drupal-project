@@ -2,42 +2,24 @@ version: "2"
 
 services:
   web:
-#    image: florenttorregrosa/httpd:2.4
     image: httpd:2.4-alpine
-#    build:
-#      context: ./docker-images/httpd/
-#    depends_on:
-#      - mysql
-#      - redis
-#      - mail
-#      - solr
-#      - php
     volumes:
       - ./conf/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./conf/httpd/extra/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
-#      - .:/usr/local/apache2/htdocs/
-#      - ./www:/var/www/html
       - .:/project
+#    image: nginx:1.11-alpine
+#    volumes:
+#      - ./conf/nginx:/etc/nginx/conf.d/
+#      - .:/project
+    depends_on:
+      - php
+      - mysql
+      - redis
+      - mail
+      - solr
     networks:
       default:
         ipv4_address: 172.21.0.2
-
-  nginx:
-    image: nginx:1.11-alpine
-#    depends_on:
-#      - mysql
-#      - redis
-#      - mail
-#      - solr
-#      - php
-    volumes:
-      - ./conf/nginx:/etc/nginx/conf.d/
-#      - ./conf/nginx/nginx.conf:/etc/nginx/nginx.conf
-#      - ./www:/var/www/html
-      - .:/project
-    networks:
-      default:
-        ipv4_address: 172.21.0.10
 
 
   php:
@@ -45,7 +27,6 @@ services:
     build:
       context: ./docker-images/php/
     volumes:
-#      - ./www:/var/www/html
       - .:/project
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
     expose:
@@ -54,60 +35,20 @@ services:
       default:
         ipv4_address: 172.21.0.3
 
-#  llaumgui_centos7-scl-httpd24:
-#    container_name: llaumgui_centos7-scl-httpd24
-#    image: llaumgui/centos7-scl-httpd24
-#    restart: always
-#    mem_limit: 512m
-#    volumes:
-#      - /etc/localtime:/etc/localtime:ro
-#      - ./www:/var/www/html
-#      - ./volumes/conf/httpd24/vhost.d:/etc/httpd/vhost.d:ro
-#      - ./volumes/log/httpd24:/var/log/httpd24
-#    networks:
-#      default:
-#        ipv4_address: 172.21.0.2
-#    ports:
-#      - 88:80
-#    links:
-#     - llaumgui_centos7-scl-php56:php56
+
+  varnish:
+    image: florenttorregrosa/docker-varnish:latest
+    depends_on:
+      - web
+    environment:
+      VCL_CONFIG: /varnish-drupal/varnish.vcl
+    volumes:
+      - ./conf/varnish:/varnish-drupal
+    networks:
+      default:
+        ipv4_address: 172.21.0.4
 
 
-#  llaumgui_centos7-scl-php56:
-#    container_name: llaumgui_centos7-scl-php56
-#    image: llaumgui/centos7-scl-php56
-#    build:
-#      context: ../docker-images/php-fpm/5.6/
-#    restart: always
-#    mem_limit: 1g
-#    volumes:
-#      - /etc/localtime:/etc/localtime:ro
-#      - ./www:/var/www/html
-#      - ./volumes/conf/php56/90-custom.ini:/etc/php.d/90-custom.ini:ro
-#      - ./volumes/log/php56:/var/log/php-fpm
-#    networks:
-#      default:
-#        ipv4_address: 172.21.0.3
-#    expose:
-#      - 9000
-#    links:
-#     - mariadb10:container_database
-#     - memcached:container_memcached
-#     - llaumgui_centos7-sphinxse:container_sphinx
-
-
-#  varnish:
-#    image: florenttorregrosa/docker-varnish:latest
-#    depends_on:
-#      - web
-#    environment:
-#      VCL_CONFIG: /varnish-drupal/varnish.vcl
-#    volumes:
-#      - ./conf/varnish:/varnish-drupal
-#    networks:
-#      default:
-#        ipv4_address: 172.21.0.4
-#
   mysql:
     image: mysql:5.6
     environment:
@@ -121,29 +62,29 @@ services:
     networks:
       default:
         ipv4_address: 172.21.0.5
-#
-#
-#  solr:
-#    image: solr:6.1.0-alpine
-#    volumes:
-#      - ./conf/solr:/solr-drupal/conf
-#    entrypoint:
-#      - docker-entrypoint.sh
-#      - solr-precreate
-#      - drupal
-#      - /solr-drupal
-#    networks:
-#      default:
-#        ipv4_address: 172.21.0.6
-#
-#
-#  redis:
-#    image: redis:3.2.1-alpine
-#    networks:
-#      default:
-#        ipv4_address: 172.21.0.7
-#
-#
+
+
+  solr:
+    image: solr:6.1.0-alpine
+    volumes:
+      - ./conf/solr:/solr-drupal/conf
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - drupal
+      - /solr-drupal
+    networks:
+      default:
+        ipv4_address: 172.21.0.6
+
+
+  redis:
+    image: redis:3.2.1-alpine
+    networks:
+      default:
+        ipv4_address: 172.21.0.7
+
+
   mail:
     image: djfarrelly/maildev
     networks:

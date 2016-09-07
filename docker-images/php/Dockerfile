@@ -21,9 +21,8 @@ RUN apt-get update && apt-get install -y \
         sudo \
         unzip \
         wget \
-        zlib1g-dev
-
-RUN docker-php-ext-install \
+        zlib1g-dev \
+    && docker-php-ext-install \
         bcmath \
         curl \
         exif \
@@ -86,12 +85,3 @@ RUN composer global require drupal/coder:8.2.*
 RUN curl https://drupalconsole.com/installer -L -o /usr/local/bin/drupal \
     && chmod +x /usr/local/bin/drupal \
     && drupal init
-
-#RUN rm -rf /var/www/html && ln -s /project/www /var/www/html
-
-# Xdebug conf.
-#COPY xdebug.ini /usr/local/etc/php/conf.d/conf-xdebug.ini
-
-
-
-
