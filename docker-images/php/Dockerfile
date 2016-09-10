@@ -19,6 +19,7 @@ RUN apk add --update \
         unzip \
         wget \
         zlib-dev \
+        rsync \
         # Libraries needed to compile php libraries.
         autoconf \
         gcc \
