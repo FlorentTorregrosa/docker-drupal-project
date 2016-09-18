@@ -25,10 +25,10 @@
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.1.8",
+    "drupal/core": "8.1.9",
     "drush/drush": "8.1.3",
     "drupal/admin_toolbar": "8.1.17",
-    "drupal/features": "8.3.0-beta8",
+    "drupal/features": "8.3.0-beta9",
     "drupal/redis": "8.1.0-alpha1"
   },
   "require-dev": {
