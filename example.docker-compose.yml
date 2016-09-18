@@ -24,6 +24,8 @@ services:
 
   php:
     image: florenttorregrosa/drupal-php-dev:7.0-fpm-alpine
+#    build:
+#      context: ./docker-images/php-dev
     volumes:
       - .:/project
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
