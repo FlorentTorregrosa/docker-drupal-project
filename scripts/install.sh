@@ -43,6 +43,9 @@ $DRUSH site-install $PROFILE \
   --locale=fr \
   -y
 
+# As in this template we not use custom install profile.
+$DRUSH en admin_toolbar_tools -y
+
 # Launch updates. Ensure that the database schema is up-to-date.
 $DRUSH updb --entity-updates -y
 
