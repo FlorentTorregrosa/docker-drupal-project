@@ -16,6 +16,9 @@ if ! hash "composer" 2> /dev/null; then
     exit 1;
 fi
 
+# Put the site in maintenance mode.
+$DRUSH state-set system.maintenance_mode 1
+
 # Update source.
 if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
     composer install --working-dir=$WWW_PATH
@@ -50,6 +53,9 @@ fi
 # Translation updates.
 $DRUSH locale-check
 $DRUSH locale-update
+
+# Remove the maintenance mode.
+$DRUSH state-set system.maintenance_mode 0
 
 # Run CRON (index search_api, import feeds).
 $DRUSH cron
