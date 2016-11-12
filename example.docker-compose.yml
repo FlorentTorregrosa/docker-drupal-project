@@ -45,8 +45,6 @@ services:
     volumes:
       - .:/project
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
-    expose:
-      - 9000
     networks:
       default:
         ipv4_address: 172.21.0.3
@@ -68,7 +66,7 @@ services:
 
 
   mysql:
-    image: mysql:5.6
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: drupal
