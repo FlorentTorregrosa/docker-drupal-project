@@ -43,8 +43,14 @@ $DRUSH site-install $PROFILE \
   --locale=fr \
   -y
 
-# As in this template we not use custom install profile.
-$DRUSH en admin_toolbar_tools -y
+# As in this template we not use custom install profile, enable some modules.
+$DRUSH en \
+  admin_toolbar_tools \
+  elasticsearch_connector \
+  redis \
+  search_api \
+  search_api_solr \
+  -y
 
 # Launch updates. Ensure that the database schema is up-to-date.
 $DRUSH updb --entity-updates -y
