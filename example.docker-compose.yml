@@ -23,6 +23,9 @@ services:
 
 
   php:
+#    image: florenttorregrosa/drupal-php:7.0-fpm-alpine
+#    build:
+#      context: ./docker-images/php
     image: florenttorregrosa/drupal-php-dev:7.0-fpm-alpine
 #    build:
 #      context: ./docker-images/php-dev
@@ -38,6 +41,8 @@ services:
 
   varnish:
     image: florenttorregrosa/docker-varnish:latest
+#    build:
+#      context: ./docker-images/varnish
     depends_on:
       - web
     environment:
