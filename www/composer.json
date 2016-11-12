@@ -30,6 +30,7 @@
     "drupal/admin_toolbar": "1.17.0",
     "drupal/elasticsearch_connector": "2.*",
     "drupal/features": "3.0.0",
+    "drupal/piwik": "1.1.0",
     "drupal/redis": "1.0.0-alpha1",
     "drupal/search_api": "1.0.0-beta3",
     "drupal/search_api_solr": "1.0.0-beta1"

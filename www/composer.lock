@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "84085c90b1b551072e9866238713b2d3",
-    "content-hash": "ae3a7dec4df061b7c5aa1dc91d207930",
+    "hash": "fde13a720137fef3faa76c295f4bf5e2",
+    "content-hash": "403e232a162028f26d9772609892fe99",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1198,6 +1198,58 @@
             "homepage": "https://www.drupal.org/project/features",
             "support": {
                 "source": "http://cgit.drupalcode.org/features"
+            }
+        },
+        {
+            "name": "drupal/piwik",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/piwik",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/piwik-8.x-1.1.zip",
+                "reference": null,
+                "shasum": "a2b5b77a92da5c7198b93bb264eac7ef4795089a"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "drupal/php": "Required by drupal/piwik",
+                "drupal/token": "Required by drupal/piwik"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1470845524"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/u/hass"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/247808/committers"
+                }
+            ],
+            "description": "Adds Piwik javascript tracking code to all your site's pages",
+            "homepage": "https://www.drupal.org/project/piwik",
+            "support": {
+                "source": "http://git.drupal.org/project/piwik.git",
+                "issues": "https://www.drupal.org/project/issues/piwik"
             }
         },
         {
