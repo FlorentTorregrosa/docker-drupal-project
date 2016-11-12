@@ -7,9 +7,22 @@ services:
       - ./conf/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./conf/httpd/extra/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
       - .:/project
+
 #    image: nginx:1.11-alpine
 #    volumes:
 #      - ./conf/nginx:/etc/nginx/conf.d/
+#      - .:/project
+
+#    image: florenttorregrosa/docker-drupal:php7
+#    build:
+#      context: ./docker-images/php-apache
+#    volumes:
+#      - .:/project
+
+#    image: florenttorregrosa/docker-drupal-dev:php7
+#    build:
+#      context: ./docker-images/php-apache-dev
+#    volumes:
 #      - .:/project
     depends_on:
       - php
