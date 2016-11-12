@@ -94,18 +94,28 @@ services:
         ipv4_address: 172.21.0.6
 
 
+  elasticsearch:
+    image: elasticsearch:2.4
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
+      - ./conf/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      default:
+        ipv4_address: 172.21.0.7
+
+
   redis:
     image: redis:3.2.1-alpine
     networks:
       default:
-        ipv4_address: 172.21.0.7
+        ipv4_address: 172.21.0.8
 
 
   mail:
     image: djfarrelly/maildev
     networks:
       default:
-        ipv4_address: 172.21.0.8
+        ipv4_address: 172.21.0.9
 
 
 networks:
