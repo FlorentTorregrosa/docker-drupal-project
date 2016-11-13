@@ -12,8 +12,7 @@ $databases['default']['default'] = array(
 $settings['install_profile'] = 'standard';
 $settings['hash_salt'] = 'template';
 $settings['trusted_host_patterns'] = array(
-  '^172\.21\.0\.2$',
-  '^172\.21\.0\.4$',
+  '^127\.0\.0\.1$',
 );
 
 // External cache.

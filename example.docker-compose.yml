@@ -23,15 +23,13 @@ services:
       - .:/project
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
       - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf
+    ports:
+      - 8081:80
     depends_on:
-      - php
       - mysql
       - redis
       - mail
       - solr
-    networks:
-      default:
-        ipv4_address: 172.21.0.2
 
 
 #  php:
@@ -44,9 +42,6 @@ services:
 #    volumes:
 #      - .:/project
 #      - ./conf/php/php.ini:/usr/local/etc/php/php.ini
-#    networks:
-#      default:
-#        ipv4_address: 172.21.0.3
 
 
   varnish:
@@ -59,9 +54,8 @@ services:
       VCL_CONFIG: /varnish-drupal/varnish.vcl
     volumes:
       - ./conf/varnish:/varnish-drupal
-    networks:
-      default:
-        ipv4_address: 172.21.0.4
+    ports:
+      - 8080:80
 
 
   mysql:
@@ -74,9 +68,6 @@ services:
     volumes:
       - ./data/db:/var/lib/mysql
       - ./conf/mysql:/etc/mysql/conf.d
-    networks:
-      default:
-        ipv4_address: 172.21.0.5
 
 
   solr:
@@ -88,9 +79,6 @@ services:
       - solr-precreate
       - drupal
       - /solr-drupal
-    networks:
-      default:
-        ipv4_address: 172.21.0.6
 
 
   elasticsearch:
@@ -98,23 +86,16 @@ services:
     volumes:
       - ./data/elasticsearch:/usr/share/elasticsearch/data
       - ./conf/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-    networks:
-      default:
-        ipv4_address: 172.21.0.7
 
 
   redis:
     image: redis:3.2-alpine
-    networks:
-      default:
-        ipv4_address: 172.21.0.8
 
 
   mail:
     image: djfarrelly/maildev
-    networks:
-      default:
-        ipv4_address: 172.21.0.9
+    ports:
+      - 8085:80
 
 
   # Piwik.
@@ -122,9 +103,6 @@ services:
     image: piwik:2.17
     links:
       - piwik_mysql
-    networks:
-      default:
-        ipv4_address: 172.21.0.15
 
   piwik_web:
     image: nginx:1.11-alpine
@@ -136,9 +114,8 @@ services:
       - piwik
     environment:
       - VIRTUAL_HOST
-    networks:
-      default:
-        ipv4_address: 172.21.0.17
+    ports:
+      - 8082:80
 
   piwik_mysql:
     image: mysql:5.7
@@ -150,15 +127,3 @@ services:
       MYSQL_USER: piwik
       MYSQL_PASSWORD: piwik
       MYSQL_DATABASE: piwik
-    networks:
-      default:
-        ipv4_address: 172.21.0.16
-
-networks:
-  default:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.21.0.0/16
-        gateway: 172.21.0.1
