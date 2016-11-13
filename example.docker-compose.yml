@@ -80,7 +80,7 @@ services:
 
 
   solr:
-    image: solr:6.1.0-alpine
+    image: solr:6.2-alpine
     volumes:
       - ./conf/solr:/solr-drupal/conf
     entrypoint:
@@ -104,7 +104,7 @@ services:
 
 
   redis:
-    image: redis:3.2.1-alpine
+    image: redis:3.2-alpine
     networks:
       default:
         ipv4_address: 172.21.0.8
