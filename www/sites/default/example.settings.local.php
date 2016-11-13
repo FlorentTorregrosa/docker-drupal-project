@@ -15,6 +15,9 @@ $settings['trusted_host_patterns'] = array(
   '^127\.0\.0\.1$',
 );
 
+// Piwik.
+$config['piwik.settings']['url_http'] = 'http://127.0.0.1:8083/';
+
 // External cache.
 if (file_exists(__DIR__ . '/.cache_activated')) {
   $settings['redis.connection']['interface'] = 'PhpRedis';
