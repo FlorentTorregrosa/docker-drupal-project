@@ -37,11 +37,9 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && apt-get autoremove -q \
     && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man /tmp/* \
     && a2enmod deflate expires headers mime rewrite \
-    && echo "<Directory /var/www/html>\nAllowOverride All\n</Directory>" > /etc/apache2/conf-enabled/allowoverride.conf \
+    && a2dissite 000-default.conf \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd \
-    && echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/conf-sendmail.ini \
-    && echo "date.timezone='Europe/Paris'\n" > /usr/local/etc/php/conf.d/conf-date.ini
+    && docker-php-ext-install gd
 
 # Install Uploadprogress
 RUN git clone https://git.php.net/repository/pecl/php/uploadprogress.git \

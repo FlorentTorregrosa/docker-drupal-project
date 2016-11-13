@@ -12,6 +12,3 @@ RUN curl https://drupalconsole.com/installer -L -o /usr/local/bin/drupal \
     && drupal init
 
 RUN rm -rf /var/www/html && ln -s /project/www /var/www/html
-
-# Xdebug conf.
-COPY xdebug.ini /usr/local/etc/php/conf.d/conf-xdebug.ini
