@@ -2,90 +2,55 @@ version: "2"
 
 services:
   web:
-#    image: httpd:2.4-alpine
-#    volumes:
-#      - ./conf/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
-#      - ./conf/httpd/extra/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
-#      - .:/project
-
-#    image: nginx:1.11-alpine
-#    volumes:
-#      - ./conf/nginx:/etc/nginx/conf.d/
-#      - .:/project
-
-#    image: florenttorregrosa/docker-drupal:php7
-#    build:
-#      context: ./docker-images/php-apache
-    image: florenttorregrosa/docker-drupal-dev:php7
-#    build:
-#      context: ./docker-images/php-apache-dev
-    volumes:
-      - .:/project
-      - ./conf/php/php.ini:/usr/local/etc/php/php.ini
-      - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf
+    extends:
+      file: ./docker-compose-common.yml
+      service: drupal-php-apache-dev
     ports:
       - 8081:80
     depends_on:
       - mysql
       - redis
       - mail
-      - solr
 
 
 #  php:
-#    image: florenttorregrosa/drupal-php:7.0-fpm-alpine
-#    build:
-#      context: ./docker-images/php
-#    image: florenttorregrosa/drupal-php-dev:7.0-fpm-alpine
-#    build:
-#      context: ./docker-images/php-dev
-#    volumes:
-#      - .:/project
-#      - ./conf/php/php.ini:/usr/local/etc/php/php.ini
+#    extends:
+#      file: ./docker-compose-common.yml
+#      service: drupal-php-dev
 
 
   varnish:
-    image: florenttorregrosa/docker-varnish:latest
-#    build:
-#      context: ./docker-images/varnish
+    extends:
+      file: ./docker-compose-common.yml
+      service: varnish
     depends_on:
       - web
-    environment:
-      VCL_CONFIG: /varnish-drupal/varnish.vcl
-    volumes:
-      - ./conf/varnish:/varnish-drupal
     ports:
       - 8080:80
 
 
   mysql:
-    image: mysql:5.7
+    extends:
+      file: ./docker-compose-common.yml
+      service: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
       MYSQL_DATABASE: drupal
     volumes:
       - ./data/db:/var/lib/mysql
-      - ./conf/mysql:/etc/mysql/conf.d
 
 
   solr:
-    image: solr:6.2-alpine
-    volumes:
-      - ./conf/solr:/solr-drupal/conf
-    entrypoint:
-      - docker-entrypoint.sh
-      - solr-precreate
-      - drupal
-      - /solr-drupal
+    extends:
+      file: ./docker-compose-common.yml
+      service: solr
 
 
   elasticsearch:
-    image: elasticsearch:2.4
-    volumes:
-      - ./data/elasticsearch:/usr/share/elasticsearch/data
-      - ./conf/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    extends:
+      file: ./docker-compose-common.yml
+      service: elasticsearch
 
 
   redis:
@@ -101,29 +66,23 @@ services:
   # Piwik.
   piwik:
     image: piwik:2.17
-    links:
-      - piwik_mysql
 
   piwik_web:
-    image: nginx:1.11-alpine
-    volumes:
-      - ./conf/piwik_nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    links:
-      - piwik
+    extends:
+      file: ./docker-compose-common.yml
+      service: piwik_nginx
     volumes_from:
       - piwik
-    environment:
-      - VIRTUAL_HOST
     ports:
       - 8082:80
 
   piwik_mysql:
-    image: mysql:5.7
-    volumes:
-      - ./data/piwik_db:/var/lib/mysql
-      - ./conf/mysql:/etc/mysql/conf.d
+    extends:
+      file: ./docker-compose-common.yml
+      service: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: piwik
       MYSQL_PASSWORD: piwik
       MYSQL_DATABASE: piwik
+    volumes:
+      - ./data/piwik_db:/var/lib/mysql
