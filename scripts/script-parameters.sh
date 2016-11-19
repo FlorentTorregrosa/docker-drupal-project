@@ -16,6 +16,26 @@ DRUSH=$WWW_PATH/vendor/bin/drush
 
 CURRENT_DATE=$(date "+%Y-%m-%d-%Hh%Mm%Ss")
 
+PROFILE=standard
+DEFAULT_LANGUAGE=en
+DEVELOPMENT_MODULES=(
+  config_inspector
+  dblog
+  devel
+  devel_a11y
+  features_ui
+  field_ui
+  kint
+  views_ui
+  webprofiler
+  # As in this template we not use custom install profile, enable some modules.
+  admin_toolbar_tools
+  elasticsearch_connector
+  redis
+  search_api
+  search_api_solr
+)
+
 # External libraries version.
 HIGHLIGHT_JS_VERSION=9.3.0
 D3_VERSION=3.5.16

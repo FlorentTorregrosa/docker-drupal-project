@@ -20,13 +20,18 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+    },
+    "drush_language": {
+      "type": "vcs",
+      "url": "git@github.com:dawehner/drush_language.git"
     }
   },
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.2.2",
+    "drupal/core": "8.2.3",
     "drush/drush": "8.1.7",
+    "drupal/drush_language": "dev-8.x-1.x",
     "drupal/admin_toolbar": "1.17.0",
     "drupal/elasticsearch_connector": "2.*",
     "drupal/features": "3.0.0",
@@ -56,7 +61,8 @@
       "modules/contrib/{$name}": ["type:drupal-module"],
       "profiles/contrib/{$name}": ["type:drupal-profile"],
       "themes/contrib/{$name}": ["type:drupal-theme"],
-      "libraries/{$name}": ["type:drupal-library"]
+      "libraries/{$name}": ["type:drupal-library"],
+      "../drush/contrib/{$name}": ["type:drupal-drush"]
     },
     "patches": {
       "drupal/redis": {
