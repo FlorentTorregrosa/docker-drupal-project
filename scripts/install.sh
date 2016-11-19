@@ -36,7 +36,6 @@ $DRUSH site-install $PROFILE \
 $DRUSH updb --entity-updates -y
 
 . $SCRIPTS_PATH/tasks/development_modules.sh
-. $SCRIPTS_PATH/tasks/update_translations.sh
 
 # Run CRON.
 $DRUSH cron

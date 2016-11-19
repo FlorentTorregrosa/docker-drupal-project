@@ -28,9 +28,6 @@ $DRUSH updb --entity-updates -y
 # Enable development modules.
 . $SCRIPTS_PATH/tasks/development_modules.sh
 
-# Translation updates.
-. $SCRIPTS_PATH/tasks/update_translations.sh
-
 # Remove the maintenance mode.
 $DRUSH state-set system.maintenance_mode 0
 
