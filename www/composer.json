@@ -29,22 +29,24 @@
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.2.3",
-    "drush/drush": "8.1.7",
+    "drupal/core": "8.2.4",
+    "drush/drush": "8.1.8",
     "drupal/drush_language": "dev-8.x-1.x",
-    "drupal/admin_toolbar": "1.17.0",
+    "drupal/admin_toolbar": "1.18.0",
     "drupal/elasticsearch_connector": "2.*",
-    "drupal/features": "3.1.0",
+    "drupal/features": "3.2.0",
     "drupal/piwik": "1.1.0",
     "drupal/redis": "1.0.0-alpha1",
     "drupal/search_api": "1.0.0-beta3",
     "drupal/search_api_solr": "1.0.0-beta1"
   },
   "require-dev": {
+    "drupal/config_inspector": "1.*",
     "drupal/devel": "1.*",
     "drupal/devel_a11y": "1.*",
-    "drupal/config_inspector": "1.*",
     "drupal/examples": "1.*",
+    "drupal/renderviz": "1.*",
+    "drupal/search_kint": "1.*",
     "drupal/pistachio": "1.*"
   },
   "minimum-stability": "dev",
@@ -59,8 +61,8 @@
     "installer-paths": {
       "core": ["type:drupal-core"],
       "modules/contrib/{$name}": ["type:drupal-module"],
-      "profiles/contrib/{$name}": ["type:drupal-profile"],
       "themes/contrib/{$name}": ["type:drupal-theme"],
+      "profiles/contrib/{$name}": ["type:drupal-profile"],
       "libraries/{$name}": ["type:drupal-library"],
       "../drush/contrib/{$name}": ["type:drupal-drush"]
     },
