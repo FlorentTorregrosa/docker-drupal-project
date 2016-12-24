@@ -24,6 +24,32 @@
     "drush_language": {
       "type": "vcs",
       "url": "git@github.com:dawehner/drush_language.git"
+    },
+    "d3": {
+      "type": "package",
+      "package": {
+        "name": "d3/d3",
+        "version": "v3.5.17",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/d3/d3",
+          "type": "git",
+          "reference": "v3.5.17"
+        }
+      }
+    },
+    "highlightjs": {
+      "type": "package",
+      "package": {
+        "name": "components/highlightjs",
+        "version": "9.7.0",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/components/highlightjs",
+          "type": "git",
+          "reference": "9.7.0"
+        }
+      }
     }
   },
   "require": {
@@ -47,7 +73,9 @@
     "drupal/examples": "1.*",
     "drupal/renderviz": "1.*",
     "drupal/search_kint": "1.*",
-    "drupal/pistachio": "1.*"
+    "drupal/pistachio": "1.*",
+    "d3/d3": "3.5.*",
+    "components/highlightjs": "9.7.*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
