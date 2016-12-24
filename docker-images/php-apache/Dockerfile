@@ -69,4 +69,6 @@ RUN cd /usr/local \
     && echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >> $HOME/.bashrc
 
 # Install Drush.
-RUN composer global require drush/drush:@stable
+RUN composer global require drush/drush:@stable \
+    && ~/.composer/vendor/bin/drush init -y \
+    && composer clear-cache
