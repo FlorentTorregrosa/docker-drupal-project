@@ -42,12 +42,12 @@
       "type": "package",
       "package": {
         "name": "components/highlightjs",
-        "version": "9.7.0",
+        "version": "9.9.0",
         "type": "drupal-library",
         "source": {
           "url": "https://github.com/components/highlightjs",
           "type": "git",
-          "reference": "9.7.0"
+          "reference": "9.9.0"
         }
       }
     }
@@ -55,15 +55,15 @@
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.2.4",
-    "drush/drush": "8.1.8",
+    "drupal/core": "8.2.5",
+    "drush/drush": "8.1.9",
     "drupal/drush_language": "dev-8.x-1.x",
     "drupal/admin_toolbar": "1.18.0",
-    "drupal/elasticsearch_connector": "2.*",
+    "drupal/elasticsearch_connector": "5.*",
     "drupal/features": "3.2.0",
     "drupal/piwik": "1.1.0",
     "drupal/redis": "1.0.0-alpha1",
-    "drupal/search_api": "1.0.0-beta3",
+    "drupal/search_api": "1.0.0-beta4",
     "drupal/search_api_solr": "1.0.0-beta1"
   },
   "require-dev": {
@@ -75,7 +75,7 @@
     "drupal/search_kint": "1.*",
     "drupal/pistachio": "1.*",
     "d3/d3": "3.5.*",
-    "components/highlightjs": "9.7.*"
+    "components/highlightjs": "9.9.*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
