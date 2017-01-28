@@ -62,9 +62,11 @@
     "drupal/elasticsearch_connector": "5.*",
     "drupal/features": "3.2.0",
     "drupal/piwik": "1.1.0",
+    "drupal/purge": "3.0.0-beta6",
     "drupal/redis": "1.0.0-alpha1",
     "drupal/search_api": "1.0.0-beta4",
-    "drupal/search_api_solr": "1.0.0-beta1"
+    "drupal/search_api_solr": "1.0.0-beta1",
+    "drupal/varnish_purge": "1.4.0"
   },
   "require-dev": {
     "drupal/config_inspector": "1.*",

@@ -33,9 +33,16 @@ DEVELOPMENT_MODULES=(
   # As in this template we not use custom install profile, enable some modules.
   admin_toolbar_tools
   elasticsearch_connector
+  purge
+  purge_drush
+  purge_queuer_coretags
+  purge_processor_cron
+  purge_ui
   redis
   search_api
   search_api_solr
+  varnish_purger
+  varnish_purge_tags
 )
 
 # External libraries version.
