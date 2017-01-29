@@ -76,7 +76,7 @@ services:
 
 
   solr:
-    image: solr:6.2-alpine
+    image: solr:6.4-alpine
     volumes:
       - ./conf/solr:/solr-drupal/conf
     entrypoint:
@@ -86,8 +86,9 @@ services:
       - /solr-drupal
 
 
+  # Require to execute on docker host: sudo sysctl -w vm.max_map_count=262144
   elasticsearch:
-    image: elasticsearch:2.4
+    image: elasticsearch:5.1-alpine
     volumes:
       - ./data/elasticsearch:/usr/share/elasticsearch/data
       - ./conf/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
