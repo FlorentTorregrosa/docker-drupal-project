@@ -4,15 +4,14 @@ function abspath() {
     python -c "import sys, os;sys.stdout.write(os.path.abspath(\"$@\"))"
 }
 
-FILE_PATH=$(abspath "${0}")
-PROJECT_PATH=$(dirname $(dirname $FILE_PATH))
+PROJECT_PATH=$(abspath $(dirname $(dirname ${BASH_SOURCE[0]})))
 
 CURRENT_PATH=$(pwd)
 
 SCRIPTS_PATH=$PROJECT_PATH/scripts
 WWW_PATH=$PROJECT_PATH/www
 
-DRUSH=$WWW_PATH/vendor/bin/drush
+DRUSH=$PROJECT_PATH/bin/drush
 
 CURRENT_DATE=$(date "+%Y-%m-%d-%Hh%Mm%Ss")
 
@@ -26,6 +25,7 @@ DEVELOPMENT_MODULES=(
   features_ui
   field_ui
   kint
+  purge_ui
   renderviz
   search_kint
   views_ui
@@ -44,6 +44,3 @@ DEVELOPMENT_MODULES=(
   varnish_purger
   varnish_purge_tags
 )
-
-# External libraries version.
-DROPZONE_VERSION=4.3.0

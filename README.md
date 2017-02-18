@@ -10,6 +10,5 @@ A Drupal project template with Docker environment.
   * scripts/script-parameters.local.sh
   * www/sites/default/settings.local.php
 * Execute: **docker-compose up**
-* In another tab, get a command-line in the container: **docker exec -it container_name_php_1 /bin/bash**
-* In the **www** directory, execute: **composer install** to get the project's Drush.
+* In another tab, get a command-line in the container: **docker exec -it container_name_web_1 /bin/bash**
 * Execute scripts/install.sh

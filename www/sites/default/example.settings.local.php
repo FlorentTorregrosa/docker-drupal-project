@@ -13,7 +13,15 @@ $settings['install_profile'] = 'standard';
 $settings['hash_salt'] = 'template';
 $settings['trusted_host_patterns'] = array(
   '^127\.0\.0\.1$',
+  'varnish',
+  'web',
 );
+
+// Redis.
+$settings['redis.connection']['host'] = 'redis';
+
+// Varnish.
+$config['varnish_purger.settings.varnish']['hostname'] = 'varnish';
 
 // Piwik.
 $config['piwik.settings']['url_http'] = 'http://127.0.0.1:8083/';
