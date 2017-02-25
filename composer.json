@@ -66,6 +66,7 @@
     "drupal/varnish_purge": "1.4.0"
   },
   "require-dev": {
+    "drupal/console": "1.*",
     "drupal/config_inspector": "1.*",
     "drupal/devel": "1.*",
     "drupal/devel_a11y": "1.*",
