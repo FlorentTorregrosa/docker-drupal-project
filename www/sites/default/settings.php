@@ -41,6 +41,9 @@ $config['system.performance']['js']['preprocess'] = TRUE;
 
 // External cache.
 if (file_exists(__DIR__ . '/.cache_activated')) {
+  // Additional redis services.
+  $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
+
   $settings['redis.connection']['interface'] = 'PhpRedis';
   $settings['redis.connection']['host'] = 'redis';
   $settings['cache']['default'] = 'cache.backend.redis';
