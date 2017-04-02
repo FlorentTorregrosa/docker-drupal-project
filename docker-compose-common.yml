@@ -86,14 +86,6 @@ services:
       - /solr-drupal
 
 
-  # Require to execute on docker host: sudo sysctl -w vm.max_map_count=262144
-  elasticsearch:
-    image: elasticsearch:5.1-alpine
-    volumes:
-      - ./data/elasticsearch:/usr/share/elasticsearch/data
-      - ./conf/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-
-
   piwik_nginx:
     image: nginx:1.11-alpine
     volumes:

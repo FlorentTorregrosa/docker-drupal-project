@@ -47,12 +47,6 @@ services:
       service: solr
 
 
-  elasticsearch:
-    extends:
-      file: ./docker-compose-common.yml
-      service: elasticsearch
-
-
   redis:
     image: redis:3.2-alpine
 

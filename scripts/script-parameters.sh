@@ -21,26 +21,25 @@ DEVELOPMENT_MODULES=(
   config_inspector
   dblog
   devel
-  devel_a11y
+#  devel_a11y
   features_ui
   field_ui
-  kint
-  purge_ui
-  renderviz
-  search_kint
+#  kint
+#  purge_ui
+#  renderviz
+#  search_kint
   views_ui
   webprofiler
   # As in this template we not use custom install profile, enable some modules.
   admin_toolbar_tools
-  elasticsearch_connector
-  purge
-  purge_drush
-  purge_queuer_coretags
-  purge_processor_cron
-  purge_ui
+#  purge
+#  purge_drush
+#  purge_queuer_coretags
+#  purge_processor_cron
+#  purge_ui
   redis
-  search_api
-  search_api_solr
-  varnish_purger
-  varnish_purge_tags
+#  search_api
+#  search_api_solr
+#  varnish_purger
+#  varnish_purge_tags
 )
