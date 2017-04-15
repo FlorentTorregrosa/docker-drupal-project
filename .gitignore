@@ -3,27 +3,27 @@
 /drush
 
 # Contrib files.
-/www/core
-/www/modules/contrib
-/www/themes/contrib
-/www/libraries
-
-/www/autoload.php
-/www/index.php
-
-/www/.htaccess
-/www/robots.txt
-
-# Development config files.
-/www/.csslintrc
+/www/includes
+/www/misc
+/www/modules
+/www/profiles
+/www/scripts
+/www/themes
 /www/.editorconfig
-/www/.eslintignore
-/www/.eslintrc.json
-/www/.gitattributes
+/www/.gitignore
+/www/.htaccess
+/www/web.config
+/www/*.php
+/www/*.txt
+/www/sites/README.txt
+/www/sites/all/modules/contrib
+/www/sites/all/modules/README.txt
+/www/sites/all/themes/contrib
+/www/sites/all/themes/README.txt
+/www/sites/all/libraries
 
 # Drupal's file directory.
 /www/sites/default/.cache_activated
-/www/sites/default/default.services.yml
 /www/sites/default/default.settings.php
 /www/sites/default/settings.local.php
 /www/sites/example.sites.php

@@ -19,71 +19,16 @@
   "repositories": {
     "drupal": {
       "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    },
-    "d3": {
-      "type": "package",
-      "package": {
-        "name": "d3/d3",
-        "version": "v3.5.17",
-        "type": "drupal-library",
-        "source": {
-          "url": "https://github.com/d3/d3",
-          "type": "git",
-          "reference": "v3.5.17"
-        }
-      }
-    },
-    "highlightjs": {
-      "type": "package",
-      "package": {
-        "name": "components/highlightjs",
-        "version": "9.10.0",
-        "type": "drupal-library",
-        "source": {
-          "url": "https://github.com/components/highlightjs",
-          "type": "git",
-          "reference": "9.10.0"
-        }
-      }
+      "url": "https://packages.drupal.org/7"
     }
   },
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
-    "drupal-composer/drupal-scaffold": "^2.2",
-    "drupal/core": "8.3.0",
-    "drush/drush": "8.1.10",
-    "drupal/drush_language": "1.*",
-    "drupal/admin_toolbar": "1.19.0",
-    "drupal/features": "3.5.0",
-    "drupal/piwik": "1.1.0",
-    "drupal/purge": "3.0.0-beta6",
-    "drupal/redis": "1.0.0-beta1",
-    "drupal/search_api": "1.0.0-rc2",
-    "drupal/search_api_solr": "1.0.0-beta2",
-    "drupal/varnish_purge": "1.4.0"
+    "drush/drush": "8.1.10"
   },
   "require-dev": {
-    "drupal/coder": "8.2.*",
-    "drupal/console": "1.*",
-    "drupal/config_inspector": "1.*",
-    "drupal/devel": "1.*",
-    "drupal/devel_a11y": "1.*",
-    "drupal/drupal-extension": "3.*",
-    "drupal/examples": "1.*",
-    "drupal/pistachio": "1.*",
-    "drupal/renderviz": "1.*",
-    "drupal/search_kint": "1.*",
-    "d3/d3": "3.5.*",
-    "components/highlightjs": "9.10.*",
-    "behat/mink": "1.7.x-dev",
-    "behat/mink-goutte-driver": "~1.2",
-    "jcalderonzumba/gastonjs": "~1.0.2",
-    "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
-    "mikey179/vfsStream": "~1.2",
-    "phpunit/phpunit": "~4.8",
-    "symfony/css-selector": "~2.8"
+    "drupal/coder": "8.2.*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -91,40 +36,15 @@
     "optimize-autoloader": true
   },
   "scripts": {
-    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "post-create-project-cmd": [
       "bash ./scripts/init.sh"
-    ],
-    "post-install-cmd": [
-      "@drupal-scaffold"
-    ],
-    "post-update-cmd": [
-      "@drupal-scaffold"
     ]
   },
   "extra": {
     "installer-paths": {
-      "www/core": ["type:drupal-core"],
-      "www/modules/contrib/{$name}": ["type:drupal-module"],
-      "www/modules/custom/{$name}": ["type:drupal-custom-module"],
-      "www/themes/contrib/{$name}": ["type:drupal-theme"],
-      "www/themes/custom/{$name}": ["type:drupal-custom-theme"],
-      "www/profiles/contrib/{$name}": ["type:drupal-profile"],
-      "www/libraries/{$name}": ["type:drupal-library"],
       "drush/contrib/{$name}": ["type:drupal-drush"]
     },
-    "drupal-scaffold": {
-      "excludes": [
-        "update.php",
-        "web.config",
-        "sites/development.services.yml",
-        "sites/example.settings.local.php"
-      ]
-    },
     "patches": {
-      "drupal/redis": {
-        "Add status page and some statistics": "https://www.drupal.org/files/issues/redis-statistics-7.patch"
-      }
     }
   }
 }

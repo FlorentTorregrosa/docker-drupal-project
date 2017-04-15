@@ -25,8 +25,8 @@ $DRUSH site-install $PROFILE \
   --locale=$DEFAULT_LANGUAGE \
   -y
 
-# Launch updates. Ensure that the database schema is up-to-date.
-$DRUSH updb --entity-updates -y
+# Launch updates.
+$DRUSH updb -y
 
 . $SCRIPTS_PATH/tasks/development_modules.sh
 #. $SCRIPTS_PATH/tasks/migrate_imports.sh
@@ -37,7 +37,7 @@ $DRUSH cron
 
 # Enable external cache.
 touch $WWW_PATH/sites/default/.cache_activated
-$DRUSH cr
+$DRUSH cc all
 
 # Back to the current directory.
 cd $CURRENT_PATH

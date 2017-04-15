@@ -6,25 +6,12 @@ $databases['default']['default'] = array(
   'username' => 'drupal',
   'password' => 'drupal',
   'host' => 'mysql',
-  'prefix' => '',
+  'charset' => 'utf8mb4',
+  'collation' => 'utf8mb4_general_ci',
 );
-
-$settings['install_profile'] = 'standard';
-$settings['hash_salt'] = 'template';
-$settings['trusted_host_patterns'] = array(
-  '^127\.0\.0\.1$',
-  'varnish',
-  'web',
-);
-
-// Redis.
-$settings['redis.connection']['host'] = 'redis';
-
-// Varnish.
-$config['varnish_purger.settings.varnish']['hostname'] = 'varnish';
-
-// Piwik.
-$config['piwik.settings']['url_http'] = 'http://127.0.0.1:8083/';
+$drupal_hash_salt = 'template';
+//$base_url = 'http://127.0.0.1';
+//$cookie_domain = '.example.com';
 
 if (file_exists(__DIR__ . '/../development.settings.php')) {
   include __DIR__ . '/../development.settings.php';

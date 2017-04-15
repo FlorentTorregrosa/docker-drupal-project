@@ -10,4 +10,4 @@ ACCOUNT_MAIL=admin@example.com
 ACCOUNT_NAME=admin
 ACCOUNT_PASS=admin
 SITE_MAIL=admin@example.com
-SITE_NAME="Drupal 8"
+SITE_NAME="Drupal 7"
