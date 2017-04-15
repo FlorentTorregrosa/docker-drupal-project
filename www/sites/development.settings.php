@@ -81,7 +81,7 @@ $settings['cache']['bins']['render'] = 'cache.backend.null';
  * cacheability metadata is present (and hence the expected behavior). However,
  * in the early stages of development, you may want to disable it.
  */
- $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 /**
  * Allow test modules and themes to be installed.
@@ -113,3 +113,15 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+// Devel.
+$config['devel.settings']['devel_dumper'] = 'var_dumper';
+
+// Webprofiler.
+// Enable all toolbar items.
+$config['webprofiler.config']['active_toolbar_items']['config'] = 'config';
+$config['webprofiler.config']['active_toolbar_items']['events'] = 'events';
+$config['webprofiler.config']['active_toolbar_items']['http'] = 'http';
+$config['webprofiler.config']['active_toolbar_items']['routing'] = 'routing';
+$config['webprofiler.config']['active_toolbar_items']['services'] = 'services';
+$config['webprofiler.config']['active_toolbar_items']['state'] = 'state';
