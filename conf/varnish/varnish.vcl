@@ -1,4 +1,7 @@
 vcl 4.0;
+
+# TODO: Adapt for Drupal 7.
+
 import std;
 import directors;
 

@@ -16,11 +16,7 @@
 /www/*.php
 /www/*.txt
 /www/sites/README.txt
-/www/sites/all/modules/contrib
-/www/sites/all/modules/README.txt
-/www/sites/all/themes/contrib
-/www/sites/all/themes/README.txt
-/www/sites/all/libraries
+/www/sites/all
 
 # Drupal's file directory.
 /www/sites/default/.cache_activated

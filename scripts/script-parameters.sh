@@ -24,6 +24,7 @@ DEVELOPMENT_MODULES=(
   views_ui
   # As in this template we not use custom install profile, enable some modules.
   admin_menu
+  admin_menu_toolbar
   redis
 #  search_api
 #  search_api_solr

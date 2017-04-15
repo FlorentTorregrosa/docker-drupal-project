@@ -13,6 +13,9 @@ $drupal_hash_salt = 'template';
 //$base_url = 'http://127.0.0.1';
 //$cookie_domain = '.example.com';
 
+// Redis.
+$conf['redis_client_host'] = 'redis';
+
 if (file_exists(__DIR__ . '/../development.settings.php')) {
   include __DIR__ . '/../development.settings.php';
 }
