@@ -39,15 +39,15 @@ $config['system.performance']['cache']['page']['max_age'] = '86400';
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
 
+// Redis.
+$settings['redis.connection']['interface'] = 'PhpRedis';
+
 // External cache.
 if (file_exists(__DIR__ . '/.cache_activated')) {
   // Additional redis services.
   $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 
-  $settings['redis.connection']['interface'] = 'PhpRedis';
-  $settings['redis.connection']['host'] = 'redis';
   $settings['cache']['default'] = 'cache.backend.redis';
-
   // Always set the fast backend for bootstrap, discover and config, otherwise
   // this gets lost when redis is enabled.
   $settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
