@@ -13,6 +13,8 @@ $drupal_hash_salt = 'template';
 //$base_url = 'http://127.0.0.1';
 //$cookie_domain = '.example.com';
 
+$conf['file_private_path'] = '/project/private_files/default';
+
 // Redis.
 $conf['redis_client_host'] = 'redis';
 
