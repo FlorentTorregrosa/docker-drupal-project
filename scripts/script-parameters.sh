@@ -15,8 +15,8 @@ DRUSH=$PROJECT_PATH/vendor/bin/drush
 
 CURRENT_DATE=$(date "+%Y-%m-%d-%Hh%Mm%Ss")
 
-PROFILE=standard
-DEFAULT_LANGUAGE=en
+PROFILE="standard"
+DEFAULT_LANGUAGE="en"
 DEVELOPMENT_MODULES=(
   dblog
   devel
