@@ -4,9 +4,10 @@
 
 # Contrib files.
 /www/core
+/www/libraries
 /www/modules/contrib
 /www/themes/contrib
-/www/libraries
+/www/translations/contrib
 
 /www/autoload.php
 /www/index.php

@@ -44,11 +44,16 @@
           "type": "zip"
         }
       }
+    },
+    "drupal-l10n": {
+      "type": "vcs",
+      "url": "https://github.com/FlorentTorregrosa/drupal-l10n"
     }
   },
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
+    "drupal-composer/drupal-l10n": "dev-master",
     "drupal-composer/drupal-scaffold": "^2.2",
     "drupal/admin_toolbar": "1.19.0",
     "drupal/core": "8.3.2",
@@ -91,6 +96,7 @@
     "sort-packages": true
   },
   "scripts": {
+    "drupal-l10n": "DrupalComposer\\DrupalL10n\\Plugin::download",
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "post-create-project-cmd": [
       "bash ./scripts/init.sh"
@@ -119,6 +125,12 @@
         "web.config",
         "sites/development.services.yml",
         "sites/example.settings.local.php"
+      ]
+    },
+    "drupal-l10n": {
+      "destination": "translations/contrib",
+      "languages": [
+        "fr"
       ]
     },
     "patches": {
