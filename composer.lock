@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fea8b76e153f74dadea06cb3ccb87fd8",
+    "content-hash": "65b97bd97d1809b1148a82809376db8b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1530,17 +1530,17 @@
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "1.0.0-rc2",
+            "version": "1.0.0-rc3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_solr",
-                "reference": "8.x-1.0-rc2"
+                "reference": "8.x-1.0-rc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-rc2.zip",
-                "reference": "8.x-1.0-rc2",
-                "shasum": "e35f48b1e57eb9a757be2a84d36b2ef37b0a569a"
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-rc3.zip",
+                "reference": null,
+                "shasum": "0b4f7cbe4e5f43cea6399a180e7366b109f68e6b"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -1557,8 +1557,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc2",
-                    "datestamp": "1494518286"
+                    "version": "8.x-1.0-rc3",
+                    "datestamp": "1495024986"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1601,17 +1601,17 @@
         },
         {
             "name": "drupal/varnish_purge",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/varnish_purge",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/varnish_purge-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "23af511919141850be8ade0965d72ad4df33d007"
+                "url": "https://ftp.drupal.org/files/projects/varnish_purge-8.x-1.5.zip",
+                "reference": null,
+                "shasum": "a5fba946f355e648883dc2729fd895017f638ed7"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1627,8 +1627,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1473445439"
+                    "version": "8.x-1.5",
+                    "datestamp": "1495108687"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2543,16 +2543,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.4",
+            "version": "v0.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "17cf432bb80d9198df239b80d00a29155bd74d82"
+                "reference": "38a9d21406597a0440690eafbcb0222f528c8ac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/17cf432bb80d9198df239b80d00a29155bd74d82",
-                "reference": "17cf432bb80d9198df239b80d00a29155bd74d82",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/38a9d21406597a0440690eafbcb0222f528c8ac6",
+                "reference": "38a9d21406597a0440690eafbcb0222f528c8ac6",
                 "shasum": ""
             },
             "require": {
@@ -2612,7 +2612,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-05-12T15:41:55+00:00"
+            "time": "2017-05-17T06:49:19+00:00"
         },
         {
             "name": "solarium/solarium",
@@ -4947,10 +4947,10 @@
         },
         {
             "name": "components/highlightjs",
-            "version": "9.10.0",
+            "version": "9.11.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/components/highlightjs/archive/9.10.0.zip",
+                "url": "https://github.com/components/highlightjs/archive/9.11.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -6860,23 +6860,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.1",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
+                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
+                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -6908,7 +6908,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -7168,16 +7168,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.9.0",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "f7dfecbee89d68ab475a6c9e17d22bc9b69aed97"
+                "reference": "dcbed1074f8244661eecddfc2a675430d8d33f62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f7dfecbee89d68ab475a6c9e17d22bc9b69aed97",
-                "reference": "f7dfecbee89d68ab475a6c9e17d22bc9b69aed97",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/dcbed1074f8244661eecddfc2a675430d8d33f62",
+                "reference": "dcbed1074f8244661eecddfc2a675430d8d33f62",
                 "shasum": ""
             },
             "require": {
@@ -7242,7 +7242,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-05-03T23:30:39+00:00"
+            "time": "2017-05-22T02:43:20+00:00"
         },
         {
             "name": "stecman/symfony-console-completion",
