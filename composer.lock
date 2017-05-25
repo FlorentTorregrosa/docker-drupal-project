@@ -817,12 +817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FlorentTorregrosa/drupal-l10n.git",
-                "reference": "06f3f0bd7f001f609f8e6510b087e6129717a5e1"
+                "reference": "1cb1be9ed287e49f7f9a56354c66545b12aca968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FlorentTorregrosa/drupal-l10n/zipball/06f3f0bd7f001f609f8e6510b087e6129717a5e1",
-                "reference": "06f3f0bd7f001f609f8e6510b087e6129717a5e1",
+                "url": "https://api.github.com/repos/FlorentTorregrosa/drupal-l10n/zipball/1cb1be9ed287e49f7f9a56354c66545b12aca968",
+                "reference": "1cb1be9ed287e49f7f9a56354c66545b12aca968",
                 "shasum": ""
             },
             "require": {
@@ -853,7 +853,7 @@
                 "source": "https://github.com/FlorentTorregrosa/drupal-l10n/tree/master",
                 "issues": "https://github.com/FlorentTorregrosa/drupal-l10n/issues"
             },
-            "time": "2017-05-21 17:15:32"
+            "time": "2017-05-25 16:59:39"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -1539,7 +1539,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-rc3.zip",
-                "reference": null,
+                "reference": "8.x-1.0-rc3",
                 "shasum": "0b4f7cbe4e5f43cea6399a180e7366b109f68e6b"
             },
             "require": {
@@ -1610,7 +1610,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/varnish_purge-8.x-1.5.zip",
-                "reference": null,
+                "reference": "8.x-1.5",
                 "shasum": "a5fba946f355e648883dc2729fd895017f638ed7"
             },
             "require": {
@@ -2397,16 +2397,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "d68dbdc53dc358a816f00b300704702b2eaff7b8"
+                "reference": "e6a969a640b00d8daa3c66518b0405fb41ae0c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/d68dbdc53dc358a816f00b300704702b2eaff7b8",
-                "reference": "d68dbdc53dc358a816f00b300704702b2eaff7b8",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/e6a969a640b00d8daa3c66518b0405fb41ae0c4b",
+                "reference": "e6a969a640b00d8daa3c66518b0405fb41ae0c4b",
                 "shasum": ""
             },
             "require": {
@@ -2442,7 +2442,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2015-02-03T12:10:50+00:00"
+            "time": "2016-01-25T08:17:30+00:00"
         },
         {
             "name": "psr/http-message",
