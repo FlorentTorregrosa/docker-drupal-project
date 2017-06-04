@@ -15,6 +15,10 @@ $drupal_hash_salt = 'template';
 
 $conf['file_private_path'] = '/project/private_files/default';
 
+// Translations.
+$conf['l10n_update_check_mode'] = 2;
+$conf['l10n_update_download_store'] = 'sites/all/translations/contrib';
+
 // Redis.
 $conf['redis_client_host'] = 'redis';
 

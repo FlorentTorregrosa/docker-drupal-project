@@ -12,11 +12,3 @@ A Drupal project template with Docker environment.
 * Execute: **docker-compose up**
 * In another tab, get a command-line in the container: **docker exec -it container_name_web_1 /bin/bash**
 * Execute scripts/install.sh
-
-## Important note
-
-With Drupal 7, download Drupal and contrib modules with Drush.
-
-``drush dl drupal-7 --drupal-project-rename=www``
-
-Otherwise composer will erase the content of the www directory each time a new Drupal core version is downloaded.

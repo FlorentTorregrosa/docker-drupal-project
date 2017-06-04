@@ -25,6 +25,7 @@ DEVELOPMENT_MODULES=(
   # As in this template we not use custom install profile, enable some modules.
   admin_menu
   admin_menu_toolbar
+  l10n_update
   redis
 #  search_api
 #  search_api_solr

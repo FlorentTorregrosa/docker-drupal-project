@@ -20,15 +20,29 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/7"
+    },
+    "drupal-l10n": {
+      "type": "vcs",
+      "url": "https://github.com/FlorentTorregrosa/drupal-l10n"
     }
   },
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
+    "derhasi/composer-preserve-paths": "0.1.*",
+    "drupal-composer/drupal-l10n": "dev-master",
+    "drupal/admin_menu": "3.0.0-rc5",
+    "drupal/drupal": "7.54.0",
+    "drupal/l10n_update": "2.1.0",
+    "drupal/redis": "3.15.0",
+    "drupal/search_api": "1.21.0",
+    "drupal/search_api_solr": "1.12.0",
+    "drupal/views": "3.16.0",
     "drush/drush": "8.1.11"
   },
   "require-dev": {
-    "drupal/coder": "8.2.*"
+    "drupal/coder": "8.2.*",
+    "drupal/devel": "1.*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -37,15 +51,42 @@
     "sort-packages": true
   },
   "scripts": {
+    "drupal-l10n": "DrupalComposer\\DrupalL10n\\Plugin::download",
     "post-create-project-cmd": [
       "bash ./scripts/init.sh"
     ]
   },
   "extra": {
     "installer-paths": {
+      "www/": ["type:drupal-core"],
+      "www/sites/all/modules/contrib/{$name}": ["type:drupal-module"],
+      "www/sites/all/modules/custom/{$name}": ["type:drupal-custom-module"],
+      "www/sites/all/themes/contrib/{$name}": ["type:drupal-theme"],
+      "www/sites/all/themes/custom/{$name}": ["type:drupal-custom-theme"],
+      "www/sites/all/libraries/{$name}": ["type:drupal-library"],
+      "www/profiles/contrib/{$name}": ["type:drupal-profile"],
       "drush/contrib/{$name}": ["type:drupal-drush"]
     },
+    "preserve-paths": [
+      "www/sites/all/modules/contrib",
+      "www/sites/all/modules/custom",
+      "www/sites/all/themes/contrib",
+      "www/sites/all/themes/custom",
+      "www/sites/all/libraries",
+      "www/profiles/contrib",
+      "www/sites/default/settings.php",
+      "www/sites/default/files"
+    ],
+    "drupal-l10n": {
+      "destination": "sites/all/translations/contrib",
+      "languages": [
+        "fr"
+      ]
+    },
     "patches": {
+      "derhasi/composer-preserve-paths": {
+        "Add pre-install command event regarding composer-patches": "https://github.com/SebCorbin/composer-preserve-paths/commit/88d7f376453307331353c2c2c834c7b51826f149.patch"
+      }
     }
   }
 }
