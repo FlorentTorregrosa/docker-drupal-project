@@ -83,7 +83,7 @@ services:
       - /usr/local/etc/redis/redis.conf
 
   solr:
-    image: solr:6.5-alpine
+    image: solr:6.6-alpine
     volumes:
       - ./conf/solr:/solr-drupal/conf
     entrypoint:

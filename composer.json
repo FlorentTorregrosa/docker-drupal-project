@@ -37,10 +37,10 @@
       "type": "package",
       "package": {
         "name": "components/highlightjs",
-        "version": "9.11.0",
+        "version": "9.12.0",
         "type": "drupal-library",
         "dist": {
-          "url": "https://github.com/components/highlightjs/archive/9.11.0.zip",
+          "url": "https://github.com/components/highlightjs/archive/9.12.0.zip",
           "type": "zip"
         }
       }
@@ -56,21 +56,21 @@
     "drupal-composer/drupal-l10n": "dev-master",
     "drupal-composer/drupal-scaffold": "^2.2",
     "drupal/admin_toolbar": "1.19.0",
-    "drupal/core": "8.3.2",
+    "drupal/core": "8.3.4",
     "drupal/drush_language": "1.*",
     "drupal/features": "3.5.0",
     "drupal/piwik": "1.1.0",
     "drupal/purge": "3.0.0-beta6",
     "drupal/redis": "1.0.0-beta1",
     "drupal/search_api": "1.1.0",
-    "drupal/search_api_solr": "1.0.0-rc3",
+    "drupal/search_api_solr": "1.0.0-rc4",
     "drupal/varnish_purge": "1.5.0",
-    "drush/drush": "8.1.11"
+    "drush/drush": "8.1.12"
   },
   "require-dev": {
     "behat/mink": "1.7.x-dev",
     "behat/mink-goutte-driver": "~1.2",
-    "components/highlightjs": "9.11.*",
+    "components/highlightjs": "9.12.*",
     "d3/d3": "3.5.*",
     "drupal/coder": "8.2.*",
     "drupal/config_inspector": "1.*",
@@ -93,7 +93,8 @@
   "prefer-stable": true,
   "config": {
     "optimize-autoloader": true,
-    "sort-packages": true
+    "sort-packages": true,
+    "secure-http": false
   },
   "scripts": {
     "drupal-l10n": "DrupalComposer\\DrupalL10n\\Plugin::download",
