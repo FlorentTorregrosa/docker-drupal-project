@@ -93,8 +93,7 @@
   "prefer-stable": true,
   "config": {
     "optimize-autoloader": true,
-    "sort-packages": true,
-    "secure-http": false
+    "sort-packages": true
   },
   "scripts": {
     "drupal-l10n": "DrupalComposer\\DrupalL10n\\Plugin::download",
