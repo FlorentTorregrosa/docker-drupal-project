@@ -20,6 +20,7 @@ DEFAULT_LANGUAGE="en"
 DEVELOPMENT_MODULES=(
   dblog
   devel
+  devel_generate
   field_ui
   views_ui
   # As in this template we not use custom install profile, enable some modules.
