@@ -14,3 +14,6 @@ $conf['page_cache_maximum_age'] = 0;
 $conf['page_compression'] = 0;
 $conf['preprocess_css'] = 0;
 $conf['preprocess_js'] = 0;
+
+// Views.
+$conf['views_ui_show_advanced_column'] = 1;
