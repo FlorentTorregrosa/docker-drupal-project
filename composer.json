@@ -74,8 +74,8 @@
       "www/sites/all/themes/custom",
       "www/sites/all/libraries",
       "www/profiles/contrib",
-      "www/sites/default/settings.php",
-      "www/sites/default/files"
+      "www/sites/default",
+      "www/sites/development.settings.php"
     ],
     "drupal-l10n": {
       "destination": "sites/all/translations/contrib",
