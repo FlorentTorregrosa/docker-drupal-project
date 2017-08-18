@@ -45,6 +45,8 @@ DEVELOPMENT_MODULES=(
 #  varnish_purge_tags
 )
 
+WEBSERVER_USER='www-data'
+
 # Colors.
 NC='\033[0m' # No Color
 BLACK='\033[0;30m'
