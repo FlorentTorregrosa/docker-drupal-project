@@ -7,7 +7,7 @@
 # - ESLint
 
 usage() {
-    echo "check-standards.sh path_to_check"
+    echo "check-fix-standards.sh path_to_check"
 }
 
 while getopts "h" opt; do
