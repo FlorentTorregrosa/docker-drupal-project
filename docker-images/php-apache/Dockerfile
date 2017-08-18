@@ -68,7 +68,7 @@ RUN cd /usr/local \
     && ln -s /usr/local/composer.phar /usr/local/bin/composer \
     && echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >> $HOME/.bashrc
 
-# Install Drush. Use 8.1.10 until 8.1.12 is out.
-RUN composer global require drush/drush:8.1.10 \
+# Install Drush.
+RUN composer global require drush/drush:8.* \
     && ~/.composer/vendor/bin/drush init -y \
     && composer clear-cache
