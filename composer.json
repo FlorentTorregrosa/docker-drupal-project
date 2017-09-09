@@ -37,8 +37,8 @@
     "drupal/redis": "3.15.0",
     "drupal/search_api": "1.22.0",
     "drupal/search_api_solr": "1.12.0",
-    "drupal/views": "3.16.0",
-    "drush/drush": "8.1.12"
+    "drupal/views": "3.18.0",
+    "drush/drush": "8.1.13"
   },
   "require-dev": {
     "drupal/coder": "8.2.*",
