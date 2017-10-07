@@ -31,6 +31,6 @@ $config['varnish_purger.settings.varnish']['hostname'] = 'varnish';
 // Piwik.
 $config['piwik.settings']['url_http'] = 'http://127.0.0.1:8083/';
 
-if (file_exists(__DIR__ . '/../development.settings.php')) {
-  include __DIR__ . '/../development.settings.php';
+if (file_exists($app_root . '/' . $site_path . '/../development.settings.php')) {
+  include $app_root . '/' . $site_path . '/../development.settings.php';
 }
