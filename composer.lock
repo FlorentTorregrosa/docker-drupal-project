@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a1d158d531e0545027145d42b99065f",
+    "content-hash": "e2fc0f9a7def0998567b4893b9e58d00",
     "packages": [
         {
             "name": "composer/installers",
@@ -125,16 +125,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "2.4.13",
+            "version": "2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "abb685e42c83d0b698b4e22059e5d505588f7d3c"
+                "reference": "07d3c88a5de4bdd2f4aba7193387b75389dea642"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/abb685e42c83d0b698b4e22059e5d505588f7d3c",
-                "reference": "abb685e42c83d0b698b4e22059e5d505588f7d3c",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/07d3c88a5de4bdd2f4aba7193387b75389dea642",
+                "reference": "07d3c88a5de4bdd2f4aba7193387b75389dea642",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,7 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2017-08-28T20:16:37+00:00"
+            "time": "2017-10-05T20:48:16+00:00"
         },
         {
             "name": "consolidation/output-formatters",
@@ -269,64 +269,6 @@
             "time": "2017-08-30T16:41:23+00:00"
         },
         {
-            "name": "derhasi/composer-preserve-paths",
-            "version": "0.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/derhasi/composer-preserve-paths.git",
-                "reference": "d557250928235fe23e11c86329bd7cef05397648"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/derhasi/composer-preserve-paths/zipball/d557250928235fe23e11c86329bd7cef05397648",
-                "reference": "d557250928235fe23e11c86329bd7cef05397648",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0"
-            },
-            "require-dev": {
-                "composer/composer": "1.*",
-                "derhasi/tempdirectory": "0.1.*",
-                "escapestudios/symfony2-coding-standard": "2.*",
-                "phpunit/phpunit": "4.*",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "derhasi\\Composer\\Plugin",
-                "patches_applied": {
-                    "Add pre-install command event regarding composer-patches": "https://github.com/SebCorbin/composer-preserve-paths/commit/88d7f376453307331353c2c2c834c7b51826f149.patch"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "derhasi\\Composer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes Haseitl",
-                    "email": "johannes@undpaul.de",
-                    "homepage": "http://www.undpaul.de"
-                }
-            ],
-            "description": "Composer plugin for preserving custom paths and supporting nested packages",
-            "homepage": "https://github.com/derhasi/composer-preserve-paths",
-            "keywords": [
-                "composer-plugin",
-                "custom path",
-                "installer",
-                "nested package"
-            ],
-            "abandoned": "drupal-composer/preserve-paths",
-            "time": "2017-02-03T11:32:31+00:00"
-        },
-        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -402,6 +344,63 @@
                 "issues": "https://github.com/FlorentTorregrosa/drupal-l10n/issues"
             },
             "time": "2017-06-04T15:07:04+00:00"
+        },
+        {
+            "name": "drupal-composer/preserve-paths",
+            "version": "0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal-composer/preserve-paths.git",
+                "reference": "d557250928235fe23e11c86329bd7cef05397648"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupal-composer/preserve-paths/zipball/d557250928235fe23e11c86329bd7cef05397648",
+                "reference": "d557250928235fe23e11c86329bd7cef05397648",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "require-dev": {
+                "composer/composer": "1.*",
+                "derhasi/tempdirectory": "0.1.*",
+                "escapestudios/symfony2-coding-standard": "2.*",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "derhasi\\Composer\\Plugin",
+                "patches_applied": {
+                    "Add pre-install command event regarding composer-patches": "https://github.com/SebCorbin/composer-preserve-paths/commit/88d7f376453307331353c2c2c834c7b51826f149.patch"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "derhasi\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Haseitl",
+                    "email": "johannes@undpaul.de",
+                    "homepage": "http://www.undpaul.de"
+                }
+            ],
+            "description": "Composer plugin for preserving custom paths and supporting nested packages",
+            "homepage": "https://github.com/derhasi/composer-preserve-paths",
+            "keywords": [
+                "composer-plugin",
+                "custom path",
+                "installer",
+                "nested package"
+            ],
+            "time": "2017-02-03T11:32:31+00:00"
         },
         {
             "name": "drupal/admin_menu",
@@ -711,17 +710,17 @@
         },
         {
             "name": "drupal/l10n_update",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/l10n_update",
-                "reference": "7.x-2.1"
+                "reference": "7.x-2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/l10n_update-7.x-2.1.zip",
-                "reference": null,
-                "shasum": "3b1d55dd24fbbc36027cc183d0bf68360171d683"
+                "url": "https://ftp.drupal.org/files/projects/l10n_update-7.x-2.2.zip",
+                "reference": "7.x-2.2",
+                "shasum": "bd6592e6e55c1477113dd2135d1aa46856d8013a"
             },
             "require": {
                 "drupal/drupal": "*"
@@ -732,8 +731,12 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "7.x-2.1",
-                    "datestamp": "1480765983"
+                    "version": "7.x-2.2",
+                    "datestamp": "1505717343",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/7/downloads",
@@ -1017,16 +1020,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "8.1.13",
+            "version": "8.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "f93fc2bed05ba58cf65fb65f799429bf6354b205"
+                "reference": "b1f1e421185da5468eedfd25eeb5b51e705d3cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/f93fc2bed05ba58cf65fb65f799429bf6354b205",
-                "reference": "f93fc2bed05ba58cf65fb65f799429bf6354b205",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/b1f1e421185da5468eedfd25eeb5b51e705d3cef",
+                "reference": "b1f1e421185da5468eedfd25eeb5b51e705d3cef",
                 "shasum": ""
             },
             "require": {
@@ -1118,7 +1121,7 @@
             ],
             "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
             "homepage": "http://www.drush.org",
-            "time": "2017-08-22T17:28:25+00:00"
+            "time": "2017-10-03T16:20:45+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1484,16 +1487,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "c0807a2ca978e64d8945d373a9221a5c35d1a253"
+                "reference": "f81549d2c5fdee8d711c9ab3c7e7362353ea5853"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/c0807a2ca978e64d8945d373a9221a5c35d1a253",
-                "reference": "c0807a2ca978e64d8945d373a9221a5c35d1a253",
+                "url": "https://api.github.com/repos/symfony/console/zipball/f81549d2c5fdee8d711c9ab3c7e7362353ea5853",
+                "reference": "f81549d2c5fdee8d711c9ab3c7e7362353ea5853",
                 "shasum": ""
             },
             "require": {
@@ -1541,7 +1544,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-27T14:29:03+00:00"
+            "time": "2017-10-01T21:00:16+00:00"
         },
         {
             "name": "symfony/debug",
@@ -1602,16 +1605,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "1377400fd641d7d1935981546aaef780ecd5bf6d"
+                "reference": "7fe089232554357efb8d4af65ce209fc6e5a2186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/1377400fd641d7d1935981546aaef780ecd5bf6d",
-                "reference": "1377400fd641d7d1935981546aaef780ecd5bf6d",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/7fe089232554357efb8d4af65ce209fc6e5a2186",
+                "reference": "7fe089232554357efb8d4af65ce209fc6e5a2186",
                 "shasum": ""
             },
             "require": {
@@ -1658,20 +1661,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T07:47:27+00:00"
+            "time": "2017-10-01T21:00:16+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "4f4e84811004e065a3bb5ceeb1d9aa592630f9ad"
+                "reference": "a945724b201f74d543e356f6059c930bb8d10c92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4f4e84811004e065a3bb5ceeb1d9aa592630f9ad",
-                "reference": "4f4e84811004e065a3bb5ceeb1d9aa592630f9ad",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/a945724b201f74d543e356f6059c930bb8d10c92",
+                "reference": "a945724b201f74d543e356f6059c930bb8d10c92",
                 "shasum": ""
             },
             "require": {
@@ -1707,7 +1710,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T20:52:29+00:00"
+            "time": "2017-10-01T21:00:16+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1770,16 +1773,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "83ebf3e92c0b2231fa63b8e584a2a3d3cd9876ef"
+                "reference": "3e34c94f44d7bf8db1569b4bcb4b45065ccf388e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/83ebf3e92c0b2231fa63b8e584a2a3d3cd9876ef",
-                "reference": "83ebf3e92c0b2231fa63b8e584a2a3d3cd9876ef",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3e34c94f44d7bf8db1569b4bcb4b45065ccf388e",
+                "reference": "3e34c94f44d7bf8db1569b4bcb4b45065ccf388e",
                 "shasum": ""
             },
             "require": {
@@ -1834,20 +1837,20 @@
                 "debug",
                 "dump"
             ],
-            "time": "2017-08-27T14:29:03+00:00"
+            "time": "2017-09-15T16:59:28+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5"
+                "reference": "842fb6df22180244b4c65935ce1a88d324e5ff9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
-                "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/842fb6df22180244b4c65935ce1a88d324e5ff9e",
+                "reference": "842fb6df22180244b4c65935ce1a88d324e5ff9e",
                 "shasum": ""
             },
             "require": {
@@ -1883,7 +1886,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T20:52:29+00:00"
+            "time": "2017-10-05T14:38:30+00:00"
         },
         {
             "name": "webmozart/assert",
