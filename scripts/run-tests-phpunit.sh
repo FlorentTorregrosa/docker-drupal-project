@@ -24,7 +24,7 @@ pgrep phantomjs | xargs kill
 
 # Enable external cache.
 touch $WWW_PATH/sites/default/.cache_activated
-$DRUSH cr
+$DRUSH cache:rebuild
 
 # Back to the current directory.
 cd $CURRENT_PATH
