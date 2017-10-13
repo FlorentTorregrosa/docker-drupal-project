@@ -65,7 +65,7 @@
     "drupal/search_api": "1.4.0",
     "drupal/search_api_solr": "1.1.0",
     "drupal/varnish_purge": "1.5.0",
-    "drush/drush": "9.0.0-beta6"
+    "drush/drush": "9.0.0-beta7"
   },
   "require-dev": {
     "anam/phantomjs-linux-x86-binary": "~2.1.1",
