@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f3e0f48912a0b816e1278b007316471",
+    "content-hash": "543c1f59a06bee9bae8de19c235d698b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1535,7 +1535,14 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x-dev",
-                    "datestamp": "1491263583"
+                    "datestamp": "1492040643",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                },
+                "patches_applied": {
+                    "Convert for Drush 9": "https://www.drupal.org/files/issues/drush_language-drush_9-2914081-8.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8348,6 +8355,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal-composer/drupal-l10n": 20,
+        "drupal/drush_language": 20,
         "behat/mink": 20
     },
     "prefer-stable": true,

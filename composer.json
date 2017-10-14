@@ -57,7 +57,7 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/admin_toolbar": "1.20.0",
         "drupal/core": "8.4.0",
-        "drupal/drush_language": "1.*",
+        "drupal/drush_language": "1.x-dev#b1a7b7e98eaecc26f198e58b99362937832d4319",
         "drupal/features": "3.5.0",
         "drupal/piwik": "1.1.0",
         "drupal/purge": "3.0.0-beta8",
@@ -116,7 +116,8 @@
                 "type:drupal-core"
             ],
             "www/modules/contrib/{$name}": [
-                "type:drupal-module"
+                "type:drupal-module",
+                "type:drupal-drush"
             ],
             "www/modules/custom/{$name}": [
                 "type:drupal-custom-module"
@@ -132,9 +133,6 @@
             ],
             "www/libraries/{$name}": [
                 "type:drupal-library"
-            ],
-            "drush/contrib/{$name}": [
-                "type:drupal-drush"
             ]
         },
         "drupal-scaffold": {
@@ -152,6 +150,9 @@
             ]
         },
         "patches": {
+            "drupal/drush_language": {
+                "Convert for Drush 9": "https://www.drupal.org/files/issues/drush_language-drush_9-2914081-8.patch"
+            },
             "drupal/redis": {
                 "Add status page and some statistics": "https://www.drupal.org/files/issues/redis-statistics-7.patch"
             }
