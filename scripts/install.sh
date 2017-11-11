@@ -13,7 +13,7 @@ cd $WWW_PATH
 $DRUSH cache:clear drush
 
 # Database backup.
-$DRUSH sql:dump --result-file="${PROJECT_PATH}/backups/${CURRENT_DATE}.sql" --gzip --structure-tables-key=common
+$DRUSH sql:dump --result-file="${PROJECT_PATH}/backups/${CURRENT_DATE}.sql" --gzip --structure-tables-key="common"
 
 # Disable external cache.
 rm -f $WWW_PATH/sites/default/.cache_activated
