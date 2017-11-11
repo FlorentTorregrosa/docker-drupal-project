@@ -11,6 +11,10 @@ RUN composer global require drupal/coder:8.2.* \
     && echo 'alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
     && echo 'alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc
 
+# Add some bash aliases.
+RUN echo 'alias ll="ls -l"' >> $HOME/.bashrc \
+    && echo 'alias lll="ls -al"' >> $HOME/.bashrc
+
 # Install Node.js, ESLint.
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - \
     && apt-get install -y nodejs \
