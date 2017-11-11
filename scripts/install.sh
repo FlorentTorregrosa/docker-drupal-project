@@ -9,6 +9,9 @@
 # Without drush alias, change temporarily directory to www.
 cd $WWW_PATH
 
+# Clear Drush cache in case of update.
+$DRUSH cache:clear drush
+
 # Database backup.
 $DRUSH sql:dump --result-file="${PROJECT_PATH}/backups/${CURRENT_DATE}.sql" --gzip --structure-tables-key=common
 
