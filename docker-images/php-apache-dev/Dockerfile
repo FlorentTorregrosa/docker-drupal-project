@@ -16,10 +16,10 @@ RUN echo 'alias ll="ls -l"' >> $HOME/.bashrc \
     && echo 'alias lll="ls -al"' >> $HOME/.bashrc
 
 # Install Node.js, ESLint.
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && apt-get install -y nodejs \
     && apt-get clean && apt-get autoremove -q \
     && npm install -g eslint \
-    && npm cache clean
+    && npm cache clean --force
 
 RUN rm -rf /var/www/html && ln -s /project/www /var/www/html
