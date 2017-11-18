@@ -3,7 +3,7 @@
 $databases = [];
 
 $config_directories = [
-  CONFIG_SYNC_DIRECTORY => $app_root . '/' . $site_path . '/../../../conf/drupal/default',
+  CONFIG_SYNC_DIRECTORY => $app_root . '/' . $site_path . '/../../../conf/drupal/default/sync',
 ];
 
 $settings['omit_vary_cookie'] = TRUE;
@@ -39,6 +39,6 @@ $config['system.performance']['cache']['page']['max_age'] = '86400';
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
 
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include __DIR__ . '/settings.local.php';
+if (file_exists($app_root . '/' . $site_path . '/../../../conf/drupal/default/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/../../../conf/drupal/default/settings.local.php';
 }
