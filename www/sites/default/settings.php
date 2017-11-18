@@ -39,17 +39,6 @@ $config['system.performance']['cache']['page']['max_age'] = '86400';
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
 
-// Redis.
-$settings['redis.connection']['interface'] = 'PhpRedis';
-
-// External cache.
-if (file_exists($app_root . '/' . $site_path . '/.cache_activated')) {
-  // Additional redis services.
-  $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
-
-  $settings['cache']['default'] = 'cache.backend.redis';
-}
-
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }

@@ -23,7 +23,15 @@ $config['locale.settings']['translation']['path'] = 'translations/contrib';
 $config['locale.settings']['translation']['use_source'] = 'local';
 
 // Redis.
+$settings['redis.connection']['interface'] = 'PhpRedis';
 $settings['redis.connection']['host'] = 'redis';
+$settings['redis.connection']['port'] = '6379';
+$settings['redis.connection']['base'] = 0;
+
+$settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
+$settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
+
+$settings['cache']['default'] = 'cache.backend.redis';
 
 // Varnish.
 $config['varnish_purger.settings.varnish']['hostname'] = 'varnish';

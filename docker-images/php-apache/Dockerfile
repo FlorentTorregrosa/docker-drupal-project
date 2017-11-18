@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
         mysql-client \
         pngquant \
         python \
+        redis-tools \
         ssmtp \
         sudo \
         unzip \
