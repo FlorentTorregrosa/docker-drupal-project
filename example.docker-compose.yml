@@ -61,7 +61,7 @@ services:
 
   # Piwik.
   piwik:
-    image: piwik:3.0
+    image: piwik:3.2-fpm
 
   piwik_web:
     extends:
