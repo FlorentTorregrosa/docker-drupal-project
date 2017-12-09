@@ -55,8 +55,8 @@
         "cweagans/composer-patches": "~1.0",
         "drupal-composer/drupal-l10n": "dev-master",
         "drupal-composer/drupal-scaffold": "^2.2",
-        "drupal/admin_toolbar": "1.20.0",
-        "drupal/core": "8.4.2",
+        "drupal/admin_toolbar": "1.21.0",
+        "drupal/core": "8.4.3",
         "drupal/drush_language": "1.x-dev#b1a7b7e98eaecc26f198e58b99362937832d4319",
         "drupal/features": "3.5.0",
         "drupal/piwik": "1.2.0",
@@ -65,7 +65,7 @@
         "drupal/search_api": "1.5.0",
         "drupal/search_api_solr": "1.2.0",
         "drupal/varnish_purge": "1.9.0",
-        "drush/drush": "9.0.0-beta9"
+        "drush/drush": "9.0.0-rc1"
     },
     "require-dev": {
         "anam/phantomjs-linux-x86-binary": "~2.1.1",
