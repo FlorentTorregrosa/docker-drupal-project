@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  traefik:
+    image: traefik:1.5-alpine
+#    restart: always
+    ports:
+      - "80:80"
+#      - "443:443"
+      - "8080:8080"
+    networks:
+      - webgateway
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.toml:/etc/traefik/traefik.toml
+    container_name: traefik
+    labels:
+      - "traefik.enable=true"
+
+networks:
+  webgateway:
+    driver: bridge

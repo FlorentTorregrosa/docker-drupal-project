@@ -5,29 +5,23 @@ services:
     extends:
       file: ./docker-compose-common.yml
       service: drupal-php-apache-dev
-    ports:
-      - 8081:80
+    networks:
+      - traefik_webgateway
+      - default
     depends_on:
       - mysql
       - redis
       - mail
 
-
-#  php:
-#    extends:
-#      file: ./docker-compose-common.yml
-#      service: drupal-php-dev
-
-
   varnish:
     extends:
       file: ./docker-compose-common.yml
       service: varnish
+    networks:
+      - traefik_webgateway
+      - default
     depends_on:
       - web
-    ports:
-      - 8080:80
-
 
   mysql:
     extends:
@@ -54,10 +48,12 @@ services:
 
 
   mail:
-    image: djfarrelly/maildev
-    ports:
-      - 8085:80
-
+    extends:
+      file: ./docker-compose-common.yml
+      service: mail
+    networks:
+      - traefik_webgateway
+      - default
 
   # Piwik.
   piwik:
@@ -69,8 +65,9 @@ services:
       service: piwik_nginx
     volumes_from:
       - piwik
-    ports:
-      - 8082:80
+    networks:
+      - traefik_webgateway
+      - default
 
   piwik_mysql:
     extends:
@@ -82,3 +79,7 @@ services:
       MYSQL_DATABASE: piwik
     volumes:
       - ./data/piwik_db:/var/lib/mysql
+
+networks:
+  traefik_webgateway:
+    external: true

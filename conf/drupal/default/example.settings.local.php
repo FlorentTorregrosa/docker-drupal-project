@@ -14,6 +14,7 @@ $settings['trusted_host_patterns'] = [
   '^127\.0\.0\.1$',
   'varnish',
   'web',
+  '+\.docker\.localhost',
 ];
 
 $settings['file_private_path'] = '/project/private_files/default';
@@ -35,9 +36,6 @@ $settings['cache']['default'] = 'cache.backend.redis';
 
 // Varnish.
 $config['varnish_purger.settings.varnish']['hostname'] = 'varnish';
-
-// Piwik.
-$config['piwik.settings']['url_http'] = 'http://127.0.0.1:8083/';
 
 if (file_exists($app_root . '/' . $site_path . '/../development.settings.php')) {
   include $app_root . '/' . $site_path . '/../development.settings.php';
