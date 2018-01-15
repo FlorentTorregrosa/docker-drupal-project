@@ -41,7 +41,7 @@
         },
         "drupal-l10n": {
             "type": "vcs",
-            "url": "https://github.com/FlorentTorregrosa/drupal-l10n",
+            "url": "https://github.com/FlorentTorregrosa/drupal-l10n"
         },
         "highlightjs": {
             "type": "package",
