@@ -180,7 +180,7 @@ defaultEntryPoints = ["http"]
 ################################################################
 
 # Enable web configuration backend
-[web]
+[api]
 
 # Web administration port
 #
@@ -194,7 +194,14 @@ address = ":8080"
 #usersFile = "/path/to/.htpasswd"
 
 # Enable more detailed statistics.
-[web.statistics]
+[api.statistics]
+
+# Set REST API to read-only mode.
+#
+# Optional
+# Default: false
+#
+readOnly = true
 
 ################################################################
 # Docker configuration backend
