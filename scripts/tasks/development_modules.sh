@@ -3,7 +3,7 @@
 . $(dirname $(dirname ${BASH_SOURCE[0]}))/script-parameters.sh
 . $(dirname $(dirname ${BASH_SOURCE[0]}))/script-parameters.local.sh
 
-# Enable development modules.
+echo -e "${LIGHT_GREEN}Enable development modules.${NC}"
 if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
   MODULES=''
   for DEVELOPMENT_MODULE in "${DEVELOPMENT_MODULES[@]}"
