@@ -165,6 +165,9 @@
             ]
         },
         "patches": {
+            "drupal/config_inspector": {
+                "Filter entities with schema errors": "https://www.drupal.org/files/issues/filter_entities_with-2843729-7.patch"
+            },
             "drupal/drush_language": {
                 "Convert for Drush 9": "https://www.drupal.org/files/issues/drush_language-drush_9-2914081-8.patch"
             },
