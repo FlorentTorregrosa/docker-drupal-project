@@ -10,6 +10,7 @@
 
 * **Do not execute scripts/install.sh from your computer.**.
 * Adapt the following files to your configuration:
+  * .env
   * docker-compose.yml
 * Execute:
 

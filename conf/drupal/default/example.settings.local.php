@@ -14,8 +14,11 @@ $settings['trusted_host_patterns'] = [
   '^127\.0\.0\.1$',
   'varnish',
   'web',
-  '+\.docker\.localhost',
 ];
+
+if (getenv('DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME')) {
+  $settings['trusted_host_patterns'][] = getenv('DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME');
+}
 
 $settings['file_private_path'] = '/project/private_files/default';
 

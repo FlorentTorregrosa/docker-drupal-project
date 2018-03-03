@@ -1,13 +1,15 @@
-version: "2"
+version: "2.3"
 
 services:
   web:
     extends:
       file: ./docker-compose-common.yml
       service: drupal-php-apache-dev
+    environment:
+      - DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME=${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp8.docker.localhost}
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:web.ddp8.docker.localhost"
+      - "traefik.frontend.rule=Host:${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp8.docker.localhost}"
     depends_on:
       - mysql
       - redis
@@ -19,7 +21,7 @@ services:
       service: varnish
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:varnish.ddp8.docker.localhost"
+      - "traefik.frontend.rule=Host:${VARNISH_TRAEFIK_FRONTEND_RULE_HOSTNAME:-varnish.ddp8.docker.localhost}"
     depends_on:
       - web
 
@@ -53,7 +55,7 @@ services:
       service: mail
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:mail.ddp8.docker.localhost"
+      - "traefik.frontend.rule=Host:${MAIL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-mail.ddp8.docker.localhost}"
       - "traefik.port=80"
 
   # Piwik.
@@ -66,7 +68,7 @@ services:
       service: piwik_nginx
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:piwik.ddp8.docker.localhost"
+      - "traefik.frontend.rule=Host:${PIWIK_TRAEFIK_FRONTEND_RULE_HOSTNAME:-piwik.ddp8.docker.localhost}"
     volumes_from:
       - piwik
 

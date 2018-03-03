@@ -5,6 +5,10 @@
 If there's a local traefik reverse-proxy on your development environment, you
 can access the site through http://web.ddp8.docker.localhost/
 
+Alternative hostnames can be provided by setting environment variables, for
+instance using a .env file. See the example.env file for the available
+variables.
+
 Otherwise it depends if you have made a port mapping in the docker-compose.yml
 file, for example:
 
