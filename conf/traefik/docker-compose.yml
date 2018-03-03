@@ -8,15 +8,9 @@ services:
       - "80:80"
 #      - "443:443"
       - "8080:8080"
-    networks:
-      - webgateway
+    network_mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.toml:/etc/traefik/traefik.toml
-    container_name: traefik
     labels:
       - "traefik.enable=true"
-
-networks:
-  webgateway:
-    driver: bridge

@@ -5,9 +5,6 @@ services:
     extends:
       file: ./docker-compose-common.yml
       service: drupal-php-apache-dev
-    networks:
-      - traefik_webgateway
-      - default
     depends_on:
       - mysql
       - redis
@@ -17,9 +14,6 @@ services:
     extends:
       file: ./docker-compose-common.yml
       service: varnish
-    networks:
-      - traefik_webgateway
-      - default
     depends_on:
       - web
 
@@ -51,9 +45,6 @@ services:
     extends:
       file: ./docker-compose-common.yml
       service: mail
-    networks:
-      - traefik_webgateway
-      - default
 
   # Piwik.
   piwik:
@@ -65,9 +56,6 @@ services:
       service: piwik_nginx
     volumes_from:
       - piwik
-    networks:
-      - traefik_webgateway
-      - default
 
   piwik_mysql:
     extends:
@@ -79,7 +67,3 @@ services:
       MYSQL_DATABASE: piwik
     volumes:
       - ./data/piwik_db:/var/lib/mysql
-
-networks:
-  traefik_webgateway:
-    external: true
