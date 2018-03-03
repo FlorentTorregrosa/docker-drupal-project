@@ -26,9 +26,6 @@ services:
       - .:/project
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
       - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:web.ddp8.docker.localhost"
 
   drupal-php-apache:
     image: florenttorregrosa/docker-drupal:php7
@@ -68,9 +65,6 @@ services:
       VCL_CONFIG: /varnish-drupal/varnish.vcl
     volumes:
       - ./conf/varnish:/varnish-drupal
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:varnish.ddp8.docker.localhost"
 
 
   mysql:
@@ -100,10 +94,6 @@ services:
 
   mail:
     image: djfarrelly/maildev
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:mail.ddp8.docker.localhost"
-      - "traefik.port=80"
 
   piwik_nginx:
     image: nginx:1.13-alpine
@@ -111,6 +101,3 @@ services:
       - ./conf/piwik_nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     environment:
       - VIRTUAL_HOST
-    labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:piwik.ddp8.docker.localhost"
