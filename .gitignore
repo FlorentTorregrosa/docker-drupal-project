@@ -23,13 +23,13 @@
 /www/.gitattributes
 
 # Drupal's file directory.
-/www/sites/default/.cache_activated
 /www/sites/default/default.services.yml
 /www/sites/default/default.settings.php
 /www/sites/example.sites.php
 /www/sites/sites.php
 /www/sites/default/files
 /private_files
+/www/sites/simpletest
 
 # Drupal local settings.
 /conf/drupal/**/settings.local.php
