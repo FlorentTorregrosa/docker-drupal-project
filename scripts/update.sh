@@ -22,9 +22,7 @@ $DRUSH updatedb --entity-updates -y
 
 . $SCRIPTS_PATH/tasks/development_modules.sh
 
-#echo -e "${LIGHT_GREEN}Revert features.${NC}"
-# TODO: Update Features to support Drush 9.
-#$DRUSH features-import -y $PROFILE
+#echo -e "${LIGHT_GREEN}TODO: Depending of project, import config with either CMI or features.${NC}"
 
 # For update.sh import only content if the environment is dev to not risk
 # breaking prod.

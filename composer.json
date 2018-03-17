@@ -68,21 +68,18 @@
         "drupal-composer/drupal-l10n": "dev-master",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/admin_toolbar": "1.23.0",
-        "drupal/core": "8.4.4",
+        "drupal/core": "8.5.0",
         "drupal/drush_language": "1.0.0-rc1",
-        "drupal/features": "3.5.0",
         "drupal/piwik": "1.2.0",
         "drupal/purge": "3.0.0-beta8",
         "drupal/redis": "1.0.0-rc2",
-        "drupal/search_api": "1.6.0",
-        "drupal/search_api_solr": "2.0.0-alpha2",
+        "drupal/search_api": "1.7.0",
+        "drupal/search_api_solr": "2.0.0-alpha3",
         "drupal/varnish_purge": "1.10.0",
-        "drush/drush": "9.1.0"
+        "drush/drush": "9.2.1"
     },
     "require-dev": {
         "anam/phantomjs-linux-x86-binary": "~2.1.1",
-        "behat/mink": "1.7.x-dev",
-        "behat/mink-goutte-driver": "~1.2",
         "components/highlightjs": "9.12.*",
         "d3/d3": "3.5.*",
         "drupal/coder": "8.2.*",
@@ -95,13 +92,7 @@
         "drupal/pistachio": "1.*",
         "drupal/renderviz": "1.*",
         "drupal/search_kint": "1.*",
-        "jcalderonzumba/gastonjs": "~1.0.2",
-        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
-        "mikey179/vfsStream": "~1.2",
-        "phpunit/phpunit": ">=4.8.35 <5",
-        "phpspec/prophecy": "^1.4",
-        "symfony/css-selector": "~3.2.8",
-        "symfony/phpunit-bridge": "~3.2.8"
+        "webflo/drupal-core-require-dev": "~8.5"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -152,6 +143,7 @@
         },
         "drupal-scaffold": {
             "excludes": [
+                ".ht.router.php",
                 "update.php",
                 "web.config",
                 "sites/development.services.yml",
