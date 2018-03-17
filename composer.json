@@ -69,7 +69,7 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/admin_toolbar": "1.23.0",
         "drupal/core": "8.4.4",
-        "drupal/drush_language": "1.x-dev#b1a7b7e98eaecc26f198e58b99362937832d4319",
+        "drupal/drush_language": "1.0.0-rc1",
         "drupal/features": "3.5.0",
         "drupal/piwik": "1.2.0",
         "drupal/purge": "3.0.0-beta8",
@@ -167,9 +167,6 @@
         "patches": {
             "drupal/config_inspector": {
                 "Filter entities with schema errors": "https://www.drupal.org/files/issues/filter_entities_with-2843729-7.patch"
-            },
-            "drupal/drush_language": {
-                "Convert for Drush 9": "https://www.drupal.org/files/issues/drush_language-drush_9-2914081-8.patch"
             },
             "drupal/redis": {
                 "Add status page and some statistics": "https://www.drupal.org/files/issues/redis-statistics-7.patch"

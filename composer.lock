@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "024ce8cbd8a46af2e7950215efafb781",
+    "content-hash": "840f4c1b25edb0274de81833a6e44e26",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1527,30 +1527,39 @@
         },
         {
             "name": "drupal/drush_language",
-            "version": "dev-1.x",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/drush_language",
-                "reference": "b1a7b7e98eaecc26f198e58b99362937832d4319"
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/drush_language-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "1ec594ac4da4012f74adf5569a44da148fd74218"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "*",
+                "webmozart/path-util": "^2.1.0"
             },
-            "type": "drupal-drush",
+            "type": "drupal-module",
             "extra": {
                 "branch-alias": {
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1492040643",
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1520387893",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 },
-                "patches_applied": {
-                    "Convert for Drush 9": "https://www.drupal.org/files/issues/drush_language-drush_9-2914081-8.patch"
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1583,12 +1592,11 @@
                     "homepage": "https://www.drupal.org/user/103227"
                 }
             ],
-            "description": "Provides drush commands",
+            "description": "Provides Drush commands for language manipulation",
             "homepage": "https://www.drupal.org/project/drush_language",
             "support": {
                 "source": "http://cgit.drupalcode.org/drush_language"
-            },
-            "time": "2017-04-12T23:41:54+00:00"
+            }
         },
         {
             "name": "drupal/features",
@@ -5782,6 +5790,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Filter entities with schema errors": "https://www.drupal.org/files/issues/filter_entities_with-2843729-7.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8553,7 +8564,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal-composer/drupal-l10n": 20,
-        "drupal/drush_language": 20,
         "behat/mink": 20
     },
     "prefer-stable": true,
