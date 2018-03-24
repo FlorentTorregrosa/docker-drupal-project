@@ -28,6 +28,7 @@ DEVELOPMENT_MODULES=(
   purge_ui
 #  renderviz
 #  search_kint
+  speedboxes
   views_ui
   webprofiler
   # As in this template we not use custom install profile, enable some modules.
