@@ -30,7 +30,7 @@ DEVELOPMENT_MODULES=(
 #  search_kint
   speedboxes
   views_ui
-  webprofiler
+#  webprofiler
   # As in this template we not use custom install profile, enable some modules.
   admin_toolbar_tools
 #  purge
