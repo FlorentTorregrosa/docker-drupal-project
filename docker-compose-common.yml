@@ -55,6 +55,13 @@ services:
       - .:/project
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini
 
+  php-cli-dev:
+    image: florenttorregrosa/php-cli-dev:7.1-cli-alpine
+    build:
+      context: ./docker-images/php-cli-dev
+    volumes:
+      - .:/project
+      - ./conf/php/php.ini:/usr/local/etc/php/php.ini
 
 
   varnish:

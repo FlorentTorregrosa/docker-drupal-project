@@ -15,6 +15,15 @@ services:
       - redis
       - mail
 
+  php_cli:
+    extends:
+      file: ./docker-compose-common.yml
+      service: php-cli-dev
+    depends_on:
+      - mysql
+      - redis
+      - mail
+
   varnish:
     extends:
       file: ./docker-compose-common.yml
