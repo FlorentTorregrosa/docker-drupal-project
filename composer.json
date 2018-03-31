@@ -68,7 +68,7 @@
         "drupal-composer/drupal-l10n": "dev-master",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/admin_toolbar": "1.23.0",
-        "drupal/core": "8.5.0",
+        "drupal/core": "8.5.1",
         "drupal/drush_language": "1.0.0-rc1",
         "drupal/piwik": "1.2.0",
         "drupal/purge": "3.0.0-beta8",
