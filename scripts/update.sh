@@ -3,42 +3,41 @@
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.local.sh
 
-# Without drush alias, change temporarily directory to www.
+echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to www.${NC}"
 cd $WWW_PATH
 
-# Database backup.
-$DRUSH sql-dump --result-file="${PROJECT_PATH}/backups/${CURRENT_DATE}.sql" --gzip --structure-tables-key=common
+echo -e "${LIGHT_GREEN}Database backup.${NC}"
+$DRUSH sql-dump --result-file="${PROJECT_PATH}/backups/${CURRENT_DATE}.sql" --gzip --structure-tables-key="common"
 
-# Put the site in maintenance mode.
+echo -e "${LIGHT_GREEN}Put the site in maintenance mode.${NC}"
 $DRUSH vset -y maintenance_mode 1
 
-# Install sources.
 . $SCRIPTS_PATH/tasks/composer_install.sh
 
-# Launch updates.
+echo -e "${LIGHT_GREEN}Clear cache to be sure cache are cleared even if there is no update or Drush has been updated.${NC}"
+$DRUSH cc all
+
+echo -e "${LIGHT_GREEN}Launch updates.${NC}"
 $DRUSH updb -y
 
-# Enable development modules.
 . $SCRIPTS_PATH/tasks/development_modules.sh
 
-# Revert features.
+#echo -e "${LIGHT_GREEN}Revert features.${NC}"
 #$DRUSH fra -y $PROFILE
 
-# Import content.
 # For update.sh import only content if the environment is dev to not risk
 # breaking prod.
 #if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
 #  . $SCRIPTS_PATH/tasks/migrate_imports.sh
 #fi
 
-# Translation updates.
 #. $SCRIPTS_PATH/tasks/update_translations.sh
 
-# Remove the maintenance mode.
+echo -e "${LIGHT_GREEN}Remove the maintenance mode.${NC}"
 $DRUSH vset -y maintenance_mode 0
 
-# Run CRON.
+echo -e "${LIGHT_GREEN}Run CRON.${NC}"
 $DRUSH cron
 
-# Back to the current directory.
+echo -e "${LIGHT_GREEN}Back to the current directory.${NC}"
 cd $CURRENT_PATH

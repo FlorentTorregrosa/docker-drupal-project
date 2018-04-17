@@ -1,33 +1,29 @@
-version: "2"
+version: "2.3"
 
 services:
   web:
     extends:
       file: ./docker-compose-common.yml
       service: drupal-php-apache-dev
-    ports:
-      - 8081:80
+    environment:
+      - DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME=${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp7.docker.localhost}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp7.docker.localhost}"
     depends_on:
       - mysql
       - redis
       - mail
 
-
-#  php:
-#    extends:
-#      file: ./docker-compose-common.yml
-#      service: drupal-php-dev
-
-
   varnish:
     extends:
       file: ./docker-compose-common.yml
       service: varnish
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:${VARNISH_TRAEFIK_FRONTEND_RULE_HOSTNAME:-varnish.ddp7.docker.localhost}"
     depends_on:
       - web
-    ports:
-      - 8080:80
-
 
   mysql:
     extends:
@@ -54,23 +50,27 @@ services:
 
 
   mail:
-    image: djfarrelly/maildev
-    ports:
-      - 8085:80
-
+    extends:
+      file: ./docker-compose-common.yml
+      service: mail
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:${MAIL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-mail.ddp7.docker.localhost}"
+      - "traefik.port=80"
 
   # Piwik.
   piwik:
-    image: piwik:3.0
+    image: piwik:3.2-fpm
 
   piwik_web:
     extends:
       file: ./docker-compose-common.yml
       service: piwik_nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:${PIWIK_TRAEFIK_FRONTEND_RULE_HOSTNAME:-piwik.ddp7.docker.localhost}"
     volumes_from:
       - piwik
-    ports:
-      - 8082:80
 
   piwik_mysql:
     extends:

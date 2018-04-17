@@ -1,4 +1,4 @@
-version: "2"
+version: "2.3"
 
 services:
   httpd:
@@ -10,7 +10,7 @@ services:
 
 
   nginx:
-    image: nginx:1.11-alpine
+    image: nginx:1.13-alpine
     volumes:
       - ./conf/nginx:/etc/nginx/conf.d/
       - .:/project
@@ -68,7 +68,7 @@ services:
 
 
   mysql:
-    image: mysql:5.7
+    image: mariadb:10.3
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
@@ -92,9 +92,11 @@ services:
       - drupal
       - /solr-drupal
 
+  mail:
+    image: djfarrelly/maildev
 
   piwik_nginx:
-    image: nginx:1.11-alpine
+    image: nginx:1.13-alpine
     volumes:
       - ./conf/piwik_nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     environment:
