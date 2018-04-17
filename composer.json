@@ -17,23 +17,9 @@
         "docs": "https://github.com/FlorentTorregrosa/docker-drupal-project/blob/master/README.md"
     },
     "repositories": {
-        "d3": {
-            "type": "package",
-            "package": {
-                "name": "d3/d3",
-                "version": "v3.5.17",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "d3"
-                },
-                "dist": {
-                    "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "~1.0"
-                }
-            }
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         },
         "drupal": {
             "type": "composer",
@@ -42,24 +28,6 @@
         "drupal-l10n": {
             "type": "vcs",
             "url": "https://github.com/FlorentTorregrosa/drupal-l10n"
-        },
-        "highlightjs": {
-            "type": "package",
-            "package": {
-                "name": "components/highlightjs",
-                "version": "9.12.0",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "highlightjs"
-                },
-                "dist": {
-                    "url": "https://github.com/components/highlightjs/archive/9.12.0.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "~1.0"
-                }
-            }
         }
     },
     "require": {
@@ -69,19 +37,20 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/admin_toolbar": "1.23.0",
         "drupal/core": "8.5.1",
-        "drupal/drush_language": "1.0.0-rc1",
+        "drupal/drush_language": "1.0.0-rc2",
         "drupal/piwik": "1.2.0",
         "drupal/purge": "3.0.0-beta8",
         "drupal/redis": "1.0.0-rc2",
-        "drupal/search_api": "1.7.0",
-        "drupal/search_api_solr": "2.0.0-alpha3",
+        "drupal/search_api": "1.8.0",
+        "drupal/search_api_solr": "2.0.0-beta1",
         "drupal/varnish_purge": "1.10.0",
-        "drush/drush": "9.2.1"
+        "drush/drush": "9.2.3",
+        "oomphinc/composer-installers-extender": "^1.1"
     },
     "require-dev": {
         "anam/phantomjs-linux-x86-binary": "~2.1.1",
-        "components/highlightjs": "9.12.*",
-        "d3/d3": "3.5.*",
+        "bower-asset/d3": "3.5.*",
+        "bower-asset/highlightjs": "9.12.*",
         "drupal/coder": "8.2.*",
         "drupal/config_inspector": "1.*",
         "drupal/console": "1.*",
@@ -118,6 +87,10 @@
         ]
     },
     "extra": {
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "www/core": [
                 "type:drupal-core"
@@ -139,7 +112,9 @@
                 "type:drupal-profile"
             ],
             "www/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ]
         },
         "drupal-scaffold": {
