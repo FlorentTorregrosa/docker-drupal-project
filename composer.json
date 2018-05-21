@@ -87,10 +87,21 @@
         ]
     },
     "extra": {
-        "installer-types": [
-            "bower-asset",
-            "npm-asset"
-        ],
+        "drupal-l10n": {
+            "destination": "translations/contrib",
+            "languages": [
+                "fr"
+            ]
+        },
+        "drupal-scaffold": {
+            "excludes": [
+                ".ht.router.php",
+                "update.php",
+                "web.config",
+                "sites/development.services.yml",
+                "sites/example.settings.local.php"
+            ]
+        },
         "installer-paths": {
             "www/core": [
                 "type:drupal-core"
@@ -111,27 +122,19 @@
             "www/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
+            "www/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
             "www/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
                 "type:npm-asset"
             ]
         },
-        "drupal-scaffold": {
-            "excludes": [
-                ".ht.router.php",
-                "update.php",
-                "web.config",
-                "sites/development.services.yml",
-                "sites/example.settings.local.php"
-            ]
-        },
-        "drupal-l10n": {
-            "destination": "translations/contrib",
-            "languages": [
-                "fr"
-            ]
-        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "patches": {
             "drupal/config_inspector": {
                 "Filter entities with schema errors": "https://www.drupal.org/files/issues/filter_entities_with-2843729-7.patch"
