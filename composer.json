@@ -45,7 +45,8 @@
         "drupal/search_api_solr": "2.0.0-beta1",
         "drupal/varnish_purge": "1.10.0",
         "drush/drush": "9.2.3",
-        "oomphinc/composer-installers-extender": "^1.1"
+        "oomphinc/composer-installers-extender": "^1.1",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
         "anam/phantomjs-linux-x86-binary": "~2.1.1",
@@ -135,6 +136,16 @@
             "bower-asset",
             "npm-asset"
         ],
+        "merge-plugin": {
+            "include": [
+                "www/modules/custom/*/composer.json",
+                "www/profiles/custom/*/composer.json",
+                "www/themes/custom/*/composer.json"
+            ],
+            "merge-extra": true,
+            "merge-extra-deep": true,
+            "merge-scripts": true
+        },
         "patches": {
             "drupal/config_inspector": {
                 "Filter entities with schema errors": "https://www.drupal.org/files/issues/filter_entities_with-2843729-7.patch"
