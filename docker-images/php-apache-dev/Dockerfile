@@ -22,4 +22,4 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && npm install -g eslint \
     && npm cache clean --force
 
-RUN rm -rf /var/www/html && ln -s /project/www /var/www/html
+WORKDIR /project
