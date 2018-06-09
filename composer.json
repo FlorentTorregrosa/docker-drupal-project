@@ -36,7 +36,7 @@
     "drupal-composer/preserve-paths": "0.1.*",
     "drupal-composer/drupal-l10n": "dev-master",
     "drupal/admin_menu": "3.0.0-rc5",
-    "drupal/drupal": "7.58.0",
+    "drupal/drupal": "7.59.0",
     "drupal/l10n_update": "2.2.0",
     "drupal/redis": "3.17.0",
     "drupal/search_api": "1.24.0",
