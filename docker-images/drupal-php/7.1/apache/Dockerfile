@@ -14,6 +14,7 @@ RUN mkdir -p /usr/src/php/ext/redis \
 RUN apt-get update && apt-get install -y \
         apt-utils \
         git \
+        gnupg \
         imagemagick \
         libcurl4-openssl-dev \
         libfreetype6-dev \
