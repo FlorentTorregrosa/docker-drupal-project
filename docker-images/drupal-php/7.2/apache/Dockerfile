@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg-turbo-progs \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         libxml2-dev \
         mysql-client \
         pngquant \
