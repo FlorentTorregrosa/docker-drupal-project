@@ -38,7 +38,7 @@
         "drupal/admin_toolbar": "1.24.0",
         "drupal/core": "8.5.4",
         "drupal/drush_language": "1.0.0-rc2",
-        "drupal/piwik": "1.2.0",
+        "drupal/matomo": "1.4.0",
         "drupal/purge": "3.0.0-beta8",
         "drupal/redis": "1.0.0",
         "drupal/search_api": "1.8.0",

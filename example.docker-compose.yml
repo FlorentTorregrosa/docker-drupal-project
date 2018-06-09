@@ -59,27 +59,27 @@ services:
       - "traefik.frontend.rule=Host:${MAIL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-mail.ddp8.docker.localhost}"
       - "traefik.port=80"
 
-  # Piwik.
-  piwik:
-    image: piwik:3.2-fpm
+  # Matomo.
+  matomo:
+    image: matomo:3.5-fpm
 
-  piwik_web:
+  matomo_web:
     extends:
       file: ./docker-compose-common.yml
-      service: piwik_nginx
+      service: matomo_nginx
     labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:${PIWIK_TRAEFIK_FRONTEND_RULE_HOSTNAME:-piwik.ddp8.docker.localhost}"
+      - "traefik.frontend.rule=Host:${MATOMO_TRAEFIK_FRONTEND_RULE_HOSTNAME:-matomo.ddp8.docker.localhost}"
     volumes_from:
-      - piwik
+      - matomo
 
-  piwik_mysql:
+  matomo_mysql:
     extends:
       file: ./docker-compose-common.yml
       service: mysql
     environment:
-      MYSQL_USER: piwik
-      MYSQL_PASSWORD: piwik
-      MYSQL_DATABASE: piwik
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo
+      MYSQL_DATABASE: matomo
     volumes:
-      - ./data/piwik_db:/var/lib/mysql
+      - ./data/matomo_db:/var/lib/mysql

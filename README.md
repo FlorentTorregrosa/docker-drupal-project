@@ -26,12 +26,12 @@ If using Docker with the default provided configuration, you will have:
 * the website accessible through Apache: http://web.ddp8.docker.localhost
 * the website accessible through Varnish: http://varnish.ddp8.docker.localhost
 * a mail catcher: http://mail.ddp8.docker.localhost
-* a Piwik app: http://piwik.ddp8.docker.localhost
+* a Matomo app: http://matomo.ddp8.docker.localhost
 
 Note: You have to adapt your DNS configuration to inform your computer to search
 for local websites.
 
 For example, you can edit your /etc/hosts file and add an entry like:
 ```
-127.0.0.1  web.ddp8.docker.localhost varnish.ddp8.docker.localhost mail.ddp8.docker.localhost piwik.ddp8.docker.localhost
+127.0.0.1  web.ddp8.docker.localhost varnish.ddp8.docker.localhost mail.ddp8.docker.localhost matomo.ddp8.docker.localhost
 ```

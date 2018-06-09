@@ -70,9 +70,9 @@ services:
   mail:
     image: djfarrelly/maildev
 
-  piwik_nginx:
+  matomo_nginx:
     image: nginx:1.15-alpine
     volumes:
-      - ./conf/piwik_nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./conf/matomo_nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     environment:
       - VIRTUAL_HOST
