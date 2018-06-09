@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg-turbo-progs \
         libjpeg62-turbo-dev \
-        libmcrypt-dev \
         libpng-dev \
         libxml2-dev \
         mysql-client \
@@ -36,7 +35,6 @@ RUN apt-get update && apt-get install -y \
         curl \
         exif \
         mbstring \
-        mcrypt \
         mysqli \
         opcache \
         pcntl \
