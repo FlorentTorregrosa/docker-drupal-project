@@ -35,7 +35,7 @@ services:
 
 
   varnish:
-    image: florenttorregrosa/docker-varnish:5-alpine
+    image: florenttorregrosa/varnish:5-alpine
     environment:
       VCL_CONFIG: /varnish-drupal/varnish.vcl
     volumes:
