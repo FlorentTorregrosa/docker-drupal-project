@@ -28,6 +28,6 @@ docker-compose exec web /bin/bash
 * Then execute:
 
 ```bash
-cd ..
+cd /project (if necessary)
 ./scripts/install.sh
 ```
