@@ -18,13 +18,13 @@ echo -e "${LIGHT_GREEN}Disable external cache.${NC}"
 rm -f $WWW_PATH/sites/default/.cache_activated
 
 echo -e "${LIGHT_GREEN}Install Drupal.${NC}"
-$DRUSH site-install $PROFILE \
-  --account-mail=$ACCOUNT_MAIL \
-  --account-name=$ACCOUNT_NAME \
-  --account-pass=$ACCOUNT_PASS \
-  --site-mail=$SITE_MAIL \
-  --site-name=$SITE_NAME \
-  --locale=$DEFAULT_LANGUAGE \
+$DRUSH site-install "${PROFILE}" \
+  --account-mail="${ACCOUNT_MAIL}" \
+  --account-name="${ACCOUNT_NAME}" \
+  --account-pass="${ACCOUNT_PASS}" \
+  --site-mail="${SITE_MAIL}" \
+  --site-name="${SITE_NAME}" \
+  --locale="${DEFAULT_LANGUAGE}" \
   -y
 
 echo -e "${LIGHT_GREEN}Launch updates.${NC}"
