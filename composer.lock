@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c7120d53e5a0c7e18eb9e9e55e7f61c",
+    "content-hash": "473b19da78c45274f125b416ea554f08",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1141,16 +1141,16 @@
         },
         {
             "name": "drupal-composer/drupal-l10n",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FlorentTorregrosa/drupal-l10n.git",
-                "reference": "291c49da8f24fdf2b8d4282398453d82fcf2287c"
+                "url": "https://github.com/drupal-composer/drupal-l10n.git",
+                "reference": "0849b61de68fe89c529f84b57360d38432305547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FlorentTorregrosa/drupal-l10n/zipball/291c49da8f24fdf2b8d4282398453d82fcf2287c",
-                "reference": "291c49da8f24fdf2b8d4282398453d82fcf2287c",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-l10n/zipball/0849b61de68fe89c529f84b57360d38432305547",
+                "reference": "0849b61de68fe89c529f84b57360d38432305547",
                 "shasum": ""
             },
             "require": {
@@ -1165,7 +1165,7 @@
             "extra": {
                 "class": "DrupalComposer\\DrupalL10n\\Plugin",
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
@@ -1173,15 +1173,12 @@
                     "DrupalComposer\\DrupalL10n\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "description": "Composer Plugin for downloading Drupal translation files",
-            "support": {
-                "source": "https://github.com/FlorentTorregrosa/drupal-l10n/tree/master",
-                "issues": "https://github.com/FlorentTorregrosa/drupal-l10n/issues"
-            },
-            "time": "2017-11-11T09:58:41+00:00"
+            "time": "2018-07-02T17:45:04+00:00"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -8885,9 +8882,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "drupal-composer/drupal-l10n": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
