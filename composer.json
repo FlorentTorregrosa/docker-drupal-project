@@ -24,17 +24,13 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/7"
-    },
-    "drupal-l10n": {
-      "type": "vcs",
-      "url": "https://github.com/FlorentTorregrosa/drupal-l10n"
     }
   },
   "require": {
     "composer/installers": "^1.0.21",
     "cweagans/composer-patches": "~1.0",
+    "drupal-composer/drupal-l10n": "^1.0",
     "drupal-composer/preserve-paths": "0.1.*",
-    "drupal-composer/drupal-l10n": "dev-master",
     "drupal/admin_menu": "3.0.0-rc5",
     "drupal/drupal": "7.59.0",
     "drupal/l10n_update": "2.2.0",
@@ -42,7 +38,7 @@
     "drupal/search_api": "1.24.0",
     "drupal/search_api_solr": "1.12.0",
     "drupal/views": "3.20.0",
-    "drush/drush": "8.1.16",
+    "drush/drush": "8.1.17",
     "oomphinc/composer-installers-extender": "^1.1"
   },
   "require-dev": {
@@ -59,7 +55,6 @@
     }
   },
   "scripts": {
-    "drupal-l10n": "DrupalComposer\\DrupalL10n\\Plugin::download",
     "post-create-project-cmd": [
       "bash ./scripts/init.sh"
     ]
