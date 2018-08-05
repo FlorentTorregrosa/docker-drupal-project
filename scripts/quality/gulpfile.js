@@ -25,9 +25,9 @@ var csslintOptions = '.csslintrc';
 
 // SASS.
 var scssFiles = [
-  sourceDir + '**/*.scss',
+  sourceDir + '/**/*.s+(a|c)ss',
   // Do not open scss partials as they will be included as needed.
-  '!' + sourceDir + '**/_*.scss',
+  '!' + sourceDir + '/**/_*.scss',
   '!' + sourceDir + '/**/node_modules/**/*',
   '!' + sourceDir + '/**/bower_components/**/*',
   '!' + sourceDir + '/core/**/*',
@@ -41,7 +41,6 @@ var scssFiles = [
 var scsslintOptions = {
   options: {
     configFile: '.sass-lint.yml',
-    formatter: 'checkstyle'
   },
   files: {
     include: $.cached('scsslint'),
@@ -135,7 +134,8 @@ gulp.task('lint:css', function() {
 gulp.task('lint:sass', function () {
   return gulp.src(scssFiles)
     .pipe($.sassLint(scsslintOptions))
-    .pipe($.sassLint.format());
+    .pipe($.sassLint.format())
+    .pipe($.sassLint.failOnError());
 });
 
 // Lint JS.
