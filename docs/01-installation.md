@@ -1,6 +1,12 @@
 # Installation
 
 * Execute: `scripts/init.sh`
+  * This will enable a git pre-commit hook that will run check against the code.
+    You will need to have the following tools installed:
+      * execute `npm install` in scripts/quality folder
+      * nodejs (8.11.x recommended)
+      * gulp-cli
+  * You can also remove the symlink in .git/hooks to remove this feature.
 * Adapt the following files to your configuration:
   * scripts/script-parameters.local.sh
   * conf/drupal/default/settings.local.php

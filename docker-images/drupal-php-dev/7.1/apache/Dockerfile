@@ -18,8 +18,19 @@ RUN echo 'alias ll="ls -l"' >> $HOME/.bashrc \
 # Install Node.js, ESLint.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && apt-get install -y nodejs \
-    && apt-get clean && apt-get autoremove -q \
-    && npm install -g eslint \
+    && apt-get clean \
+    && apt-get autoremove -q \
+    && npm install -g \
+        eslint \
+        gulp-cli \
     && npm cache clean --force
+
+# Install Yarn.
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get install -y yarn \
+    && apt-get clean \
+    && apt-get autoremove -q \
 
 WORKDIR /project

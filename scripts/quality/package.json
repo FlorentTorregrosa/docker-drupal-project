@@ -1,0 +1,31 @@
+{
+  "name": "docker-drupal-project-quality-tools",
+  "description": "Provide quality tools.",
+  "license": "GPL-2.0+",
+  "private": true,
+  "engines": {
+    "node": "8.11.x"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "npm-check-updates": "^2.14.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-csslint": "^1.0.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-gitmodified": "^1.2.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-phpcbf": "^0.1.2",
+    "gulp-phpcs": "^2.2.0",
+    "gulp-phpmd": "^2.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-shell": "^0.6.5",
+    "gulp-size": "^3.0.0"
+  }
+}

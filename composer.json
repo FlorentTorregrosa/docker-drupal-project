@@ -59,6 +59,7 @@
         "drupal/renderviz": "1.*",
         "drupal/search_kint": "1.*",
         "drupal/speedboxes": "1.*",
+        "phpmd/phpmd": "2.*",
         "webflo/drupal-core-require-dev": "~8.5"
     },
     "minimum-stability": "dev",
