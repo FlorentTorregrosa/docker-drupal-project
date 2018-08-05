@@ -7,13 +7,11 @@
 EXIT_CODE=0
 INSTALL_DIR=`readlink -f $0 | xargs dirname`
 
-# Binaries.
-GRUNT_BIN=`command -v grunt`
-
-# Begin Grunt hook.
 cd $INSTALL_DIR
+
 gulp lint
 EXIT_CODE=$((${EXIT_CODE} + $?))
+
 cd -
 
 # Errors.
