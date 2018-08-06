@@ -31,6 +31,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
     && apt-get update \
     && apt-get install -y yarn \
     && apt-get clean \
-    && apt-get autoremove -q \
+    && apt-get autoremove -q
 
 WORKDIR /project
