@@ -72,6 +72,9 @@ RUN cd /usr/local \
     && ln -s /usr/local/composer.phar /usr/local/bin/composer \
     && echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >> $HOME/.bashrc
 
+# Install hirak/prestissimo for improve composer performance
+RUN composer global require hirak/prestissimo
+
 # Install Drush Launcher.
 RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_LAUNCHER_VERSION/drush.phar \
     && chmod +x drush.phar \
