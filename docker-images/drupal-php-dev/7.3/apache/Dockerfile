@@ -1,7 +1,7 @@
 FROM florenttorregrosa/drupal-php:7.3-apache
 
 RUN docker-php-pecl-install \
-        xdebug \
+        xdebug-beta \
     # Disable Xdebug by default.
     && mv /usr/local/etc/php/conf.d/docker-php-pecl-xdebug.ini /usr/local/etc/php/conf.d/docker-php-pecl-xdebug.disabled
 
