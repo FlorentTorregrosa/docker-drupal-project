@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libpng-dev \
         libxml2-dev \
+        libzip-dev \
         mysql-client \
         pngquant \
         python \
