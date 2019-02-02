@@ -21,6 +21,7 @@ DEVELOPMENT_MODULES=(
   config_inspector
   dblog
   devel
+  devel_php
 #  devel_a11y
   devel_generate
   field_ui

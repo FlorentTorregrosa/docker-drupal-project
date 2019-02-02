@@ -64,7 +64,7 @@ services:
 
   # Matomo.
   matomo:
-    image: matomo:3.5-fpm
+    image: matomo:3.8-fpm
 
   matomo_web:
     extends:
