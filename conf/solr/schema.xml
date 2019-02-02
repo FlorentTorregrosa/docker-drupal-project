@@ -10,7 +10,7 @@
  http://wiki.apache.org/solr/SchemaXml
 -->
 
-<schema name="drupal-4.4-solr-6.x" version="1.5">
+<schema name="drupal-4.4-solr-7.x" version="1.5">
     <!-- attribute "name" is the name of this schema and is only used for
          display purposes. Applications should change this to reflect the nature
          of the search collection.
@@ -106,7 +106,7 @@
      and require different update frequencies than the documents they are
      associated with.
     -->
-    <fieldType name="file" keyField="id" defVal="1" stored="false" indexed="false" class="solr.ExternalFileField" valType="float"/>
+    <fieldType name="file" keyField="id" defVal="1" stored="false" indexed="false" class="solr.ExternalFileField"/>
 
     <!-- The format for this date field is of the form 1995-12-31T23:59:59Z, and
          is a more restricted form of the canonical representation of dateTime
