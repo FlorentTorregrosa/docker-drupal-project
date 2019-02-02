@@ -74,7 +74,7 @@ RUN cd /usr/local \
 
 # Install hirak/prestissimo for improve Composer performance.
 RUN composer global require hirak/prestissimo \
-    && composer clear-cache \
+    && composer clear-cache
 
 # Install Drush Launcher.
 RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_LAUNCHER_VERSION/drush.phar \
