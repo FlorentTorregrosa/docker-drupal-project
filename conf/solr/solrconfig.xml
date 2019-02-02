@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE config [
-        <!ENTITY spellcheck SYSTEM "solrconfig_spellcheck.xml">
-        <!ENTITY extra SYSTEM "solrconfig_extra.xml">
-        ]>
+  <!ENTITY spellcheck SYSTEM "solrconfig_spellcheck.xml">
+  <!ENTITY extra SYSTEM "solrconfig_extra.xml">
+  <!ENTITY index SYSTEM "solrconfig_index.xml">
+]>
 
 <!--
      For more details about configurations options that may appear in
-     this file, see
-     https://lucene.apache.org/solr/guide/the-well-configured-solr-instance.html
+     this file, see http://wiki.apache.org/solr/SolrConfigXml.
 -->
-<config name="drupal-6.3-solr-7.x" >
+<config name="drupal-6.5-solr-7.x" >
   <!-- In all configuration below, a prefix of "solr." for class names
        is an alias that causes solr to search appropriate packages,
        including org.apache.solr.(search|update|request|core|analysis)
@@ -87,6 +87,7 @@
 
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lib" regex=".*\.jar" />
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lucene-libs" regex=".*\.jar" />
+  <lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-analysis-extras-\d.*\.jar" />
 
   <!-- an exact 'path' can be used instead of a 'dir' to specify a
        specific jar file.  This will cause a serious error to be logged
@@ -197,15 +198,6 @@
         </mergePolicyFactory>
      -->
 
-    <mergePolicyFactory class="org.apache.solr.index.LogByteSizeMergePolicyFactory">
-      <!-- Merge Factor
-         The merge factor controls how many segments will get merged at a time.
-         For LogByteSizeMergePolicy, mergeFactor decides how many new segments
-         will be allowed before they are merged into one.
-      -->
-      <int name="mergeFactor">4</int>
-    </mergePolicyFactory>
-
     <!-- Expert: Merge Scheduler
          The Merge Scheduler in Lucene controls how merges are
          performed.  The ConcurrentMergeScheduler (Lucene 2.3 default)
@@ -274,29 +266,14 @@
 
          Setting the value to true will instruct the underlying Lucene
          IndexWriter to write its info stream to solr's log. By default,
-         this is enabled here, and controlled through log4j.properties.
+         this is enabled here, and controlled through log4j2.xml
       -->
     <infoStream>true</infoStream>
+
+    <!-- Let the config generator easily inject additional stuff. -->
+    &index;
+
   </indexConfig>
-
-
-  <!-- JMX
-
-       This example enables JMX if and only if an existing MBeanServer
-       is found, use this if you want to configure JMX through JVM
-       parameters. Remove this to disable exposing Solr configuration
-       and statistics to JMX.
-
-       For more details see http://wiki.apache.org/solr/SolrJmx
-    -->
-  <!-- <jmx /> -->
-  <!-- If you want to connect to a particular server, specify the
-       agentId
-    -->
-  <!-- <jmx agentId="myAgent" /> -->
-  <!-- If you want to start a new MBeanServer, specify the serviceUrl -->
-  <!-- <jmx serviceUrl="service:jmx:rmi:///jndi/rmi://localhost:9999/solr"/>
-    -->
 
   <!-- The default high-performance update handler -->
   <updateHandler class="solr.DirectUpdateHandler2">
@@ -333,8 +310,8 @@
          have some sort of hard autoCommit to limit the log size.
       -->
     <autoCommit>
-      <maxDocs>${solr.autoCommit.MaxDocs:10000}</maxDocs>
-      <maxTime>${solr.autoCommit.MaxTime:120000}</maxTime>
+      <maxDocs>${solr.autoCommit.MaxDocs:-1}</maxDocs>
+      <maxTime>${solr.autoCommit.MaxTime:15000}</maxTime>
       <openSearcher>false</openSearcher>
     </autoCommit>
 
@@ -342,10 +319,11 @@
          'soft' commit which only ensures that changes are visible
          but does not ensure that data is synced to disk.  This is
          faster and more near-realtime friendly than a hard commit.
-    -->
+      -->
+
     <autoSoftCommit>
-      <maxDocs>${solr.autoSoftCommit.MaxDocs:2000}</maxDocs>
-      <maxTime>${solr.autoSoftCommit.MaxTime:10000}</maxTime>
+      <maxDocs>${solr.autoSoftCommit.MaxDocs:-1}</maxDocs>
+      <maxTime>${solr.autoSoftCommit.MaxTime:-1}</maxTime>
     </autoSoftCommit>
 
     <!-- Update Related Event Listeners
@@ -474,7 +452,7 @@
     <queryResultCache class="solr.LRUCache"
                       size="512"
                       initialSize="512"
-                      autowarmCount="32"/>
+                      autowarmCount="0"/>
 
     <!-- Document Cache
 
@@ -615,17 +593,6 @@
       -->
     <useColdSearcher>false</useColdSearcher>
 
-    <!-- Max Warming Searchers
-
-         Maximum number of searchers that may be warming in the
-         background concurrently.  An error is returned if this limit
-         is exceeded.
-
-         Recommend values of 1-2 for read-only slaves, higher for
-         masters w/o cache warming.
-      -->
-    <maxWarmingSearchers>2</maxWarmingSearchers>
-
   </query>
 
 
@@ -666,7 +633,7 @@
     <requestParsers enableRemoteStreaming="false"
                     multipartUploadLimitInKB="-1"
                     formdataUploadLimitInKB="-1"
-                     addHttpRequestToContext="false"/>
+                    addHttpRequestToContext="false"/>
       -->
 
     <!-- HTTP Caching
@@ -838,11 +805,11 @@
 
   <!-- A minimal query type for doing lucene queries -->
   <requestHandler name="standard" class="solr.SearchHandler">
-    <lst name="defaults">
-      <str name="df">content</str>
-      <str name="echoParams">explicit</str>
-      <bool name="omitHeader">true</bool>
-    </lst>
+     <lst name="defaults">
+       <str name="df">content</str>
+       <str name="echoParams">explicit</str>
+       <bool name="omitHeader">true</bool>
+     </lst>
   </requestHandler>
 
   <initParams path="/update/**,/query,/select,/tvrh,/elevate,/spell,/browse">
@@ -931,8 +898,8 @@
   <!-- Echo the request contents back to the client -->
   <requestHandler name="/debug/dump" class="solr.DumpRequestHandler" >
     <lst name="defaults">
-      <str name="echoParams">explicit</str>
-      <str name="echoHandler">true</str>
+     <str name="echoParams">explicit</str>
+     <str name="echoHandler">true</str>
     </lst>
   </requestHandler>
 
@@ -1112,7 +1079,7 @@
 
   <!-- A request handler for demonstrating the terms component -->
   <requestHandler name="/terms" class="solr.SearchHandler" startup="lazy">
-    <lst name="defaults">
+     <lst name="defaults">
       <bool name="terms">true</bool>
       <bool name="distrib">false</bool>
     </lst>
@@ -1371,23 +1338,18 @@
     -->
 
   <queryResponseWriter name="json" class="solr.JSONResponseWriter">
-    <!-- For the purposes of the tutorial, JSON responses are written as
-     plain text so that they are easy to read in *any* browser.
-     If you expect a MIME type of "application/json" just remove this override.
-    -->
-    <str name="content-type">application/json; charset=UTF-8</str>
   </queryResponseWriter>
 
   <!--
      Custom response writers can be declared as needed...
     -->
-  <!-- The solr.velocity.enabled flag is used by Solr's test cases so that this response writer is not
-       loaded (causing an error if contrib/velocity has not been built fully) -->
-  <!--
-  <queryResponseWriter name="velocity" class="solr.VelocityResponseWriter" startup="lazy">
-    <str name="template.base.dir">${velocity.template.base.dir:}</str>
-  </queryResponseWriter>
-  -->
+    <!-- The solr.velocity.enabled flag is used by Solr's test cases so that this response writer is not
+         loaded (causing an error if contrib/velocity has not been built fully) -->
+    <!--
+    <queryResponseWriter name="velocity" class="solr.VelocityResponseWriter" startup="lazy">
+      <str name="template.base.dir">${velocity.template.base.dir:}</str>
+    </queryResponseWriter>
+    -->
 
   <!-- XSLT response writer transforms the XML output by any xslt file found
        in Solr's conf/xslt directory.  Changes to xslt files are checked for
