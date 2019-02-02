@@ -1,8 +1,8 @@
 FROM php:7.2-apache
 
 ENV DEBCONF_FRONTEND non-interactive
-ENV PHPREDIS_VERSION 3.1.4
-ENV DRUSH_LAUNCHER_VERSION 0.4.3
+ENV PHPREDIS_VERSION 4.2.0
+ENV DRUSH_LAUNCHER_VERSION 0.6.0
 
 ADD bin/docker-php-pecl-install /usr/local/bin/
 
@@ -72,8 +72,9 @@ RUN cd /usr/local \
     && ln -s /usr/local/composer.phar /usr/local/bin/composer \
     && echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >> $HOME/.bashrc
 
-# Install hirak/prestissimo for improve composer performance
-RUN composer global require hirak/prestissimo
+# Install hirak/prestissimo for improve Composer performance.
+RUN composer global require hirak/prestissimo \
+    && composer clear-cache \
 
 # Install Drush Launcher.
 RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_LAUNCHER_VERSION/drush.phar \

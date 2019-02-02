@@ -1,4 +1,4 @@
-FROM florenttorregrosa/drupal-php:7.1-apache
+FROM florenttorregrosa/drupal-php:7.3-apache
 
 RUN docker-php-pecl-install \
         xdebug \
