@@ -7,6 +7,9 @@ services:
       service: drupal-php-apache-dev
     environment:
       - DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME=${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp7.docker.localhost}
+      - COMPOSER_ALLOW_SUPERUSER=1
+      - XDEBUG_HOST=${XDEBUG_HOST:-172.17.0.1}
+      - XDEBUG_ENABLED=${XDEBUG_ENABLED:-false}
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp7.docker.localhost}"
