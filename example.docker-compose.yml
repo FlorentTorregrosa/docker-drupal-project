@@ -64,7 +64,7 @@ services:
 
   # Matomo.
   matomo:
-    image: matomo:3.8-fpm
+    image: matomo:3.9-fpm
 
   matomo_web:
     extends:
@@ -73,6 +73,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${MATOMO_TRAEFIK_FRONTEND_RULE_HOSTNAME:-matomo.ddp8.docker.localhost}"
+    networks:
+      default:
+        aliases:
+          - ${MATOMO_TRAEFIK_FRONTEND_RULE_HOSTNAME:-matomo.ddp8.docker.localhost}
     volumes_from:
       - matomo
 
