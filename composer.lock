@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a97db90c104aabe2392b6a9f17dbfbf0",
+    "content-hash": "6da7ec78e501354a056cc28b221eacc3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5817,6 +5817,49 @@
             "time": "2017-04-25T02:31:25+00:00"
         },
         {
+            "name": "zaporylie/composer-drupal-optimizations",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zaporylie/composer-drupal-optimizations.git",
+                "reference": "173c198fd7c9aefa5e5b68cd755ee63eb0abf7e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zaporylie/composer-drupal-optimizations/zipball/173c198fd7c9aefa5e5b68cd755ee63eb0abf7e8",
+                "reference": "173c198fd7c9aefa5e5b68cd755ee63eb0abf7e8",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1"
+            },
+            "require-dev": {
+                "composer/composer": "^1.6",
+                "phpunit/phpunit": "^6"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "zaporylie\\ComposerDrupalOptimizations\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "zaporylie\\ComposerDrupalOptimizations\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Piasecki",
+                    "email": "jakub@piaseccy.pl"
+                }
+            ],
+            "description": "Composer plugin to improve composer performance for Drupal projects",
+            "time": "2019-02-20T10:00:17+00:00"
+        },
+        {
             "name": "zendframework/zend-diactoros",
             "version": "1.8.6",
             "source": {
@@ -6624,8 +6667,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/mbostock-bower/d3-bower/zipball/7a826d211d5067867debf9ce24a9987e0cb02b6e",
-                "reference": "7a826d211d5067867debf9ce24a9987e0cb02b6e",
-                "shasum": null
+                "reference": "7a826d211d5067867debf9ce24a9987e0cb02b6e"
             },
             "type": "bower-asset",
             "license": [
@@ -6643,8 +6685,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/components/highlightjs/zipball/3686afa1decd999857ac9e1ae27c24df2e64be3a",
-                "reference": "3686afa1decd999857ac9e1ae27c24df2e64be3a",
-                "shasum": null
+                "reference": "3686afa1decd999857ac9e1ae27c24df2e64be3a"
             },
             "type": "bower-asset"
         },
@@ -7247,7 +7288,8 @@
                 "source": "http://cgit.drupalcode.org/devel",
                 "issues": "http://drupal.org/project/devel",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "time": "2019-04-24T15:01:22+00:00"
         },
         {
             "name": "drupal/devel_a11y",

@@ -42,7 +42,8 @@
         "drupal/varnish_purge": "1.11.0",
         "drush/drush": "9.6.2",
         "oomphinc/composer-installers-extender": "^1.1",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "require-dev": {
         "anam/phantomjs-linux-x86-binary": "~2.1.1",
