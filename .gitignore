@@ -1,6 +1,7 @@
 # From composer.
 /vendor
 /drush/contrib
+/drush/Commands
 
 # Contrib files.
 /www/core

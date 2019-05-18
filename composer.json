@@ -32,12 +32,12 @@
         "drupal-composer/drupal-l10n": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/admin_toolbar": "1.26.0",
-        "drupal/core": "8.6.15",
+        "drupal/core": "8.7.1",
         "drupal/drush_language": "1.0.0-rc2",
         "drupal/matomo": "1.9.0",
         "drupal/purge": "3.0.0-beta8",
         "drupal/redis": "1.1.0",
-        "drupal/search_api": "1.12.0",
+        "drupal/search_api": "1.13.0",
         "drupal/search_api_solr": "2.7.0",
         "drupal/varnish_purge": "1.11.0",
         "drush/drush": "9.6.2",
@@ -62,16 +62,16 @@
         "drupal/search_kint": "1.*",
         "drupal/speedboxes": "1.*",
         "phpmd/phpmd": "2.*",
-        "webflo/drupal-core-require-dev": "~8.6"
+        "webflo/drupal-core-require-dev": "~8.7"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
-        "sort-packages": true,
         "platform": {
             "php": "7.3"
-        }
+        },
+        "sort-packages": true
     },
     "scripts": {
         "post-create-project-cmd": [
@@ -85,6 +85,7 @@
         ]
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
         "drupal-l10n": {
             "destination": "translations/contrib",
             "languages": [
@@ -101,21 +102,22 @@
             ]
         },
         "installer-paths": {
+            "drush/Commands/{$name}": [
+                "type:drupal-drush"
+            ],
             "www/core": [
                 "type:drupal-core"
             ],
+            "www/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
             "www/modules/contrib/{$name}": [
-                "type:drupal-module",
-                "type:drupal-drush"
+                "type:drupal-module"
             ],
             "www/modules/custom/{$name}": [
                 "type:drupal-custom-module"
-            ],
-            "www/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "www/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
             ],
             "www/profiles/contrib/{$name}": [
                 "type:drupal-profile"
@@ -123,10 +125,11 @@
             "www/profiles/custom/{$name}": [
                 "type:drupal-custom-profile"
             ],
-            "www/libraries/{$name}": [
-                "type:drupal-library",
-                "type:bower-asset",
-                "type:npm-asset"
+            "www/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "www/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
             ]
         },
         "installer-types": [
