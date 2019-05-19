@@ -47,10 +47,10 @@ You have to "be" in the docroot folder (eg: `/project/www`) or the project
 folder (eg: `/project`)
 
 Optional: you can use Drush within the web container by using the alias
-`@docker.default`:
+`@project.docker`:
 
 ```bash
-drush @docker.default status
+drush @project.docker status
 ```
 
 ### How to import a custom dump?

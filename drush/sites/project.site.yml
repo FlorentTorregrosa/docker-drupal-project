@@ -1,5 +1,3 @@
 docker:
-  host: localhost
-  user: root
   root: '/project/www'
   uri: 'http://web.ddp8.docker.localhost'
