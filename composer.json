@@ -3,7 +3,7 @@
     "description": "Drupal project template with Docker environment.",
     "type": "project",
     "homepage": "https://github.com/FlorentTorregrosa/docker-drupal-project",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Florent Torregrosa",
@@ -42,6 +42,9 @@
         "drupal/varnish_purge": "1.11.0",
         "drush/drush": "9.7.0",
         "oomphinc/composer-installers-extender": "^1.1",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
         "wikimedia/composer-merge-plugin": "^1.4",
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
@@ -64,6 +67,9 @@
         "phpmd/phpmd": "2.*",
         "webflo/drupal-core-require-dev": "~8.7"
     },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
@@ -73,14 +79,28 @@
         },
         "sort-packages": true
     },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": ["load.environment.php"]
+    },
     "scripts": {
         "post-create-project-cmd": [
             "bash ./scripts/init.sh"
         ],
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
         "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "@composer drupal:scaffold"
         ],
         "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "@composer drupal:scaffold"
         ]
     },
@@ -99,7 +119,11 @@
                 "web.config",
                 "sites/development.services.yml",
                 "sites/example.settings.local.php"
-            ]
+            ],
+            "initial": {
+                ".editorconfig": "../.editorconfig",
+                ".gitattributes": "../.gitattributes"
+            }
         },
         "installer-paths": {
             "drush/Commands/{$name}": [

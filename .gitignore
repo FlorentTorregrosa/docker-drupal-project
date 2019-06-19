@@ -1,12 +1,12 @@
 # From composer.
 /vendor
 /drush/contrib
-/drush/Commands
 
 # Contrib files.
 /www/core
 /www/libraries
 /www/modules/contrib
+/www/profiles/contrib
 /www/themes/contrib
 /www/translations/contrib
 
@@ -17,18 +17,17 @@
 /www/robots.txt
 
 # Development config files.
+/.editorconfig
 /www/.csslintrc
-/www/.editorconfig
 /www/.eslintignore
 /www/.eslintrc.json
-/www/.gitattributes
 
 # Drupal's file directory.
 /www/sites/default/default.services.yml
 /www/sites/default/default.settings.php
 /www/sites/example.sites.php
 /www/sites/sites.php
-/www/sites/default/files
+/www/sites/*/files
 /private_files
 /www/sites/simpletest
 
