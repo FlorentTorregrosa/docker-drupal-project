@@ -114,6 +114,8 @@
         },
         "drupal-scaffold": {
             "excludes": [
+                ".editorconfig",
+                ".gitattributes",
                 ".ht.router.php",
                 "update.php",
                 "web.config",
