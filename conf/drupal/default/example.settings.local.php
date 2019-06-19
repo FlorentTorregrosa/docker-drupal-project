@@ -28,7 +28,7 @@ foreach ($environment_trusted_host_patterns as $environment_trusted_host_pattern
   }
 }
 
-$settings['file_private_path'] = '/project/private_files/default';
+$settings['file_private_path'] = $app_root . '/../private_files/default';
 
 // Translations.
 $config['locale.settings']['translation']['path'] = 'translations/contrib';
