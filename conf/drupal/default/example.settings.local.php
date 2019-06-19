@@ -24,7 +24,10 @@ $environment_trusted_host_patterns = [
 
 foreach ($environment_trusted_host_patterns as $environment_trusted_host_pattern) {
   if (getenv($environment_trusted_host_pattern)) {
-    $settings['trusted_host_patterns'][] = getenv($environment_trusted_host_pattern);
+    $domains = explode(',', getenv($environment_trusted_host_pattern));
+    foreach ($domains as $domain) {
+      $settings['trusted_host_patterns'][] = '^' . $domain . '$';
+    }
   }
 }
 
