@@ -31,6 +31,7 @@
         "cweagans/composer-patches": "~1.0",
         "drupal-composer/drupal-l10n": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal-composer/drupal-security-advisories": "dev-8.x-v2",
         "drupal/admin_toolbar": "1.27.0",
         "drupal/core": "8.7.3",
         "drupal/drush_language": "1.0.0-rc2",
