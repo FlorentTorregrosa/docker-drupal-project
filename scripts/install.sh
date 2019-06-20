@@ -6,7 +6,7 @@
 . $SCRIPTS_PATH/tasks/composer_install.sh
 
 echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to www.${NC}"
-cd $WWW_PATH
+cd $APP_PATH
 
 echo -e "${LIGHT_GREEN}Clear Drush cache in case of update.${NC}"
 $DRUSH cache:clear drush
@@ -33,6 +33,9 @@ $DRUSH updatedb --entity-updates -y
 . $SCRIPTS_PATH/tasks/development_modules.sh
 #. $SCRIPTS_PATH/tasks/migrate_imports.sh
 #. $SCRIPTS_PATH/tasks/update_translations.sh
+
+echo -e "${LIGHT_GREEN}Rebuild Drupal paranoia.${NC}"
+composer drupal:paranoia --working-dir="${PROJECT_PATH}"
 
 echo -e "${LIGHT_GREEN}Run CRON.${NC}"
 $DRUSH core:cron

@@ -7,33 +7,33 @@
 /logs
 
 # Contrib files.
-/www/core
-/www/libraries
-/www/modules/contrib
-/www/profiles/contrib
-/www/themes/contrib
-/www/translations/contrib
+/app/core
+/app/libraries
+/app/modules/contrib
+/app/profiles/contrib
+/app/themes/contrib
+/app/translations/contrib
 
-/www/autoload.php
-/www/index.php
+/app/autoload.php
+/app/index.php
 
-/www/.htaccess
-/www/robots.txt
+/app/.htaccess
+/app/robots.txt
 
 # Development config files.
 /.editorconfig
-/www/.csslintrc
-/www/.eslintignore
-/www/.eslintrc.json
+/app/.csslintrc
+/app/.eslintignore
+/app/.eslintrc.json
 
 # Drupal's file directory.
-/www/sites/default/default.services.yml
-/www/sites/default/default.settings.php
-/www/sites/example.sites.php
-/www/sites/sites.php
-/www/sites/*/files
+/app/sites/default/default.services.yml
+/app/sites/default/default.settings.php
+/app/sites/example.sites.php
+/app/sites/sites.php
+/app/sites/*/files
 /private_files
-/www/sites/simpletest
+/app/sites/simpletest
 
 # Drupal local settings.
 /conf/drupal/**/settings.local.php
@@ -54,3 +54,6 @@ node_modules
 /.env
 /docker-compose.yml
 /data
+
+# Drupal paranoia.
+/www

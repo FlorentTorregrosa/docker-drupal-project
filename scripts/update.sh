@@ -3,8 +3,8 @@
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.local.sh
 
-echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to www.${NC}"
-cd $WWW_PATH
+echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to app.${NC}"
+cd $APP_PATH
 
 echo -e "${LIGHT_GREEN}Database backup.${NC}"
 $DRUSH sql:dump --result-file="${PROJECT_PATH}/backups/${CURRENT_DATE}.sql" --gzip --structure-tables-key="common"
@@ -31,6 +31,9 @@ $DRUSH updatedb --entity-updates -y
 #fi
 
 #. $SCRIPTS_PATH/tasks/update_translations.sh
+
+echo -e "${LIGHT_GREEN}Rebuild Drupal paranoia.${NC}"
+composer drupal:paranoia --working-dir="${PROJECT_PATH}"
 
 echo -e "${LIGHT_GREEN}Remove the maintenance mode.${NC}"
 $DRUSH state:set system.maintenance_mode 0

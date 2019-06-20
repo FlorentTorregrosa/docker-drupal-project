@@ -8,6 +8,7 @@ PROJECT_PATH=$(abspath $(dirname $(dirname ${BASH_SOURCE[0]})))
 
 CURRENT_PATH=$(pwd)
 
+APP_PATH=$PROJECT_PATH/app
 SCRIPTS_PATH=$PROJECT_PATH/scripts
 WWW_PATH=$PROJECT_PATH/www
 

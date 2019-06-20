@@ -10,8 +10,8 @@ usage() {
 echo -e "${LIGHT_GREEN}Disable Drupal Debug.${NC}"
 composer drupal-debug:disable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"
 
-echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to www.${NC}"
-cd $WWW_PATH
+echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to app.${NC}"
+cd $APP_PATH
 
 echo -e "${LIGHT_GREEN}Start Phantomjs in case of Javascript tests.${NC}"
 $PROJECT_PATH/vendor/bin/phantomjs --ssl-protocol=any --ignore-ssl-errors=true $PROJECT_PATH/vendor/jcalderonzumba/gastonjs/src/Client/main.js 8510 1024 768 2>&1 >> /dev/null &

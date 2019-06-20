@@ -5,7 +5,7 @@
  or your current system user. See core/tests/README.md and
  https://www.drupal.org/node/2116263 for details.
 -->
-<phpunit bootstrap="/project/www/core/tests/bootstrap.php" colors="true"
+<phpunit bootstrap="/project/app/core/tests/bootstrap.php" colors="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutChangesToGlobalState="true">
@@ -27,7 +27,7 @@
     <!-- Example SIMPLETEST_DB value: mysql://username:password@localhost/databasename#table_prefix -->
     <env name="SIMPLETEST_DB" value="mysql://drupal:drupal@mysql/drupal"/>
     <!-- Example BROWSERTEST_OUTPUT_DIRECTORY value: /path/to/webroot/sites/simpletest/browser_output -->
-    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/project/www/sites/default/files/simpletest"/>
+    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/project/app/sites/default/files/simpletest"/>
     <!-- To disable deprecation testing completely uncomment the next line. -->
     <!-- <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled"/> -->
     <!-- Example for changing the driver class for mink tests MINK_DRIVER_CLASS value: 'Drupal\FunctionalJavascriptTests\DrupalSelenium2Driver' -->
@@ -37,16 +37,16 @@
   </php>
   <testsuites>
     <testsuite name="unit">
-      <file>/project/www/core/tests/TestSuites/UnitTestSuite.php</file>
+      <file>/project/app/core/tests/TestSuites/UnitTestSuite.php</file>
     </testsuite>
     <testsuite name="kernel">
-      <file>/project/www/core/tests/TestSuites/KernelTestSuite.php</file>
+      <file>/project/app/core/tests/TestSuites/KernelTestSuite.php</file>
     </testsuite>
     <testsuite name="functional">
-      <file>/project/www/core/tests/TestSuites/FunctionalTestSuite.php</file>
+      <file>/project/app/core/tests/TestSuites/FunctionalTestSuite.php</file>
     </testsuite>
     <testsuite name="functional-javascript">
-      <file>/project/www/core/tests/TestSuites/FunctionalJavascriptTestSuite.php</file>
+      <file>/project/app/core/tests/TestSuites/FunctionalJavascriptTestSuite.php</file>
     </testsuite>
   </testsuites>
   <listeners>
@@ -59,11 +59,11 @@
   <!-- Filter for coverage reports. -->
   <filter>
     <whitelist>
-      <directory>/project/www/core/includes</directory>
-      <directory>/project/www/core/lib</directory>
-      <directory>/project/www/core/modules</directory>
-      <directory>/project/www/modules</directory>
-      <directory>/project/www/sites</directory>
+      <directory>/project/app/core/includes</directory>
+      <directory>/project/app/core/lib</directory>
+      <directory>/project/app/core/modules</directory>
+      <directory>/project/app/modules</directory>
+      <directory>/project/app/sites</directory>
       <!-- Exclude all test modules, tests etc -->
       <exclude-pattern>*/tests/*</exclude-pattern>
     </whitelist>

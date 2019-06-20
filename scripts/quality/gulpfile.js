@@ -5,7 +5,7 @@ var $        = require('gulp-load-plugins')(),
   gulp       = require('gulp');
 
 var projectRootDir = '../..';
-var sourceDir = projectRootDir + '/www';
+var sourceDir = projectRootDir + '/app';
 
 // CSS.
 var cssFiles = [

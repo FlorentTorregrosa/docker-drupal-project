@@ -1,8 +1,8 @@
 **/vendor/**/*
 **/node_modules/**/*
 **/js_test_files/**/*
-../../www/core/**/*
-../../www/sites/**/files/**/*
-../../www/libraries/**/*
-../../www/sites/**/libraries/**/*
-../../www/profiles/**/libraries/**/*
+../../app/core/**/*
+../../app/sites/**/files/**/*
+../../app/libraries/**/*
+../../app/sites/**/libraries/**/*
+../../app/profiles/**/libraries/**/*

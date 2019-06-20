@@ -30,6 +30,7 @@
         "composer/installers": "^1.0.21",
         "cweagans/composer-patches": "~1.0",
         "drupal-composer/drupal-l10n": "^1.0",
+        "drupal-composer/drupal-paranoia": "~1",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal-composer/drupal-security-advisories": "dev-8.x-v2",
         "drupal/admin_toolbar": "1.27.0",
@@ -114,6 +115,15 @@
                 "fr"
             ]
         },
+        "drupal-paranoia": {
+            "app-dir": "app",
+            "web-dir": "www",
+            "excludes": [
+                "core/install.php",
+                "core/rebuild.php",
+                "core/modules/statistics/statistics.php"
+            ]
+        },
         "drupal-scaffold": {
             "excludes": [
                 ".editorconfig",
@@ -130,34 +140,34 @@
             }
         },
         "installer-paths": {
-            "drush/Commands/{$name}": [
-                "type:drupal-drush"
-            ],
-            "www/core": [
+            "app/core": [
                 "type:drupal-core"
             ],
-            "www/libraries/{$name}": [
+            "app/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "www/modules/contrib/{$name}": [
+            "app/modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
-            "www/modules/custom/{$name}": [
+            "app/modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
-            "www/profiles/contrib/{$name}": [
+            "app/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
-            "www/profiles/custom/{$name}": [
+            "app/profiles/custom/{$name}": [
                 "type:drupal-custom-profile"
             ],
-            "www/themes/contrib/{$name}": [
+            "app/themes/contrib/{$name}": [
                 "type:drupal-theme"
             ],
-            "www/themes/custom/{$name}": [
+            "app/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
+            ],
+            "drush/Commands/{$name}": [
+                "type:drupal-drush"
             ]
         },
         "installer-types": [
@@ -166,9 +176,9 @@
         ],
         "merge-plugin": {
             "include": [
-                "www/modules/custom/*/composer.json",
-                "www/profiles/custom/*/composer.json",
-                "www/themes/custom/*/composer.json"
+                "app/modules/custom/*/composer.json",
+                "app/profiles/custom/*/composer.json",
+                "app/themes/custom/*/composer.json"
             ],
             "merge-extra": true,
             "merge-extra-deep": true,

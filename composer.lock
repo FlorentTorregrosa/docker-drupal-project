@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8341e4b111096d5de593f7d112c5dc32",
+    "content-hash": "394024bc16c0c21b6e8c5fafcc82d5c1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1917,6 +1917,43 @@
             ],
             "description": "Composer Plugin for downloading Drupal translation files",
             "time": "2018-07-02T17:45:04+00:00"
+        },
+        {
+            "name": "drupal-composer/drupal-paranoia",
+            "version": "1.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupal-composer/drupal-paranoia.git",
+                "reference": "15027ee3dd06cdecda19356dd978521924d0d388"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-paranoia/zipball/15027ee3dd06cdecda19356dd978521924d0d388",
+                "reference": "15027ee3dd06cdecda19356dd978521924d0d388",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "php": ">=5.4.5"
+            },
+            "require-dev": {
+                "composer/composer": "dev-master"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "DrupalComposer\\DrupalParanoia\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "DrupalComposer\\DrupalParanoia\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Composer Plugin for improving the security of composer-based Drupal projects by moving all PHP files out of docroot.",
+            "time": "2019-01-24T19:28:47+00:00"
         },
         {
             "name": "drupal-composer/drupal-scaffold",

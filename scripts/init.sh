@@ -9,15 +9,15 @@ rsync -avz --ignore-existing $SCRIPTS_PATH/example.script-parameters.local.sh   
 rsync -avz --ignore-existing $PROJECT_PATH/conf/drupal/default/example.settings.local.php $PROJECT_PATH/conf/drupal/default/settings.local.php
 
 echo -e "${LIGHT_GREEN}Create public files directory.${NC}"
-mkdir -p $WWW_PATH/sites/default/files
+mkdir -p $APP_PATH/sites/default/files
 
 echo -e "${LIGHT_GREEN}Ensure the following directories are present. Otherwise automated tests fail.${NC}"
-mkdir -p $WWW_PATH/modules
-mkdir -p $WWW_PATH/profiles
-mkdir -p $WWW_PATH/themes
+mkdir -p $APP_PATH/modules
+mkdir -p $APP_PATH/profiles
+mkdir -p $APP_PATH/themes
 
 echo -e "${LIGHT_GREEN}Permissions are for dev environments. It should be less permissive.${NC}"
-chmod 777 $WWW_PATH/sites/default/files
+chmod 777 $APP_PATH/sites/default/files
 
 echo -e "${LIGHT_GREEN}Create symlink to git hook.${NC}"
 ln -s ../../scripts/quality/git-pre-commit-hook.sh $PROJECT_PATH/.git/hooks/pre-commit

@@ -46,7 +46,7 @@ containers.
 
 ### How to use Drush within Docker?
 
-You have to "be" in the docroot folder (eg: `/project/www`) or the project
+You have to "be" in the app folder (eg: `/project/app`) or the project
 folder (eg: `/project`)
 
 Optional: you can use Drush within the web container by using the alias
