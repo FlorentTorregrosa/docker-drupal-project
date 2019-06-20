@@ -1,10 +1,12 @@
-version: "2.3"
+version: "3.7"
 
 services:
   web:
-    extends:
-      file: ./docker-compose-common.yml
-      service: drupal-php-apache-dev
+    image: florenttorregrosa/drupal-php-dev:7.3-apache
+    volumes:
+      - .:/project:delegated
+      - ./conf/php/php.ini:/usr/local/etc/php/php.ini:delegated
+      - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf:delegated
     environment:
       - DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME=${DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-web.ddp8.docker.localhost}
       - VARNISH_TRAEFIK_FRONTEND_RULE_HOSTNAME=${VARNISH_TRAEFIK_FRONTEND_RULE_HOSTNAME:-varnish.ddp8.docker.localhost}
@@ -25,57 +27,83 @@ services:
       - redis
       - mail
 
+
   varnish:
-    extends:
-      file: ./docker-compose-common.yml
-      service: varnish
+    image: florenttorregrosa/varnish:6-alpine
+    volumes:
+      - ./conf/varnish:/varnish-drupal:delegated
+    environment:
+      VCL_CONFIG: /varnish-drupal/varnish.vcl
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${VARNISH_TRAEFIK_FRONTEND_RULE_HOSTNAME:-varnish.ddp8.docker.localhost}"
     depends_on:
       - web
 
+
   mysql:
-    extends:
-      file: ./docker-compose-common.yml
-      service: mysql
+    image: mariadb:10.4
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
       MYSQL_DATABASE: drupal
     volumes:
-      - ./data/db:/var/lib/mysql
+      - ./conf/mysql:/etc/mysql/conf.d:delegated
+      - ./data/db:/var/lib/mysql:delegated
 
 
   solr:
-    extends:
-      file: ./docker-compose-common.yml
-      service: solr
+    image: solr:7.6-alpine
+    volumes:
+      - ./conf/solr:/solr-drupal/conf:delegated
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - drupal
+      - /solr-drupal
 
 
   redis:
-    extends:
-      file: ./docker-compose-common.yml
-      service: redis
+    image: redis:5.0-alpine
+    volumes:
+      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf:delegated
+    entrypoint:
+      - docker-entrypoint.sh
+      - /usr/local/etc/redis/redis.conf
 
 
   mail:
-    extends:
-      file: ./docker-compose-common.yml
-      service: mail
+    image: djfarrelly/maildev
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${MAIL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-mail.ddp8.docker.localhost}"
       - "traefik.port=80"
 
+
   # Matomo.
   matomo:
     image: matomo:3.9-fpm
+    volumes:
+     - type: volume
+       source: matomo-volume
+       target: /var/www/html
+       consistency: delegated
 
   matomo_web:
-    extends:
-      file: ./docker-compose-common.yml
-      service: matomo_nginx
+    image: nginx:1.15-alpine
+    volumes:
+      - type: bind
+        source: ./conf/matomo_nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+        consistency: delegated
+      - type: volume
+        source: matomo-volume
+        target: /var/www/html
+        consistency: delegated
+    environment:
+      - VIRTUAL_HOST
     labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:${MATOMO_TRAEFIK_FRONTEND_RULE_HOSTNAME:-matomo.ddp8.docker.localhost}"
@@ -83,16 +111,17 @@ services:
       default:
         aliases:
           - ${MATOMO_TRAEFIK_FRONTEND_RULE_HOSTNAME:-matomo.ddp8.docker.localhost}
-    volumes_from:
-      - matomo
 
   matomo_mysql:
-    extends:
-      file: ./docker-compose-common.yml
-      service: mysql
+    image: mariadb:10.4
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: matomo
       MYSQL_PASSWORD: matomo
       MYSQL_DATABASE: matomo
     volumes:
-      - ./data/matomo_db:/var/lib/mysql
+      - ./conf/mysql:/etc/mysql/conf.d:delegated
+      - ./data/matomo_db:/var/lib/mysql:delegated
+
+volumes:
+  matomo-volume:

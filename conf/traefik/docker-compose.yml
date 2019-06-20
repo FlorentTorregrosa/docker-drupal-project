@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 
 services:
   traefik:
@@ -10,7 +10,7 @@ services:
       - "8080:8080"
     network_mode: host
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik.toml:/etc/traefik/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock:delegated
+      - ./traefik.toml:/etc/traefik/traefik.toml:delegated
     labels:
       - "traefik.enable=true"

@@ -52,7 +52,6 @@ node_modules
 
 # Docker.
 /.env
-/docker-compose.yml
 /data
 
 # Drupal paranoia.
