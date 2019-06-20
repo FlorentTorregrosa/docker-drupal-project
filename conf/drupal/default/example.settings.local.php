@@ -1,5 +1,9 @@
 <?php
 
+// @codingStandardsIgnoreFile
+// See https://git.drupalcode.org/project/drupal/blob/HEAD/sites/default/default.settings.php
+
+$databases = [];
 $databases['default']['default'] = [
   'driver' => 'mysql',
   'database' => 'drupal',
@@ -9,7 +13,36 @@ $databases['default']['default'] = [
   'prefix' => '',
 ];
 
+// Change this value.
 $settings['hash_salt'] = 'template';
+
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => $app_root . '/' . $site_path . '/../../../conf/drupal/default/sync',
+];
+
+$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+
+$settings['update_free_access'] = FALSE;
+$settings['allow_authorize_operations'] = FALSE;
+
+$settings['file_public_path'] = 'sites/default/files';
+$settings['file_private_path'] = $app_root . '/../private_files/default';
+
+$settings['file_scan_ignore_directories'] = [
+  'node_modules',
+  'bower_components',
+];
+
+// Prevent deletion of orphan files.
+// TODO: Remove this line when the following issues will be fixed:
+// - https://www.drupal.org/node/2801777
+// - https://www.drupal.org/node/2708411
+// - https://www.drupal.org/node/1239558
+// - https://www.drupal.org/node/2666700
+// - https://www.drupal.org/node/2810355
+$config['system.file']['temporary_maximum_age'] = 0;
+
+// Trusted host pattern.
 $settings['trusted_host_patterns'] = [
   '^localhost$',
   '^127\.0\.0\.1$',
@@ -31,11 +64,16 @@ foreach ($environment_trusted_host_patterns as $environment_trusted_host_pattern
   }
 }
 
-$settings['file_private_path'] = $app_root . '/../private_files/default';
-
 // Translations.
 $config['locale.settings']['translation']['path'] = 'translations/contrib';
 $config['locale.settings']['translation']['use_source'] = 'local';
+
+// Performance.
+$settings['omit_vary_cookie'] = TRUE;
+
+$config['system.performance']['cache']['page']['max_age'] = 86400;
+$config['system.performance']['css']['preprocess'] = TRUE;
+$config['system.performance']['js']['preprocess'] = TRUE;
 
 // Redis.
 $settings['redis.connection']['interface'] = 'PhpRedis';
@@ -51,6 +89,15 @@ $settings['cache']['default'] = 'cache.backend.redis';
 // Varnish.
 $config['varnish_purger.settings.varnish']['hostname'] = 'varnish';
 
-if (file_exists($app_root . '/' . $site_path . '/../development.settings.php')) {
-  include $app_root . '/' . $site_path . '/../development.settings.php';
-}
+// Errors.
+$config['system.logging']['error_level'] = 'hide';
+
+// Development.
+// See https://git.drupalcode.org/project/drupal/blob/HEAD/sites/example.settings.local.php
+//$config['system.logging']['error_level'] = 'verbose';
+//$config['views.settings']['ui']['show']['advanced_column'] = TRUE;
+//$config['devel.settings']['devel_dumper'] = 'var_dumper';
+
+//$settings['extension_discovery_scan_tests'] = TRUE;
+//$settings['rebuild_access'] = TRUE;
+//$settings['skip_permissions_hardening'] = TRUE;

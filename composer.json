@@ -64,6 +64,7 @@
         "drupal/renderviz": "1.*",
         "drupal/search_kint": "1.*",
         "drupal/speedboxes": "1.*",
+        "ekino/drupal-debug": "^0.1.0@alpha",
         "phpmd/phpmd": "2.*",
         "webflo/drupal-core-require-dev": "~8.7"
     },

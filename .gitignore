@@ -2,6 +2,10 @@
 /vendor
 /drush/contrib
 
+# Drupal debug.
+/cache
+/logs
+
 # Contrib files.
 /www/core
 /www/libraries

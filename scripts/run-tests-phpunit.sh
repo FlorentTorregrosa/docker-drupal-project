@@ -7,6 +7,9 @@ usage() {
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.local.sh
 
+echo -e "${LIGHT_GREEN}Disable Drupal Debug.${NC}"
+composer drupal-debug:disable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"
+
 echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to www.${NC}"
 cd $WWW_PATH
 
@@ -21,3 +24,6 @@ pgrep phantomjs | xargs kill
 
 echo -e "${LIGHT_GREEN}Back to the current directory.${NC}"
 cd $CURRENT_PATH
+
+echo -e "${LIGHT_GREEN}Enable Drupal Debug.${NC}"
+composer drupal-debug:enable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"

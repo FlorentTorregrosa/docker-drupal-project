@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "408bb2d66117eaf7b4b8b5175653f004",
+    "content-hash": "4aa189fff62ae8f6b934538297306cda",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8469,6 +8469,76 @@
             }
         },
         {
+            "name": "ekino/drupal-debug",
+            "version": "v0.1.0-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ekino/drupal-debug.git",
+                "reference": "461cb98f4bc237a3064a8fc8b51f913c61f6abfc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ekino/drupal-debug/zipball/461cb98f4bc237a3064a8fc8b51f913c61f6abfc",
+                "reference": "461cb98f4bc237a3064a8fc8b51f913c61f6abfc",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1",
+                "drupal/core": "^8.6",
+                "monolog/monolog": "^1.3",
+                "nesbot/carbon": "^1.24",
+                "php": ">=7.1",
+                "symfony/config": "^3.4 || >=4.0 <4.3",
+                "symfony/console": "^3.4 || ^4.0",
+                "symfony/debug": "^3.4.22 || ^4.1.11 || ^4.2.3",
+                "symfony/dependency-injection": "^3.4 || ^4.0",
+                "symfony/event-dispatcher": "^3.4 || ^4.0",
+                "symfony/filesystem": "^3.4 || ^4.0",
+                "symfony/http-foundation": "^3.4 || ^4.0",
+                "symfony/http-kernel": "^3.4 || ^4.0",
+                "symfony/polyfill-php70": "^1.0",
+                "symfony/property-access": "^3.4 || ^4.0",
+                "symfony/var-dumper": "^3.4 || ^4.0",
+                "symfony/yaml": "^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.7",
+                "drupal-composer/drupal-scaffold": "^2.5",
+                "drush/drush": "^9.0",
+                "fabpot/goutte": "^3.2.3",
+                "friendsofphp/php-cs-fixer": "^2.14",
+                "guzzlehttp/guzzle": "^6.3",
+                "phpstan/phpstan": "^0.10",
+                "phpstan/phpstan-phpunit": "^0.10",
+                "phpunit/phpunit": "^7.5",
+                "symfony/browser-kit": "^3.4 || ^4.0",
+                "symfony/finder": "^3.4 || ^4.0",
+                "symfony/panther": "dev-master#f76f91e94c1f29117963d8625f47462a930a03e2",
+                "symfony/process": "^3.4.2 || ^4.0.2"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": [
+                    "Ekino\\Drupal\\Debug\\Composer\\Plugin\\ManageConfigurationPlugin",
+                    "Ekino\\Drupal\\Debug\\Composer\\Plugin\\RegisterCommandsPlugin"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ekino\\Drupal\\Debug\\": "src/"
+                },
+                "files": [
+                    "src/initialize.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Provides an alternative Debug Kernel for Drupal 8 to improve the Developer eXperience.",
+            "time": "2019-06-13T07:56:39+00:00"
+        },
+        {
             "name": "fabpot/goutte",
             "version": "v3.2.3",
             "source": {
@@ -8764,6 +8834,51 @@
             "time": "2019-01-14T23:55:14+00:00"
         },
         {
+            "name": "kylekatarnls/update-helper",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/update-helper.git",
+                "reference": "b34a46d7f5ec1795b4a15ac9d46b884377262df9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/update-helper/zipball/b34a46d7f5ec1795b4a15ac9d46b884377262df9",
+                "reference": "b34a46d7f5ec1795b4a15ac9d46b884377262df9",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "composer/composer": "^2.0.x-dev",
+                "phpunit/phpunit": ">=4.8.35 <6.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "UpdateHelper\\ComposerPlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "UpdateHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle",
+                    "email": "kylekatarnls@gmail.com"
+                }
+            ],
+            "description": "Update helper",
+            "time": "2019-06-05T08:34:23+00:00"
+        },
+        {
             "name": "mikey179/vfsstream",
             "version": "v1.6.6",
             "source": {
@@ -8808,6 +8923,84 @@
             "description": "Virtual file system to mock the real file system in unit tests.",
             "homepage": "http://vfs.bovigo.org/",
             "time": "2019-04-08T13:54:32+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "graylog2/gelf-php": "~1.0",
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "php-amqplib/php-amqplib": "~2.4",
+                "php-console/php-console": "^3.1.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "ruflin/elastica": ">=0.90 <3.0",
+                "sentry/sentry": "^0.13",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
+                "sentry/sentry": "Allow sending log messages to a Sentry server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2018-11-05T09:00:11+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -8856,6 +9049,67 @@
                 "object graph"
             ],
             "time": "2019-04-07T13:18:21+00:00"
+        },
+        {
+            "name": "nesbot/carbon",
+            "version": "1.38.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "8dd4172bfe1784952c4d58c4db725d183b1c23ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8dd4172bfe1784952c4d58c4db725d183b1c23ad",
+                "reference": "8dd4172bfe1784952c4d58c4db725d183b1c23ad",
+                "shasum": ""
+            },
+            "require": {
+                "kylekatarnls/update-helper": "^1.1",
+                "php": ">=5.3.9",
+                "symfony/translation": "~2.6 || ~3.0 || ~4.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.2",
+                "friendsofphp/php-cs-fixer": "~2",
+                "phpunit/phpunit": "^4.8.35 || ^5.7"
+            },
+            "bin": [
+                "bin/upgrade-carbon"
+            ],
+            "type": "library",
+            "extra": {
+                "update-helper": "Carbon\\Upgrade",
+                "laravel": {
+                    "providers": [
+                        "Carbon\\Laravel\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Nesbitt",
+                    "email": "brian@nesbot.com",
+                    "homepage": "http://nesbot.com"
+                }
+            ],
+            "description": "A simple API extension for DateTime.",
+            "homepage": "http://carbon.nesbot.com",
+            "keywords": [
+                "date",
+                "datetime",
+                "time"
+            ],
+            "time": "2019-06-03T15:41:40+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -10562,6 +10816,64 @@
             "time": "2019-02-23T15:06:07+00:00"
         },
         {
+            "name": "symfony/inflector",
+            "version": "v4.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/inflector.git",
+                "reference": "889dc28cb6350ddb302fe9b8c796e4e6eb836856"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/inflector/zipball/889dc28cb6350ddb302fe9b8c796e4e6eb836856",
+                "reference": "889dc28cb6350ddb302fe9b8c796e4e6eb836856",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Inflector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Inflector Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string",
+                "symfony",
+                "words"
+            ],
+            "time": "2019-05-30T09:28:08+00:00"
+        },
+        {
             "name": "symfony/phpunit-bridge",
             "version": "v3.4.28",
             "source": {
@@ -10625,6 +10937,73 @@
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
             "time": "2019-04-16T09:03:16+00:00"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v4.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "18ea48862a39e364927e71b9e4942af3c1a1cb8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/18ea48862a39e364927e71b9e4942af3c1a1cb8c",
+                "reference": "18ea48862a39e364927e71b9e4942af3c1a1cb8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/inflector": "~3.4|~4.0"
+            },
+            "require-dev": {
+                "symfony/cache": "~3.4|~4.0"
+            },
+            "suggest": {
+                "psr/cache-implementation": "To cache access methods."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2019-06-06T10:05:02+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -10707,7 +11086,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "ekino/drupal-debug": 15
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
