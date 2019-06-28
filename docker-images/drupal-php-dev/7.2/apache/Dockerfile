@@ -17,7 +17,10 @@ RUN composer global require drupal/coder:8.3.* \
     && echo 'alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
     && echo 'alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
     && echo 'alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
+    # Install drupalorg-cli for contribution.
     && composer global require mglaman/drupalorg-cli \
+    # Install drupal-check for contribution.
+    && composer global require mglaman/drupal-check \
     && composer clear-cache \
 
 # Add some bash aliases.
