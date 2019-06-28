@@ -21,7 +21,7 @@ RUN composer global require drupal/coder:8.3.* \
     && composer global require mglaman/drupalorg-cli \
     # Install drupal-check for contribution.
     && composer global require mglaman/drupal-check \
-    && composer clear-cache \
+    && composer clear-cache
 
 # Add some bash aliases.
 RUN echo 'alias ll="ls -l"' >> $HOME/.bashrc \
