@@ -14,10 +14,11 @@ RUN chmod +x /usr/local/bin/configure-xdebug
 # Install Coder and configure Code sniffer.
 RUN composer global require drupal/coder:8.3.* \
     && composer global require dealerdirect/phpcodesniffer-composer-installer \
-    && composer clear-cache \
     && echo 'alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
     && echo 'alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
-    && echo 'alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc
+    && echo 'alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'"' >> $HOME/.bashrc \
+    && composer global require mglaman/drupalorg-cli \
+    && composer clear-cache \
 
 # Add some bash aliases.
 RUN echo 'alias ll="ls -l"' >> $HOME/.bashrc \
