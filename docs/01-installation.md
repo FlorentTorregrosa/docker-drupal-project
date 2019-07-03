@@ -9,7 +9,9 @@
   * You can also remove the symlink in .git/hooks to remove this feature.
 * Adapt the following files to your configuration:
   * scripts/script-parameters.local.sh
+    * comment the line `ENVIRONMENT_MODE="prod"` to get development modules.
   * conf/drupal/default/settings.local.php
+    * uncomment lines in the "development section".
 * Execute `scripts/install.sh` (do not if using docker, see below)
 
 ## Additional steps to install with Docker compose
@@ -17,6 +19,7 @@
 * **Do not execute scripts/install.sh from your computer.**.
 * Adapt the following files to your configuration:
   * .env
+    * For example to enable Xdebug.
   * docker-compose.yml
 * Execute:
 
