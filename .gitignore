@@ -3,8 +3,7 @@
 /drush/contrib
 
 # Drupal debug.
-/cache
-/logs
+/drupal-debug
 
 # Contrib files.
 /app/core
@@ -56,3 +55,6 @@ node_modules
 
 # Drupal paranoia.
 /www
+
+# Cloned repositories.
+/contrib

@@ -1,10 +1,10 @@
 drupal-debug:
     defaults:
-        cache_directory: cache
+        cache_directory: drupal-debug/cache
         logger:
             enabled: true
             channel: drupal-debug
-            file_path: logs/drupal-debug.log
+            file_path: drupal-debug/logs/drupal-debug.log
         charset: null
         file_link_format: null
     substitute_original_drupal_kernel:
