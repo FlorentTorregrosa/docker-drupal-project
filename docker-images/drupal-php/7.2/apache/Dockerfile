@@ -1,7 +1,7 @@
 FROM php:7.2-apache-stretch
 
 ENV DEBCONF_FRONTEND non-interactive
-ENV PHPREDIS_VERSION 4.2.0
+ENV PHPREDIS_VERSION 4.3.0
 ENV DRUSH_LAUNCHER_VERSION 0.6.0
 
 ADD bin/docker-php-pecl-install /usr/local/bin/
