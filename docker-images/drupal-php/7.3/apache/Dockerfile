@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.3-apache-stretch
 
 ENV DEBCONF_FRONTEND non-interactive
 ENV PHPREDIS_VERSION 4.2.0
