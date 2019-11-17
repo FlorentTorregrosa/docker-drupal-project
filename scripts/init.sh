@@ -10,11 +10,6 @@ rsync -avz --ignore-existing $PROJECT_PATH/conf/drupal/default/example.settings.
 echo -e "${LIGHT_GREEN}Create public files directory.${NC}"
 mkdir -p $APP_PATH/sites/default/files
 
-echo -e "${LIGHT_GREEN}Ensure the following directories are present. Otherwise automated tests fail.${NC}"
-mkdir -p $APP_PATH/modules
-mkdir -p $APP_PATH/profiles
-mkdir -p $APP_PATH/themes
-
 echo -e "${LIGHT_GREEN}Permissions are for dev environments. It should be less permissive.${NC}"
 chmod 777 $APP_PATH/sites/default/files
 
