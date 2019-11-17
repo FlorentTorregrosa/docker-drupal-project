@@ -59,7 +59,7 @@ services:
 
 
   solr:
-    image: solr:7.6-alpine
+    image: solr:7.7-alpine
     volumes:
       - ./conf/solr:/solr-drupal/conf:delegated
     entrypoint:
@@ -103,7 +103,7 @@ services:
 
   # Matomo.
   matomo:
-    image: matomo:3.9-fpm
+    image: matomo:3.12-fpm
     volumes:
      - type: volume
        source: matomo-volume
@@ -111,7 +111,7 @@ services:
        consistency: delegated
 
   matomo_web:
-    image: nginx:1.15-alpine
+    image: nginx:1.17-alpine
     volumes:
       - type: bind
         source: ./conf/matomo_nginx/nginx.conf
