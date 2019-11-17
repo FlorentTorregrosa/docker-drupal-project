@@ -94,9 +94,20 @@ $config['system.logging']['error_level'] = 'hide';
 
 // Development.
 // See https://git.drupalcode.org/project/drupal/blob/HEAD/sites/example.settings.local.php
-//$config['system.logging']['error_level'] = 'verbose';
-//$config['views.settings']['ui']['show']['advanced_column'] = TRUE;
+//assert_options(ASSERT_ACTIVE, TRUE);
+//\Drupal\Component\Assertion\Handle::register();
+
+//$settings['container_yamls'][] = $app_root . '/../conf/drupal/default/development.services.yml';
+
 //$config['devel.settings']['devel_dumper'] = 'var_dumper';
+//$config['system.logging']['error_level'] = 'verbose';
+//$config['system.performance']['css']['preprocess'] = FALSE;
+//$config['system.performance']['js']['preprocess'] = FALSE;
+//$config['views.settings']['ui']['show']['advanced_column'] = TRUE;
+
+//$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+//$settings['cache']['bins']['page'] = 'cache.backend.null';
+//$settings['cache']['bins']['render'] = 'cache.backend.null';
 
 //$settings['extension_discovery_scan_tests'] = TRUE;
 //$settings['rebuild_access'] = TRUE;
