@@ -18,7 +18,7 @@ echo -e "${LIGHT_GREEN}Clear cache to be sure cache are cleared even if there is
 $DRUSH cache:rebuild
 
 echo -e "${LIGHT_GREEN}Launch updates. Ensure that the database schema is up-to-date.${NC}"
-$DRUSH updatedb --entity-updates -y
+$DRUSH updatedb -y
 
 . $SCRIPTS_PATH/tasks/development_modules.sh
 

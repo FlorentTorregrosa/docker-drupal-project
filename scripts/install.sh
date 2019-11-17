@@ -28,7 +28,7 @@ $DRUSH site:install "${PROFILE}" \
   -y
 
 echo -e "${LIGHT_GREEN}Launch updates. Ensure that the database schema is up-to-date.${NC}"
-$DRUSH updatedb --entity-updates -y
+$DRUSH updatedb -y
 
 . $SCRIPTS_PATH/tasks/development_modules.sh
 #. $SCRIPTS_PATH/tasks/migrate_imports.sh
