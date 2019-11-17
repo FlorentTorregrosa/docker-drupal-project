@@ -166,7 +166,7 @@
             "app/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ],
-            "drush/Commands/{$name}": [
+            "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
             ]
         },
