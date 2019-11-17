@@ -20,7 +20,7 @@ $config_directories = [
   CONFIG_SYNC_DIRECTORY => $app_root . '/' . $site_path . '/../../../conf/drupal/default/sync',
 ];
 
-$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+$settings['container_yamls'][] = $app_root . '/../conf/drupal/default/services.yml';
 
 $settings['update_free_access'] = FALSE;
 $settings['allow_authorize_operations'] = FALSE;
