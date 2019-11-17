@@ -12,4 +12,3 @@ chmod 777 -R $APP_PATH
 chmod 777 -R $PROJECT_PATH/drupal-debug
 chmod 777 -R /tmp/*
 chmod 644 $APP_PATH/profiles/.gitkeep
-chmod 644 $APP_PATH/sites/default/services.yml

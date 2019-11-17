@@ -3,6 +3,12 @@
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.local.sh
 
+if [ "${USE_DRUPAL_DEBUG}" = "yes" ]; then
+  echo -e "${LIGHT_GREEN}Disable Drupal Debug in case it is still active.${NC}"
+  composer drupal-debug:disable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"
+  chown "${WEBSERVER_USER}":"${WEBSERVER_USER}" /tmp/drupal_debug_*
+fi
+
 . $SCRIPTS_PATH/tasks/composer_install.sh
 
 echo -e "${LIGHT_GREEN}Without drush alias, change temporarily directory to www.${NC}"
@@ -45,3 +51,9 @@ $DRUSH cache:rebuild
 
 echo -e "${LIGHT_GREEN}Back to the current directory.${NC}"
 cd $CURRENT_PATH
+
+if [ "${USE_DRUPAL_DEBUG}" = "yes" ]; then
+  echo -e "${LIGHT_GREEN}Enable Drupal Debug.${NC}"
+  composer drupal-debug:enable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"
+  chown "${WEBSERVER_USER}":"${WEBSERVER_USER}" /tmp/drupal_debug_*
+fi
