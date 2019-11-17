@@ -49,8 +49,10 @@ $settings['trusted_host_patterns'] = [
 ];
 
 $environment_trusted_host_patterns = [
-  'DRUPAL_TRAEFIK_FRONTEND_RULE_HOSTNAME',
-  'VARNISH_TRAEFIK_FRONTEND_RULE_HOSTNAME',
+  'DRUPAL_DOMAIN_1',
+  'DRUPAL_DOMAIN_2',
+  'DRUPAL_DOMAIN_3',
+  'VARNISH_DOMAIN',
 ];
 
 foreach ($environment_trusted_host_patterns as $environment_trusted_host_pattern) {
