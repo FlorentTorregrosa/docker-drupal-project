@@ -69,7 +69,7 @@ $config['locale.settings']['translation']['path'] = 'translations/contrib';
 $config['locale.settings']['translation']['use_source'] = 'local';
 
 // Performance.
-$settings['omit_vary_cookie'] = TRUE;
+//$settings['omit_vary_cookie'] = TRUE;
 
 $config['system.performance']['cache']['page']['max_age'] = 86400;
 $config['system.performance']['css']['preprocess'] = TRUE;
