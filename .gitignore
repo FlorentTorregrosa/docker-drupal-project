@@ -28,6 +28,8 @@
 # Drupal's file directory.
 /app/sites/default/default.services.yml
 /app/sites/default/default.settings.php
+/app/sites/development.services.yml
+/app/sites/example.settings.local.php
 /app/sites/example.sites.php
 /app/sites/sites.php
 /app/sites/*/files

@@ -16,9 +16,7 @@ $databases['default']['default'] = [
 // Change this value.
 $settings['hash_salt'] = 'template';
 
-$config_directories = [
-  CONFIG_SYNC_DIRECTORY => $app_root . '/' . $site_path . '/../../../conf/drupal/default/sync',
-];
+$settings['config_sync_directory'] = $app_root . '/../conf/drupal/default/sync';
 
 $settings['container_yamls'][] = $app_root . '/../conf/drupal/default/services.yml';
 

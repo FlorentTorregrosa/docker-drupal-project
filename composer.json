@@ -27,22 +27,22 @@
         }
     },
     "require": {
-        "composer/installers": "^1.0.21",
-        "cweagans/composer-patches": "~1.0",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-l10n": "^1.0",
         "drupal-composer/drupal-paranoia": "~1",
-        "drupal-composer/drupal-scaffold": "^2.2",
         "drupal-composer/drupal-security-advisories": "dev-8.x-v2",
-        "drupal/admin_toolbar": "1.27.0",
-        "drupal/core": "8.7.4",
+        "drupal/admin_toolbar": "2.0.0",
+        "drupal/core-composer-scaffold": "8.8.0-beta1",
+        "drupal/core-recommended": "8.8.0-beta1",
         "drupal/drush_language": "1.0.0-rc2",
         "drupal/matomo": "1.9.0",
-        "drupal/purge": "3.0.0-beta8",
-        "drupal/redis": "1.1.0",
-        "drupal/search_api": "1.14.0",
-        "drupal/search_api_solr": "3.2.0",
+        "drupal/purge": "3.0.0-beta9",
+        "drupal/redis": "1.2.0",
+        "drupal/search_api": "1.15.0",
+        "drupal/search_api_solr": "3.7.0",
         "drupal/varnish_purge": "1.11.0",
-        "drush/drush": "9.7.1",
+        "drush/drush": "10.0.2",
         "oomphinc/composer-installers-extender": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
@@ -51,13 +51,11 @@
         "zaporylie/composer-drupal-optimizations": "^1.1"
     },
     "require-dev": {
-        "anam/phantomjs-linux-x86-binary": "~2.1.1",
-        "bower-asset/d3": "3.5.*",
-        "bower-asset/highlightjs": "9.12.*",
         "drupal/coder": "8.3.*",
         "drupal/config_inspector": "1.*",
         "drupal/console": "1.*",
-        "drupal/devel": "2.*",
+        "drupal/core-dev": "^8.8@beta",
+        "drupal/devel": "3.*",
         "drupal/devel_a11y": "1.*",
         "drupal/devel_php": "1.*",
         "drupal/drupal-extension": "3.*",
@@ -67,8 +65,7 @@
         "drupal/search_kint": "1.*",
         "drupal/speedboxes": "1.*",
         "ekino/drupal-debug": "^0.1.0@alpha",
-        "phpmd/phpmd": "2.*",
-        "webflo/drupal-core-require-dev": "~8.7"
+        "phpmd/phpmd": "2.*"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -99,12 +96,10 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "@composer drupal:scaffold"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "@composer drupal:scaffold"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {
@@ -125,18 +120,21 @@
             ]
         },
         "drupal-scaffold": {
-            "excludes": [
-                ".editorconfig",
-                ".gitattributes",
-                ".ht.router.php",
-                "update.php",
-                "web.config",
-                "sites/development.services.yml",
-                "sites/example.settings.local.php"
-            ],
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
+            "file-mapping": {
+                "[web-root]/.ht.router.php": false,
+                "[web-root]/example.gitignore": false,
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/README.txt": false,
+                "[web-root]/update.php": false,
+                "[web-root]/web.config": false,
+                "[web-root]/sites/README.txt": false,
+                "[web-root]/modules/README.txt": false,
+                "[web-root]/profiles/README.txt": false,
+                "[web-root]/themes/README.txt": false
+            },
+            "gitignore": false,
+            "locations": {
+                "web-root": "./app"
             }
         },
         "installer-paths": {

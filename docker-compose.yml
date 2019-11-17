@@ -80,6 +80,21 @@ services:
       - "traefik.frontend.rule=Host:${MAIL_TRAEFIK_FRONTEND_RULE_HOSTNAME:-mail.ddp8.docker.localhost}"
       - "traefik.port=80"
 
+  # For tests.
+  chrome:
+    image: drupalci/webdriver-chromedriver:production
+    ulimits:
+      core:
+        soft: -1
+        hard: -1
+    ports:
+      - "4444:4444"
+      - "9515:9515"
+    entrypoint:
+      - chromedriver
+      - "--log-path=/tmp/chromedriver.log"
+      - "--verbose"
+      - "--whitelisted-ips="
 
   # Matomo.
   matomo:
