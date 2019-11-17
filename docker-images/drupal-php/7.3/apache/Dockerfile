@@ -1,4 +1,4 @@
-FROM php:7.3-apache-stretch
+FROM php:7.3-apache
 
 ENV DEBCONF_FRONTEND non-interactive
 ENV PHPREDIS_VERSION 4.3.0
@@ -23,11 +23,10 @@ RUN apt-get update && apt-get install -y \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
-        mysql-client \
+        mariadb-client \
         pngquant \
         python \
         redis-tools \
-        ssmtp \
         sudo \
         unzip \
         wget \
