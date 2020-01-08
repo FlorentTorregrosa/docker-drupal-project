@@ -1,0 +1,132 @@
+version: "3.7"
+
+services:
+  web:
+    image: florenttorregrosa/drupal-php-dev:7.3-apache
+    volumes:
+      - .:/project:delegated
+      - ./conf/php/php.ini:/usr/local/etc/php/php.ini:delegated
+      - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf:delegated
+    environment:
+      - DRUPAL_DOMAIN_1=${DRUPAL_DOMAIN_1}
+      - DRUPAL_DOMAIN_2=${DRUPAL_DOMAIN_2}
+      - DRUPAL_DOMAIN_3=${DRUPAL_DOMAIN_3}
+      - VARNISH_DOMAIN=${VARNISH_DOMAIN}
+      - COMPOSER_ALLOW_SUPERUSER=1
+      - XDEBUG_HOST=${XDEBUG_HOST}
+      - XDEBUG_ENABLED=${XDEBUG_ENABLED}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ddp7_web.rule=Host(`${DRUPAL_DOMAIN_1}`, `${DRUPAL_DOMAIN_2}`, `${DRUPAL_DOMAIN_3}`)"
+      - "traefik.http.routers.ddp7_web.entrypoints=http"
+    networks:
+      default:
+        # Aliases for Docker network to have the containers aware of this domain
+        # names.
+        aliases:
+          - ${DRUPAL_DOMAIN_1}
+          - ${DRUPAL_DOMAIN_2}
+          - ${DRUPAL_DOMAIN_3}
+    depends_on:
+      - mysql
+      - redis
+      - mail
+
+
+  varnish:
+    image: florenttorregrosa/varnish:6-alpine
+    volumes:
+      - ./conf/varnish:/varnish-drupal:delegated
+    environment:
+      VCL_CONFIG: /varnish-drupal/varnish.vcl
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ddp7_varnish.rule=Host(`${VARNISH_DOMAIN}`)"
+    depends_on:
+      - web
+
+
+  mysql:
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+      MYSQL_DATABASE: drupal
+    volumes:
+      - ./conf/mysql:/etc/mysql/conf.d:delegated
+      - ./data/db:/var/lib/mysql:delegated
+
+
+  solr:
+    image: solr:7.7-alpine
+    volumes:
+      - ./conf/solr:/solr-drupal/conf:delegated
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - drupal
+      - /solr-drupal
+
+
+  redis:
+    image: redis:5.0-alpine
+    volumes:
+      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf:delegated
+    entrypoint:
+      - docker-entrypoint.sh
+      - /usr/local/etc/redis/redis.conf
+
+
+  mail:
+    image: djfarrelly/maildev
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ddp7_mail.rule=Host(`${MAIL_DOMAIN}`)"
+      - "traefik.http.services.ddp7_mail.loadbalancer.server.port=80"
+
+
+  # Matomo.
+  matomo:
+    image: matomo:3.12-fpm
+    volumes:
+      - type: volume
+        source: matomo-volume
+        target: /var/www/html
+        consistency: delegated
+
+  matomo_web:
+    image: nginx:1.17-alpine
+    volumes:
+      - type: bind
+        source: ./conf/matomo_nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+        consistency: delegated
+      - type: volume
+        source: matomo-volume
+        target: /var/www/html
+        consistency: delegated
+    environment:
+      - VIRTUAL_HOST
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ddp7_matomo_web.rule=Host(`${MATOMO_DOMAIN}`)"
+    networks:
+      default:
+        aliases:
+          - ${MATOMO_DOMAIN}
+
+  matomo_mysql:
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: matomo
+      MYSQL_PASSWORD: matomo
+      MYSQL_DATABASE: matomo
+    volumes:
+      - ./conf/mysql:/etc/mysql/conf.d:delegated
+      - ./data/matomo_db:/var/lib/mysql:delegated
+
+volumes:
+  matomo-volume:

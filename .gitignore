@@ -41,5 +41,7 @@ node_modules
 
 # Docker.
 /.env
-/docker-compose.yml
 /data
+
+# Cloned repositories.
+/contrib
