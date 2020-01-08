@@ -13,6 +13,10 @@ if [ "${USE_DRUPAL_DEBUG}" = "yes" ]; then
   chown "${WEBSERVER_USER}":"${WEBSERVER_USER}" /tmp/drupal_debug_*
 fi
 
+echo -e "${LIGHT_GREEN}Workaround for drupal-composer/drupal-paranoia: make symlink to sites/simpletest.${NC}"
+rm -rf $WWW_PATH/sites/simpletest
+ln -s $APP_PATH/sites/simpletest $WWW_PATH/sites/simpletest
+
 echo -e "${LIGHT_GREEN}Run tests.${NC}"
 sudo -u $WEBSERVER_USER -E $PROJECT_PATH/vendor/bin/phpunit -c $PROJECT_PATH/scripts/tests/phpunit.xml $@
 
