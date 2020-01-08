@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg-turbo-progs \
         libjpeg62-turbo-dev \
+        libonig-dev \
         libpng-dev \
         libxml2-dev \
         libzip-dev \
@@ -36,7 +37,6 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         curl \
         exif \
-        mbstring \
         mysqli \
         opcache \
         pcntl \
@@ -53,7 +53,7 @@ RUN apt-get update && apt-get install -y \
         mime \
         rewrite \
     && a2dissite 000-default.conf \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install gd
 
 # Install Uploadprogress.
