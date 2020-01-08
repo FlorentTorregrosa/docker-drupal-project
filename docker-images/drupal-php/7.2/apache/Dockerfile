@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
         pngquant \
         python \
         redis-tools \
+        rsync \
         sudo \
         unzip \
         wget \
