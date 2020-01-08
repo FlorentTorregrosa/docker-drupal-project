@@ -92,9 +92,9 @@ services:
       core:
         soft: -1
         hard: -1
-    ports:
-      - "4444:4444"
-      - "9515:9515"
+#    ports:
+#      - "4444:4444"
+#      - "9515:9515"
     entrypoint:
       - chromedriver
       - "--log-path=/tmp/chromedriver.log"
