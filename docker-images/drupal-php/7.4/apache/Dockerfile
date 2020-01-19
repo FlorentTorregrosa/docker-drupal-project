@@ -82,3 +82,7 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
     && chmod +x drush.phar \
     && mv drush.phar /usr/local/bin/drush \
     && drush self-update
+
+# Add some bash aliases.
+RUN echo 'alias ll="ls -l"' >> $HOME/.bashrc \
+    && echo 'alias lll="ls -al"' >> $HOME/.bashrc

@@ -30,3 +30,12 @@ Exclude the following folders from indexation:
 * drupal-debug
 * private_files
 * www/sites/default/files
+
+## NodeJS usage
+
+To use NodeJS to compile CSS for example:
+
+```bash
+docker-compose exec node /bin/sh -c "cd /project/scripts/assets && npm install"
+docker-compose exec node /bin/sh -c "cd /project/scripts/assets && ./node_modules/.bin/gulp"
+```

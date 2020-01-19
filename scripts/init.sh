@@ -13,8 +13,8 @@ mkdir -p $APP_PATH/sites/default/files
 echo -e "${LIGHT_GREEN}Permissions are for dev environments. It should be less permissive.${NC}"
 chmod 777 $APP_PATH/sites/default/files
 
-echo -e "${LIGHT_GREEN}Create symlink to git hook.${NC}"
-ln -s ../../scripts/quality/git-pre-commit-hook.sh $PROJECT_PATH/.git/hooks/pre-commit
+#echo -e "${LIGHT_GREEN}Create symlink to git hook.${NC}"
+#ln -s ../../scripts/quality/git-pre-commit-hook.sh $PROJECT_PATH/.git/hooks/pre-commit
 
 echo -e "${LIGHT_GREEN}Create drupal-debug folders.${NC}"
 mkdir -p $PROJECT_PATH/drupal-debug/cache
