@@ -17,8 +17,12 @@ services:
       - XDEBUG_ENABLED=${XDEBUG_ENABLED}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ddp8_web.rule=Host(`${DRUPAL_DOMAIN_1}`, `${DRUPAL_DOMAIN_2}`, `${DRUPAL_DOMAIN_3}`)"
       - "traefik.http.routers.ddp8_web.entrypoints=http"
+      - "traefik.http.routers.ddp8_web.rule=Host(`${DRUPAL_DOMAIN_1}`, `${DRUPAL_DOMAIN_2}`, `${DRUPAL_DOMAIN_3}`)"
+      - "traefik.http.routers.ddp8_web.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.ddp8_web_secure.entrypoints=https"
+      - "traefik.http.routers.ddp8_web_secure.rule=Host(`${DRUPAL_DOMAIN_1}`, `${DRUPAL_DOMAIN_2}`, `${DRUPAL_DOMAIN_3}`)"
+      - "traefik.http.routers.ddp8_web_secure.tls=true"
     networks:
       default:
         # Aliases for Docker network to have the containers aware of this domain
@@ -41,7 +45,12 @@ services:
       VCL_CONFIG: /varnish-drupal/varnish.vcl
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.ddp8_varnish.entrypoints=http"
       - "traefik.http.routers.ddp8_varnish.rule=Host(`${VARNISH_DOMAIN}`)"
+      - "traefik.http.routers.ddp8_varnish.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.ddp8_varnish_secure.entrypoints=https"
+      - "traefik.http.routers.ddp8_varnish_secure.rule=Host(`${VARNISH_DOMAIN}`)"
+      - "traefik.http.routers.ddp8_varnish_secure.tls=true"
     depends_on:
       - web
 
@@ -82,8 +91,13 @@ services:
     image: djfarrelly/maildev
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ddp8_mail.rule=Host(`${MAIL_DOMAIN}`)"
       - "traefik.http.services.ddp8_mail.loadbalancer.server.port=80"
+      - "traefik.http.routers.ddp8_mail.entrypoints=http"
+      - "traefik.http.routers.ddp8_mail.rule=Host(`${MAIL_DOMAIN}`)"
+      - "traefik.http.routers.ddp8_mail.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.ddp8_mail_secure.entrypoints=https"
+      - "traefik.http.routers.ddp8_mail_secure.rule=Host(`${MAIL_DOMAIN}`)"
+      - "traefik.http.routers.ddp8_mail_secure.tls=true"
 
   ## For development.
   # For tests.
@@ -133,7 +147,12 @@ services:
       - VIRTUAL_HOST
     labels:
       - "traefik.enable=true"
+      - "traefik.http.routers.ddp8_matomo_web.entrypoints=http"
       - "traefik.http.routers.ddp8_matomo_web.rule=Host(`${MATOMO_DOMAIN}`)"
+      - "traefik.http.routers.ddp8_matomo_web.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.ddp8_matomo_web_secure.entrypoints=https"
+      - "traefik.http.routers.ddp8_matomo_web_secure.rule=Host(`${MATOMO_DOMAIN}`)"
+      - "traefik.http.routers.ddp8_matomo_web_secure.tls=true"
     networks:
       default:
         aliases:

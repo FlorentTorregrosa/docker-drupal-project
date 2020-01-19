@@ -1,3 +1,3 @@
 docker:
   root: '/project/app'
-  uri: 'http://web.ddp8.docker.localhost'
+  uri: 'http://web-ddp8.docker.localhost'

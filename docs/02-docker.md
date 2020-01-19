@@ -4,9 +4,9 @@
 
 If there's a local traefik reverse-proxy on your development environment, you
 can access the site through:
-* http://web.ddp8.docker.localhost/
-* http://en-web.ddp8.docker.localhost/
-* http://fr-web.ddp8.docker.localhost/
+* http://web-ddp8.docker.localhost/
+* http://en-web-ddp8.docker.localhost/
+* http://fr-web-ddp8.docker.localhost/
 
 Alternative hostnames can be provided by setting environment variables, for
 instance using a .env file. See the example.env file for the available
