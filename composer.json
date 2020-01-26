@@ -36,6 +36,7 @@
         "drupal/core-composer-scaffold": "8.8.1",
         "drupal/core-recommended": "8.8.1",
         "drupal/drush_language": "1.0.0-rc2",
+        "drupal/health_check": "1.2.0",
         "drupal/matomo": "1.9.0",
         "drupal/purge": "3.0.0-beta9",
         "drupal/redis": "1.2.0",

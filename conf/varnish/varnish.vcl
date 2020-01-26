@@ -12,6 +12,16 @@ backend default {
     .host = "web";
     .port = "80";
     .first_byte_timeout = 300s;
+    .probe = {
+        .request =
+            "GET /health HTTP/1.0"
+            "Host: web"
+            "Connection: close";
+        .interval = 10s;
+        .timeout = 5s;
+        .window = 5;
+        .threshold = 3;
+    }
 }
 
 # Access control list for PURGE requests.
@@ -20,8 +30,17 @@ acl purge {
     "web";
 }
 
+# Configuration preparation.
+sub vcl_init {
+    new sites = directors.round_robin();
+    sites.add_backend(default);
+}
+
 # Respond to incoming requests.
 sub vcl_recv {
+    # Set backend cluster.
+    set req.backend_hint = sites.backend();
+
     # Protection against HTTPOXY CGI vulnerability.
     unset req.http.proxy;
 

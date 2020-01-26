@@ -35,6 +35,7 @@ DEVELOPMENT_MODULES=(
 #  webprofiler
   # As in this template we not use custom install profile, enable some modules.
   admin_toolbar_tools
+  health_check
 #  purge
 #  purge_drush
 #  purge_queuer_coretags
