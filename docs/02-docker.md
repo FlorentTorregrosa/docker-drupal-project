@@ -2,8 +2,8 @@
 
 ## Traefik integration
 
-If there's a local traefik reverse-proxy on your development environment, you
-can access the site through:
+If there's a local traefik reverse-proxy on your development environment,
+you can access the site through:
 * http://web-ddp8.docker.localhost/
 * http://en-web-ddp8.docker.localhost/
 * http://fr-web-ddp8.docker.localhost/
@@ -25,16 +25,8 @@ services:
 
 The website **should** be located at this address: `http://127.0.0.1:8081/*`
 
-A Traefik configuration and docker-compose.yml are in the `conf/traefik` folder
+A Traefik configuration and docker-compose.yml are on `https://github.com/FlorentTorregrosa/docker-traefik`
 to ease the usage.
-
-To start Traefik:
-
-```bash
-cd conf/traefik
-docker-compose pull
-docker-compose up
-```
 
 ## Q/A
 ### How to find out the container names?
