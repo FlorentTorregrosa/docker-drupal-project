@@ -14,7 +14,7 @@ root. If you are using it inside the DOcker container you are already root.
 ## Xdebug breakpoint not taken into account
 
 Try either or both:
-* in `conf/php/php.ini`: change `opcache.revalidate_freq` and set it to 5 per
-example.
+* in `.env`: change `CUSTOM_PHP_OPCACHE_REVALIDATE_FREQ` and set it to 5 per
+example and restart your environment.
 * in `docker-compose.yml`: remove the `:delegated` of some volumes like
 `- .:/project:delegated`

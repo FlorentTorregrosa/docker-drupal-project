@@ -5,26 +5,28 @@
 
 $databases = [];
 $databases['default']['default'] = [
-  'driver' => 'mysql',
-  'database' => 'drupal',
-  'username' => 'drupal',
-  'password' => 'drupal',
-  'host' => 'mysql',
-  'prefix' => '',
+  'username' => getenv('DRUPAL_SITE_DEFAULT_DB_USER'),
+  'password' => getenv('DRUPAL_SITE_DEFAULT_DB_PASSWORD'),
+  'database' => getenv('DRUPAL_SITE_DEFAULT_DB_DATABASE'),
+  'prefix' => getenv('DRUPAL_SITE_DEFAULT_DB_PREFIX'),
+  'host' => getenv('DRUPAL_SITE_DEFAULT_DB_HOST'),
+  'port' => getenv('DRUPAL_SITE_DEFAULT_DB_PORT'),
+  'driver' => getenv('DRUPAL_SITE_DEFAULT_DB_DRIVER'),
+  'namespace' => getenv('DRUPAL_SITE_DEFAULT_DB_DRIVER_NAMESPACE'),
 ];
 
 // Change this value.
-$settings['hash_salt'] = 'template';
+$settings['hash_salt'] = getenv('DRUPAL_SITE_DEFAULT_HASH_SALT');
 
-$settings['config_sync_directory'] = $app_root . '/../conf/drupal/default/sync';
+$settings['config_sync_directory'] = $app_root . '/../conf/drupal/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/sync';
 
-$settings['container_yamls'][] = $app_root . '/../conf/drupal/default/services.yml';
+$settings['container_yamls'][] = $app_root . '/../conf/drupal/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/services.yml';
 
 $settings['update_free_access'] = FALSE;
 $settings['allow_authorize_operations'] = FALSE;
 
-$settings['file_public_path'] = 'sites/default/files';
-$settings['file_private_path'] = $app_root . '/../private_files/default';
+$settings['file_public_path'] = 'sites/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/files';
+$settings['file_private_path'] = $app_root . '/../private_files/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME');
 
 $settings['file_scan_ignore_directories'] = [
   'node_modules',
@@ -44,15 +46,15 @@ $config['system.file']['temporary_maximum_age'] = 0;
 $settings['trusted_host_patterns'] = [
   '^localhost$',
   '^127\.0\.0\.1$',
-  '^varnish$',
-  '^web$',
 ];
 
 $environment_trusted_host_patterns = [
-  'DRUPAL_DOMAIN_1',
-  'DRUPAL_DOMAIN_2',
-  'DRUPAL_DOMAIN_3',
+  'WEBSERVER_HOST',
+  'VARNISH_HOST',
   'VARNISH_DOMAIN',
+  'DRUPAL_SITE_DEFAULT_DOMAIN_1',
+  'DRUPAL_SITE_DEFAULT_DOMAIN_2',
+  'DRUPAL_SITE_DEFAULT_DOMAIN_3',
 ];
 
 foreach ($environment_trusted_host_patterns as $environment_trusted_host_pattern) {
@@ -69,25 +71,27 @@ $config['locale.settings']['translation']['path'] = 'translations/contrib';
 $config['locale.settings']['translation']['use_source'] = 'local';
 
 // Performance.
-//$settings['omit_vary_cookie'] = TRUE;
+$settings['omit_vary_cookie'] = getenv('DRUPAL_SITE_DEFAULT_OMIT_VARY_COOKIE');
 
-$config['system.performance']['cache']['page']['max_age'] = 86400;
+$config['system.performance']['cache']['page']['max_age'] = (int) getenv('DRUPAL_SITE_DEFAULT_CACHE_PAGE_MAX_AGE');
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
 
 // Redis.
-$settings['redis.connection']['interface'] = 'PhpRedis';
-$settings['redis.connection']['host'] = 'redis';
-$settings['redis.connection']['port'] = '6379';
-$settings['redis.connection']['base'] = 0;
+$settings['redis.connection']['interface'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_INTERFACE');
+$settings['redis.connection']['host'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_HOST');
+$settings['redis.connection']['port'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_PORT');
+$settings['redis.connection']['base'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_BASE');
 
 $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 
-$settings['cache']['default'] = 'cache.backend.redis';
+$settings['cache']['default'] = getenv('DRUPAL_SITE_DEFAULT_CACHE_DEFAULT');
+
+$settings['cache_prefix'] = getenv('DRUPAL_SITE_DEFAULT_CACHE_PREFIX');
 
 // Varnish.
-$config['varnish_purger.settings.varnish']['hostname'] = 'varnish';
+$config['varnish_purger.settings.varnish']['hostname'] = getenv('VARNISH_HOST');
 
 // Errors.
 $config['system.logging']['error_level'] = 'hide';
@@ -97,7 +101,7 @@ $config['system.logging']['error_level'] = 'hide';
 //assert_options(ASSERT_ACTIVE, TRUE);
 //\Drupal\Component\Assertion\Handle::register();
 
-//$settings['container_yamls'][] = $app_root . '/../conf/drupal/default/development.services.yml';
+//$settings['container_yamls'][] = $app_root . '/../conf/drupal/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/development.services.yml';
 
 //$config['devel.settings']['devel_dumper'] = 'var_dumper';
 //$config['system.logging']['error_level'] = 'verbose';

@@ -2,35 +2,31 @@ version: "3.7"
 
 services:
   web:
-    image: florenttorregrosa/drupal-php-dev:7.3-apache
+    image: ${DOCKER_SERVICE_WEB_IMAGE}
     volumes:
       - .:/project:delegated
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini:delegated
       - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf:delegated
     environment:
-      - DRUPAL_DOMAIN_1=${DRUPAL_DOMAIN_1}
-      - DRUPAL_DOMAIN_2=${DRUPAL_DOMAIN_2}
-      - DRUPAL_DOMAIN_3=${DRUPAL_DOMAIN_3}
-      - VARNISH_DOMAIN=${VARNISH_DOMAIN}
       - COMPOSER_ALLOW_SUPERUSER=1
-      - XDEBUG_HOST=${XDEBUG_HOST}
-      - XDEBUG_ENABLED=${XDEBUG_ENABLED}
+    env_file:
+      - .env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ddp8_web.entrypoints=http"
-      - "traefik.http.routers.ddp8_web.rule=Host(`${DRUPAL_DOMAIN_1}`, `${DRUPAL_DOMAIN_2}`, `${DRUPAL_DOMAIN_3}`)"
-      - "traefik.http.routers.ddp8_web.middlewares=redirect-to-https@file"
-      - "traefik.http.routers.ddp8_web_secure.entrypoints=https"
-      - "traefik.http.routers.ddp8_web_secure.rule=Host(`${DRUPAL_DOMAIN_1}`, `${DRUPAL_DOMAIN_2}`, `${DRUPAL_DOMAIN_3}`)"
-      - "traefik.http.routers.ddp8_web_secure.tls=true"
+      - "traefik.http.routers.${PROJECT_NAME}_web.entrypoints=http"
+      - "traefik.http.routers.${PROJECT_NAME}_web.rule=Host(`${DRUPAL_SITE_DEFAULT_DOMAIN_1}`, `${DRUPAL_SITE_DEFAULT_DOMAIN_2}`, `${DRUPAL_SITE_DEFAULT_DOMAIN_3}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_web.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.${PROJECT_NAME}_web_secure.entrypoints=https"
+      - "traefik.http.routers.${PROJECT_NAME}_web_secure.rule=Host(`${DRUPAL_SITE_DEFAULT_DOMAIN_1}`, `${DRUPAL_SITE_DEFAULT_DOMAIN_2}`, `${DRUPAL_SITE_DEFAULT_DOMAIN_3}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_web_secure.tls=true"
     networks:
       default:
         # Aliases for Docker network to have the containers aware of this domain
         # names.
         aliases:
-          - ${DRUPAL_DOMAIN_1}
-          - ${DRUPAL_DOMAIN_2}
-          - ${DRUPAL_DOMAIN_3}
+          - ${DRUPAL_SITE_DEFAULT_DOMAIN_1}
+          - ${DRUPAL_SITE_DEFAULT_DOMAIN_2}
+          - ${DRUPAL_SITE_DEFAULT_DOMAIN_3}
     depends_on:
       - mysql
       - redis
@@ -38,37 +34,37 @@ services:
 
 
   varnish:
-    image: florenttorregrosa/varnish:6-alpine
+    image: ${DOCKER_SERVICE_VARNISH_IMAGE}
     volumes:
       - ./conf/varnish:/varnish-drupal:delegated
     environment:
       VCL_CONFIG: /varnish-drupal/varnish.vcl
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ddp8_varnish.entrypoints=http"
-      - "traefik.http.routers.ddp8_varnish.rule=Host(`${VARNISH_DOMAIN}`)"
-      - "traefik.http.routers.ddp8_varnish.middlewares=redirect-to-https@file"
-      - "traefik.http.routers.ddp8_varnish_secure.entrypoints=https"
-      - "traefik.http.routers.ddp8_varnish_secure.rule=Host(`${VARNISH_DOMAIN}`)"
-      - "traefik.http.routers.ddp8_varnish_secure.tls=true"
+      - "traefik.http.routers.${PROJECT_NAME}_varnish.entrypoints=http"
+      - "traefik.http.routers.${PROJECT_NAME}_varnish.rule=Host(`${VARNISH_DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_varnish.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.${PROJECT_NAME}_varnish_secure.entrypoints=https"
+      - "traefik.http.routers.${PROJECT_NAME}_varnish_secure.rule=Host(`${VARNISH_DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_varnish_secure.tls=true"
     depends_on:
       - web
 
 
   mysql:
-    image: mariadb:10.4
+    image: ${DOCKER_SERVICE_DRUPAL_SITE_DEFAULT_DB_IMAGE}
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: drupal
-      MYSQL_PASSWORD: drupal
-      MYSQL_DATABASE: drupal
+      MYSQL_ROOT_PASSWORD: ${DRUPAL_SITE_DEFAULT_DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DRUPAL_SITE_DEFAULT_DB_USER}
+      MYSQL_PASSWORD: ${DRUPAL_SITE_DEFAULT_DB_PASSWORD}
+      MYSQL_DATABASE: ${DRUPAL_SITE_DEFAULT_DB_DATABASE}
     volumes:
       - ./conf/mysql:/etc/mysql/conf.d:delegated
       - ./data/db:/var/lib/mysql:delegated
 
 
   solr:
-    image: solr:7.7-alpine
+    image: ${DOCKER_SERVICE_SOLR_IMAGE}
     volumes:
       - ./conf/solr:/solr-drupal/conf:delegated
     entrypoint:
@@ -79,7 +75,7 @@ services:
 
 
   redis:
-    image: redis:5.0-alpine
+    image: ${DOCKER_SERVICE_REDIS_IMAGE}
     volumes:
       - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf:delegated
     entrypoint:
@@ -91,13 +87,13 @@ services:
     image: djfarrelly/maildev
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.ddp8_mail.loadbalancer.server.port=80"
-      - "traefik.http.routers.ddp8_mail.entrypoints=http"
-      - "traefik.http.routers.ddp8_mail.rule=Host(`${MAIL_DOMAIN}`)"
-      - "traefik.http.routers.ddp8_mail.middlewares=redirect-to-https@file"
-      - "traefik.http.routers.ddp8_mail_secure.entrypoints=https"
-      - "traefik.http.routers.ddp8_mail_secure.rule=Host(`${MAIL_DOMAIN}`)"
-      - "traefik.http.routers.ddp8_mail_secure.tls=true"
+      - "traefik.http.services.${PROJECT_NAME}_mail.loadbalancer.server.port=80"
+      - "traefik.http.routers.${PROJECT_NAME}_mail.entrypoints=http"
+      - "traefik.http.routers.${PROJECT_NAME}_mail.rule=Host(`${MAIL_DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_mail.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.${PROJECT_NAME}_mail_secure.entrypoints=https"
+      - "traefik.http.routers.${PROJECT_NAME}_mail_secure.rule=Host(`${MAIL_DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_mail_secure.tls=true"
 
   ## For development.
   # For tests.
@@ -117,14 +113,14 @@ services:
       - "--whitelisted-ips="
 
   node:
-    image: node:12-alpine
+    image: ${DOCKER_SERVICE_NODE_IMAGE}
     volumes:
       - .:/project:delegated
     tty: true
 
   # Matomo.
   matomo:
-    image: matomo:3.12-fpm
+    image: ${DOCKER_SERVICE_MATOMO_IMAGE}
     volumes:
      - type: volume
        source: matomo-volume
@@ -132,7 +128,7 @@ services:
        consistency: delegated
 
   matomo_web:
-    image: nginx:1.17-alpine
+    image: ${DOCKER_SERVICE_MATOMO_WEB_IMAGE}
     volumes:
       - type: bind
         source: ./conf/matomo_nginx/nginx.conf
@@ -147,24 +143,24 @@ services:
       - VIRTUAL_HOST
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ddp8_matomo_web.entrypoints=http"
-      - "traefik.http.routers.ddp8_matomo_web.rule=Host(`${MATOMO_DOMAIN}`)"
-      - "traefik.http.routers.ddp8_matomo_web.middlewares=redirect-to-https@file"
-      - "traefik.http.routers.ddp8_matomo_web_secure.entrypoints=https"
-      - "traefik.http.routers.ddp8_matomo_web_secure.rule=Host(`${MATOMO_DOMAIN}`)"
-      - "traefik.http.routers.ddp8_matomo_web_secure.tls=true"
+      - "traefik.http.routers.${PROJECT_NAME}_matomo_web.entrypoints=http"
+      - "traefik.http.routers.${PROJECT_NAME}_matomo_web.rule=Host(`${MATOMO_DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_matomo_web.middlewares=redirect-to-https@file"
+      - "traefik.http.routers.${PROJECT_NAME}_matomo_web_secure.entrypoints=https"
+      - "traefik.http.routers.${PROJECT_NAME}_matomo_web_secure.rule=Host(`${MATOMO_DOMAIN}`)"
+      - "traefik.http.routers.${PROJECT_NAME}_matomo_web_secure.tls=true"
     networks:
       default:
         aliases:
           - ${MATOMO_DOMAIN}
 
   matomo_mysql:
-    image: mariadb:10.4
+    image: ${DOCKER_SERVICE_MATOMO_DB_IMAGE}
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: matomo
-      MYSQL_PASSWORD: matomo
-      MYSQL_DATABASE: matomo
+      MYSQL_ROOT_PASSWORD: ${MATOMO_DB_ROOT_PASSWORD}
+      MYSQL_USER: ${MATOMO_DB_USER}
+      MYSQL_PASSWORD: ${MATOMO_DB_PASSWORD}
+      MYSQL_DATABASE: ${MATOMO_DB_DATABASE}
     volumes:
       - ./conf/mysql:/etc/mysql/conf.d:delegated
       - ./data/matomo_db:/var/lib/mysql:delegated
