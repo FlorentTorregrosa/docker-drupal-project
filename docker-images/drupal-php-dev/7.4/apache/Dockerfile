@@ -5,8 +5,6 @@ RUN docker-php-pecl-install \
     # Disable Xdebug by default.
     && mv /usr/local/etc/php/conf.d/docker-php-pecl-xdebug.ini /usr/local/etc/php/conf.d/docker-php-pecl-xdebug.disabled
 
-# Allows to set Xdebug remote host dynamically.
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 # Allows to disable or enable Xdebug depending on environment variables.
 COPY bin/configure-xdebug /usr/local/bin/configure-xdebug
 RUN chmod +x /usr/local/bin/configure-xdebug
