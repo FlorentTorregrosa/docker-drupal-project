@@ -6,6 +6,9 @@ ENV DRUSH_LAUNCHER_VERSION 0.6.0
 
 ADD bin/docker-php-pecl-install /usr/local/bin/
 
+# Get Composer from official image.
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # Prepare the phpredis library so it available to docker-php-ext-install.
 RUN mkdir -p /usr/src/php/ext/redis \
     && curl -L https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz | tar xvz -C /usr/src/php/ext/redis --strip 1 \
@@ -65,16 +68,10 @@ RUN git clone https://git.php.net/repository/pecl/php/uploadprogress.git \
     && rm -rf uploadprogress \
     && echo "extension=uploadprogress.so" > /usr/local/etc/php/conf.d/conf-uploadprogress.ini
 
-# Install Composer.
-RUN cd /usr/local \
-    && curl -sS https://getcomposer.org/installer | php \
-    && chmod +x /usr/local/composer.phar \
-    && ln -s /usr/local/composer.phar /usr/local/bin/composer \
-    && echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >> $HOME/.bashrc
-
-# Install hirak/prestissimo for improve Composer performance.
+# Install hirak/prestissimo for improved Composer performance.
 RUN composer global require hirak/prestissimo \
-    && composer clear-cache
+    && composer clear-cache \
+    && echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >> $HOME/.bashrc
 
 # Install Drush Launcher.
 RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/$DRUSH_LAUNCHER_VERSION/drush.phar \
