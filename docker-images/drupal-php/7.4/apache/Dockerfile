@@ -5,6 +5,7 @@ ENV PHPREDIS_VERSION 4.3.0
 ENV DRUSH_LAUNCHER_VERSION 0.6.0
 
 ADD bin/docker-php-pecl-install /usr/local/bin/
+ADD msmtprc /etc/
 
 # Get Composer from official image.
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -28,6 +29,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libzip-dev \
         mariadb-client \
+        msmtp \
         pngquant \
         python \
         redis-tools \
