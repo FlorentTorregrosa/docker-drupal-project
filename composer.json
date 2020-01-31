@@ -74,6 +74,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "discard-changes": true,
         "optimize-autoloader": true,
         "platform": {
             "php": "7.3"
