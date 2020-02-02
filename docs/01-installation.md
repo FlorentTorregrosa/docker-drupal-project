@@ -1,6 +1,6 @@
 # Installation
 
-* Execute: `scripts/init.sh`
+* Execute: `make project-init`
   * This will enable a git pre-commit hook that will run check against the code.
     You will need to have the following tools installed:
       * execute `npm install` in scripts/quality folder
@@ -23,19 +23,6 @@
 * Execute:
 
 ```bash
-docker-compose pull
-docker-compose up
-```
-
-* In another tab, get a command-line in the container:
-
-```bash
-docker-compose exec web bash
-```
-
-* Then execute:
-
-```bash
-cd /project (if necessary)
-./scripts/install.sh
+make docker-up
+make docker-site-install
 ```

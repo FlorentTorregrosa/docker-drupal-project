@@ -38,14 +38,20 @@ containers.
 
 ### How to use Drush within Docker?
 
-You have to "be" in the app folder (eg: `/project/app`) or the project
+Using Makefile:
+
+```shell script
+make docker-drush cr
+```
+
+Or when in the container, you have to "be" in the app folder (eg: `/project/app`) or the project
 folder (eg: `/project`)
 
 Optional: you can use Drush within the web container by using the alias
-`@project.docker`:
+`@default.docker-dev`:
 
 ```bash
-drush @project.docker status
+drush @default.docker-dev status
 ```
 
 ### How to import a custom dump?
