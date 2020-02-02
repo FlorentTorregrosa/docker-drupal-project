@@ -76,6 +76,16 @@ $config['system.performance']['cache']['page']['max_age'] = (int) getenv('DRUPAL
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
 
+$settings['cache_prefix'] = getenv('DRUPAL_SITE_DEFAULT_CACHE_PREFIX');
+$settings['cache']['default'] = getenv('DRUPAL_SITE_DEFAULT_CACHE_DEFAULT');
+
+// Always set the fast backend for bootstrap, discover and config, otherwise
+// this gets lost when redis is enabled.
+// @see https://api.drupal.org/api/drupal/core%21core.api.php/group/cache/8.5.x
+$settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
+
 // Redis.
 $settings['redis.connection']['interface'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_INTERFACE');
 $settings['redis.connection']['host'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_HOST');
