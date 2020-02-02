@@ -2,9 +2,6 @@
 /vendor
 /drush/contrib
 
-# Drupal debug.
-/drupal-debug
-
 # Contrib files.
 /app/core
 /app/libraries

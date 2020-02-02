@@ -8,6 +8,5 @@
 
 echo -e "${COLOR_LIGHT_GREEN}No more permissions problem!${COLOR_NC}"
 chmod 777 -R $APP_PATH
-chmod 777 -R $PROJECT_PATH/drupal-debug
 chmod 777 -R /tmp/*
 chmod 644 $APP_PATH/profiles/.gitkeep

@@ -13,11 +13,7 @@ To have Xdebug enabled in the web container, in the file .env, set the variable
 
 ## Debug mode
 
-This template use Drupal Debug to enable development features.
-
-If you want to be in debug mode, you have one of the following options:
-* Execute: `composer drupal-debug:enable`
-* Uncomment lines from conf/drupal/default/settings.local.php in the "Development" section
+If you want to be in debug mode, uncomment lines from conf/drupal/default/settings.local.php in the "Development" section
 
 ## PhpStorm optimisations
 
@@ -26,7 +22,6 @@ Exclude the following folders from indexation:
 * app/sites/simpletest (will exist only when you will launch PHPUnit tests)
 * backups
 * data
-* drupal-debug
 * private_files
 * www/sites/default/files
 

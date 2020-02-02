@@ -2,12 +2,6 @@
 
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 
-if [ "${USE_DRUPAL_DEBUG}" = "yes" ]; then
-  echo -e "${COLOR_LIGHT_GREEN}Disable Drupal Debug in case it is still active.${COLOR_NC}"
-  composer drupal-debug:disable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"
-  chown "${WEBSERVER_USER}":"${WEBSERVER_USER}" /tmp/drupal_debug_*
-fi
-
 echo -e "${COLOR_LIGHT_GREEN}Database backup.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" sql:dump --result-file="${PROJECT_PATH}/backups/${DRUPAL_SITE_DEFAULT_FOLDER_NAME}-${CURRENT_DATE}.sql" --gzip --structure-tables-key="common"
 
@@ -42,9 +36,3 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 0
 
 echo -e "${COLOR_LIGHT_GREEN}Run CRON.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" core:cron
-
-if [ "${USE_DRUPAL_DEBUG}" = "yes" ]; then
-  echo -e "${COLOR_LIGHT_GREEN}Enable Drupal Debug.${COLOR_NC}"
-  composer drupal-debug:enable-original-drupal-kernel-substitution --working-dir="${PROJECT_PATH}"
-  chown "${WEBSERVER_USER}":"${WEBSERVER_USER}" /tmp/drupal_debug_*
-fi
