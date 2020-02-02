@@ -1,14 +1,13 @@
 #!/bin/bash
 
 . $(dirname $(dirname ${BASH_SOURCE[0]}))/script-parameters.sh
-. $(dirname $(dirname ${BASH_SOURCE[0]}))/script-parameters.local.sh
 
-echo -e "${LIGHT_GREEN}Update translations status.${NC}"
-$DRUSH locale:check
+echo -e "${COLOR_LIGHT_GREEN}Update translations status.${COLOR_NC}"
+$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" locale:check
 
-echo -e "${LIGHT_GREEN}Update translations.${NC}"
-$DRUSH locale:update
+echo -e "${COLOR_LIGHT_GREEN}Update translations.${COLOR_NC}"
+$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" locale:update
 
-#echo -e "${LIGHT_GREEN}Import custom translations.${NC}"
-#$DRUSH pm:enable drush_language -y
-#$DRUSH language:import:translations --langcode="${DEFAULT_LANGUAGE}" $APP_PATH/profiles/custom/$PROFILE/translations/$PROFILE.po
+#echo -e "${COLOR_LIGHT_GREEN}Import custom translations.${COLOR_NC}"
+#$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" pm:enable drush_language -y
+#$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" language:import:translations --langcode="${DEFAULT_LANGUAGE}" $APP_PATH/profiles/custom/$PROFILE/translations/$PROFILE.po

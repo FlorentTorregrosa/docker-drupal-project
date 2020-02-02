@@ -1,0 +1,3 @@
+docker-dev:
+  root: '/project/app'
+  uri: 'https://web-ddp8.docker.localhost'

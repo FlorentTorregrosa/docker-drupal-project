@@ -8,10 +8,9 @@
       * gulp-cli
   * You can also remove the symlink in .git/hooks to remove this feature.
 * Adapt the following files to your configuration:
-  * scripts/script-parameters.local.sh
-    * comment the line `ENVIRONMENT_MODE="prod"` to get development modules.
+  * .env
   * conf/drupal/default/settings.local.php
-    * uncomment lines in the "development section".
+    * uncomment lines in the "Development" section.
 * Execute `scripts/install.sh` (do not if using docker, see below)
 
 ## Additional steps to install with Docker compose
@@ -31,7 +30,7 @@ docker-compose up
 * In another tab, get a command-line in the container:
 
 ```bash
-docker-compose exec web /bin/bash
+docker-compose exec web bash
 ```
 
 * Then execute:

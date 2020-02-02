@@ -12,7 +12,6 @@ $databases['default']['default'] = [
   'host' => getenv('DRUPAL_SITE_DEFAULT_DB_HOST'),
   'port' => getenv('DRUPAL_SITE_DEFAULT_DB_PORT'),
   'driver' => getenv('DRUPAL_SITE_DEFAULT_DB_DRIVER'),
-  'namespace' => getenv('DRUPAL_SITE_DEFAULT_DB_DRIVER_NAMESPACE'),
 ];
 
 // Change this value.

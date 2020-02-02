@@ -2,8 +2,8 @@
 
 ## Development modules
 
-To get development modules, in the file scripts/script-parameters.local.sh,
-comment the line `ENVIRONMENT_MODE="prod"` to get development modules. Or just
+To get development modules, in the .env file,
+have `ENVIRONMENT_MODE="dev"` to get development modules. Or just
 run the command `composer install`.
 
 ## Xdebug
@@ -15,10 +15,9 @@ To have Xdebug enabled in the web container, in the file .env, set the variable
 
 This template use Drupal Debug to enable development features.
 
-If you want to be in debug mode:
+If you want to be in debug mode, you have one of the following options:
 * Execute: `composer drupal-debug:enable`
-* Uncomment lines from conf/drupal/default/settings.local.php in the
-  "development section"
+* Uncomment lines from conf/drupal/default/settings.local.php in the "Development" section
 
 ## PhpStorm optimisations
 
