@@ -91,6 +91,8 @@ $settings['redis.connection']['interface'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_I
 $settings['redis.connection']['host'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_HOST');
 $settings['redis.connection']['port'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_PORT');
 $settings['redis.connection']['base'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_BASE');
+$settings['redis_compress_length'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_COMPRESS_LENGTH');
+$settings['redis_compress_level'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_COMPRESS_LEVEL');
 
 $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';

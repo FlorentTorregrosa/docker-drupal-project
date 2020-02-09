@@ -33,17 +33,17 @@
         "drupal-composer/drupal-paranoia": "~1",
         "drupal-composer/drupal-security-advisories": "dev-8.x-v2",
         "drupal/admin_toolbar": "2.0.0",
-        "drupal/core-composer-scaffold": "8.8.1",
-        "drupal/core-recommended": "8.8.1",
+        "drupal/core-composer-scaffold": "8.8.2",
+        "drupal/core-recommended": "8.8.2",
         "drupal/drush_language": "1.0.0-rc2",
         "drupal/health_check": "1.2.0",
         "drupal/matomo": "1.9.0",
         "drupal/purge": "3.0.0-beta9",
-        "drupal/redis": "1.2.0",
+        "drupal/redis": "1.3.0",
         "drupal/search_api": "1.15.0",
         "drupal/search_api_solr": "3.8.0",
         "drupal/varnish_purge": "1.11.0",
-        "drush/drush": "10.1.1",
+        "drush/drush": "10.2.1",
         "oomphinc/composer-installers-extender": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
@@ -55,7 +55,7 @@
         "drupal/coder": "8.3.*",
         "drupal/config_inspector": "1.*",
         "drupal/console": "1.*",
-        "drupal/core-dev": "8.8.1",
+        "drupal/core-dev": "8.8.2",
         "drupal/devel": "3.*",
         "drupal/devel_a11y": "1.*",
         "drupal/devel_php": "1.*",
@@ -65,7 +65,8 @@
         "drupal/renderviz": "1.*",
         "drupal/search_kint": "1.*",
         "drupal/speedboxes": "1.*",
-        "phpmd/phpmd": "2.*"
+        "phpmd/phpmd": "2.*",
+        "roave/security-advisories": "dev-master"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -185,9 +186,6 @@
             "merge-scripts": true
         },
         "patches": {
-            "drupal/redis": {
-                "Add status page and some statistics": "https://www.drupal.org/files/issues/redis-statistics-7.patch"
-            }
         },
         "patchLevel": {
             "drupal/core": "-p2"
