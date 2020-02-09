@@ -7,8 +7,8 @@ services:
       - .:/project:delegated
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini:delegated
       - ./conf/httpd/extra/httpd-vhosts.conf:/etc/apache2/sites-enabled/httpd-vhosts.conf:delegated
-    environment:
-      - COMPOSER_ALLOW_SUPERUSER=1
+      # Composer cache.
+      - ~/.cache/composer/:/root/.composer/cache/
     env_file:
       - .env
     labels:

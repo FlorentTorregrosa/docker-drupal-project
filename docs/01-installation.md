@@ -18,6 +18,7 @@
 * **Do not execute scripts/install.sh from your computer.**.
 * Adapt the following files to your configuration:
   * .env
+    * Set you Github OAuth token.
     * For example to enable Xdebug.
   * docker-compose.yml
 * Execute:
