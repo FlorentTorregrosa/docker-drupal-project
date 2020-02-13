@@ -12,7 +12,7 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" sql:dump --result-file="${PROJECT_PA
 
 if [ "${USE_REDIS}" = "yes" ]; then
   echo -e "${COLOR_LIGHT_GREEN}Clear Redis cache because otherwise it is no emptied on site install and it provokes errors.${COLOR_NC}"
-  redis-cli -h "${DRUPAL_SITE_DEFAULT_REDIS_HOST}" -n "${DRUPAL_SITE_DEFAULT_REDIS_BASE}" FLUSHDB
+  redis-cli -h "${DRUPAL_SITE_DEFAULT_REDIS_HOST}" -p "${DRUPAL_SITE_DEFAULT_REDIS_PORT}" -n "${DRUPAL_SITE_DEFAULT_REDIS_BASE}" FLUSHDB
 fi
 
 echo -e "${COLOR_LIGHT_GREEN}Install Drupal.${COLOR_NC}"
