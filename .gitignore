@@ -47,6 +47,7 @@ node_modules
 
 # Docker.
 /.env
+/conf/env/composer.env
 /data
 
 # Drupal paranoia.

@@ -9,7 +9,7 @@ If you have a file permission issue, execute:
 ```
 
 Warning: use this script only if you are on a dev environment and execute it as
-root. If you are using it inside the DOcker container you are already root.
+root. If you are using it inside the Docker container you are already root.
 
 ## Xdebug breakpoint not taken into account (while it was working)
 

@@ -9,8 +9,13 @@ set +o allexport
 PROJECT_PATH=$(dirname $(dirname ${BASH_SOURCE[0]}))
 
 echo -e "${COLOR_LIGHT_GREEN}Copy example files.${COLOR_NC}"
-rsync -avz --ignore-existing $PROJECT_PATH/example.env                          $PROJECT_PATH/.env
+
+rsync -avz --ignore-existing $PROJECT_PATH/example.env $PROJECT_PATH/.env
 echo -e "${COLOR_LIGHT_RED}Please check values in $PROJECT_PATH/.env${COLOR_NC}"
+
+rsync -avz --ignore-existing $PROJECT_PATH/conf/env/example.composer.env $PROJECT_PATH/conf/env/composer.env
+echo -e "${COLOR_LIGHT_RED}Please check values in $PROJECT_PATH/conf/env/composer.env${COLOR_NC}"
+
 rsync -avz --ignore-existing $PROJECT_PATH/conf/drupal/default/example.settings.local.php $PROJECT_PATH/conf/drupal/default/settings.local.php
 echo -e "${COLOR_LIGHT_RED}Please check values in $PROJECT_PATH/conf/drupal/default/settings.local.php${COLOR_NC}"
 

@@ -11,6 +11,7 @@ services:
       - ~/.cache/composer/:/root/.composer/cache/
     env_file:
       - .env
+      - ./conf/env/composer.env
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${PROJECT_NAME}_web.entrypoints=http"
