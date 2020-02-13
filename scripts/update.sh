@@ -16,9 +16,11 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
 echo -e "${COLOR_LIGHT_GREEN}Launch updates. Ensure that the database schema is up-to-date.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" updatedb -y
 
-. $SCRIPTS_PATH/tasks/development_modules.sh
+#echo -e "${COLOR_LIGHT_GREEN}Export prod config split in case of overrides.${COLOR_NC}"
+#$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" config-split:export prod -y
 
-#echo -e "${COLOR_LIGHT_GREEN}TODO: Depending of project, import config with either CMI or features.${COLOR_NC}"
+#echo -e "${COLOR_LIGHT_GREEN}Import configuration.${COLOR_NC}"
+#$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" config:import -y
 
 # For update.sh import only content if the environment is dev to not risk
 # breaking prod.
