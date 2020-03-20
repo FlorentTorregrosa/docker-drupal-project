@@ -13,14 +13,12 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 1
 echo -e "${COLOR_LIGHT_GREEN}Clear cache to be sure cache are cleared even if there is no update or Drush has been updated.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
 
-echo -e "${COLOR_LIGHT_GREEN}Launch updates. Ensure that the database schema is up-to-date.${COLOR_NC}"
-$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" updatedb -y
+. $SCRIPTS_PATH/tasks/update_database.sh
 
 #echo -e "${COLOR_LIGHT_GREEN}Export prod config split in case of overrides.${COLOR_NC}"
 #$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" config-split:export prod -y
 
-#echo -e "${COLOR_LIGHT_GREEN}Import configuration.${COLOR_NC}"
-#$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" config:import -y
+#. $SCRIPTS_PATH/tasks/import_configuration.sh
 
 # For update.sh import only content if the environment is dev to not risk
 # breaking prod.

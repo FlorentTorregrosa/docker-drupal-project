@@ -26,12 +26,8 @@ $DRUSH site:install "${DRUPAL_SITE_DEFAULT_INSTALLATION_PROFILE}" \
   --sites-subdir="${DRUPAL_SITE_DEFAULT_FOLDER_NAME}" \
   -y
 
-echo -e "${COLOR_LIGHT_GREEN}Launch updates. Ensure that the database schema is up-to-date.${COLOR_NC}"
-$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" updatedb -y
-
-#echo -e "${COLOR_LIGHT_GREEN}Import configuration to ensure it is up-to-date.${COLOR_NC}"
-#$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" config:import -y
-
+. $SCRIPTS_PATH/tasks/update_database.sh
+#. $SCRIPTS_PATH/tasks/import_configuration.sh
 . $SCRIPTS_PATH/tasks/development_modules.sh
 #. $SCRIPTS_PATH/tasks/migrate_imports.sh
 #. $SCRIPTS_PATH/tasks/update_translations.sh
