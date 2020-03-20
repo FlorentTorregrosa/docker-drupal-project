@@ -97,10 +97,6 @@ $settings['redis_compress_level'] = getenv('DRUPAL_SITE_DEFAULT_REDIS_COMPRESS_L
 $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 
-$settings['cache']['default'] = getenv('DRUPAL_SITE_DEFAULT_CACHE_DEFAULT');
-
-$settings['cache_prefix'] = getenv('DRUPAL_SITE_DEFAULT_CACHE_PREFIX');
-
 // Varnish.
 $config['varnish_purger.settings.varnish']['hostname'] = getenv('VARNISH_HOST');
 
