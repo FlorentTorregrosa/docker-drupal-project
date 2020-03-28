@@ -19,8 +19,6 @@ $settings['hash_salt'] = getenv('DRUPAL_SITE_DEFAULT_HASH_SALT');
 
 $settings['config_sync_directory'] = $app_root . '/../conf/drupal/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/sync';
 
-$settings['container_yamls'][] = $app_root . '/../conf/drupal/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/services.yml';
-
 $settings['update_free_access'] = FALSE;
 $settings['allow_authorize_operations'] = FALSE;
 
@@ -102,6 +100,9 @@ $config['varnish_purger.settings.varnish']['hostname'] = getenv('VARNISH_HOST');
 
 // Errors.
 $config['system.logging']['error_level'] = 'hide';
+
+// Services.
+$settings['container_yamls'][] = $app_root . '/../conf/drupal/' . getenv('DRUPAL_SITE_DEFAULT_FOLDER_NAME') . '/services.yml';
 
 // Development.
 // See https://git.drupalcode.org/project/drupal/blob/HEAD/sites/example.settings.local.php
