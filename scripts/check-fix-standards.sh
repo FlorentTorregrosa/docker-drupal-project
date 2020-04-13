@@ -7,7 +7,7 @@
 # - ESLint
 
 usage() {
-    echo "check-fix-standards.sh path_to_check"
+    echo "check-fix-standards.sh contrib/context_profile_role"
 }
 
 while getopts "h" opt; do
@@ -26,7 +26,7 @@ fi
 
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 
-PATH_TO_CHECK=$(abspath $1)
+PATH_TO_CHECK="${PROJECT_PATH}/${1}"
 
 echo -e "${COLOR_LIGHT_GREEN}Change temporarily directory to scripts/quality to have tools configuration taken into account.${COLOR_NC}"
 cd $SCRIPTS_PATH/quality
