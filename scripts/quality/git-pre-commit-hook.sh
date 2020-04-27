@@ -15,11 +15,10 @@ EXIT_CODE=$((${EXIT_CODE} + $?))
 cd -
 
 # Errors.
-if [ ${EXIT_CODE} -ne 0 ]
-then
-    echo ""
-    echo "Problems were found."
-    echo "Commit aborted."
+if [ ${EXIT_CODE} -ne 0 ]; then
+  echo ""
+  echo "Problems were found."
+  echo "Commit aborted."
 fi
 
 exit ${EXIT_CODE}

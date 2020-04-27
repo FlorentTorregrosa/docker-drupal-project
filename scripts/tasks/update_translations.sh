@@ -16,8 +16,7 @@ echo -e "${COLOR_LIGHT_GREEN}Import custom translations.${COLOR_NC}"
 for TRANSLATION_FILE_PATH in ${APP_PATH}/translations/custom/*.po
 do
   # Ensure what is detected is a file.
-  if [ -f "${TRANSLATION_FILE_PATH}" ]
-  then
+  if [ -f "${TRANSLATION_FILE_PATH}" ]; then
     FILE_NAME=$(basename "${TRANSLATION_FILE_PATH}")
     LANGCODE=$(echo "${FILE_NAME}" | cut -d'.' -f2)
     $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" language:import:translations --langcode="${LANGCODE}" --autocreate-language=0 ${TRANSLATION_FILE_PATH}
