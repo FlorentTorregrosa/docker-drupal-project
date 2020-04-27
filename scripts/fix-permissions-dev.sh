@@ -7,6 +7,6 @@
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 
 echo -e "${COLOR_LIGHT_GREEN}No more permissions problem!${COLOR_NC}"
-chmod 777 -R $APP_PATH
+chmod 777 -R ${APP_PATH}
 chmod 777 -R /tmp/*
-chmod 644 $APP_PATH/profiles/.gitkeep
+chmod 644 ${APP_PATH}/profiles/.gitkeep

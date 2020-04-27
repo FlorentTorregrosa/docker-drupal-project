@@ -2,7 +2,7 @@
 
 . $(dirname ${BASH_SOURCE[0]})/script-parameters.sh
 
-. $SCRIPTS_PATH/tasks/composer_install.sh
+. ${SCRIPTS_PATH}/tasks/composer_install.sh
 
 echo -e "${COLOR_LIGHT_GREEN}Database backup.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" sql:dump --result-file="${PROJECT_PATH}/backups/${DRUPAL_SITE_DEFAULT_FOLDER_NAME}-${CURRENT_DATE}.sql" --gzip --structure-tables-key="common"
@@ -23,11 +23,11 @@ $DRUSH site:install "${DRUPAL_SITE_DEFAULT_INSTALLATION_PROFILE}" \
   --sites-subdir="${DRUPAL_SITE_DEFAULT_FOLDER_NAME}" \
   -y
 
-. $SCRIPTS_PATH/tasks/update_database.sh
-#. $SCRIPTS_PATH/tasks/import_configuration.sh
-. $SCRIPTS_PATH/tasks/development_modules.sh
-#. $SCRIPTS_PATH/tasks/migrate_imports.sh
-#. $SCRIPTS_PATH/tasks/update_translations.sh
+. ${SCRIPTS_PATH}/tasks/update_database.sh
+#. ${SCRIPTS_PATH}/tasks/import_configuration.sh
+. ${SCRIPTS_PATH}/tasks/development_modules.sh
+#. ${SCRIPTS_PATH}/tasks/migrate_imports.sh
+#. ${SCRIPTS_PATH}/tasks/update_translations.sh
 
 echo -e "${COLOR_LIGHT_GREEN}Flush caches to be clean.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild

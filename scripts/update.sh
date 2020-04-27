@@ -8,21 +8,21 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" sql:dump --result-file="${PROJECT_PA
 echo -e "${COLOR_LIGHT_GREEN}Put the site in maintenance mode.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 1
 
-. $SCRIPTS_PATH/tasks/composer_install.sh
-. $SCRIPTS_PATH/tasks/update_database.sh
+. ${SCRIPTS_PATH}/tasks/composer_install.sh
+. ${SCRIPTS_PATH}/tasks/update_database.sh
 
 #echo -e "${COLOR_LIGHT_GREEN}Export prod config split in case of overrides.${COLOR_NC}"
 #$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" config-split:export prod -y
 
-#. $SCRIPTS_PATH/tasks/import_configuration.sh
+. ${SCRIPTS_PATH}/tasks/import_configuration.sh
 
 # For update.sh import only content if the environment is dev to not risk
 # breaking prod.
 #if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
-#  . $SCRIPTS_PATH/tasks/migrate_imports.sh
+#  . ${SCRIPTS_PATH}/tasks/migrate_imports.sh
 #fi
 
-#. $SCRIPTS_PATH/tasks/update_translations.sh
+#. ${SCRIPTS_PATH}/tasks/update_translations.sh
 
 echo -e "${COLOR_LIGHT_GREEN}Remove the maintenance mode.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 0
