@@ -44,7 +44,7 @@
         "drupal/varnish_purge": "1.12.0",
         "drush/drush": "10.2.2",
         "oomphinc/composer-installers-extender": "^1.1",
-        "vlucas/phpdotenv": "^2.4",
+        "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "wikimedia/composer-merge-plugin": "^1.4"
