@@ -12,17 +12,14 @@ DEVELOPMENT_MODULES=(
   config_inspector
   dblog
   devel
-  devel_php
-#  devel_a11y
+  devel_a11y
   devel_generate
+  devel_php
   field_ui
-#  kint
-  purge_ui
+#  purge_ui
 #  renderviz
-#  search_kint
   speedboxes
   views_ui
-#  webprofiler
   # As in this template we not use custom install profile, enable some modules.
   admin_toolbar_tools
   health_check
