@@ -22,7 +22,7 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 1
 #  . ${SCRIPTS_PATH}/tasks/migrate_imports.sh
 #fi
 
-#. ${SCRIPTS_PATH}/tasks/update_translations.sh
+. ${SCRIPTS_PATH}/tasks/update_translations.sh
 
 echo -e "${COLOR_LIGHT_GREEN}Remove the maintenance mode.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 0
