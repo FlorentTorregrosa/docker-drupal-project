@@ -4,9 +4,6 @@
 
 . $SCRIPTS_PATH/tasks/composer_install.sh
 
-echo -e "${COLOR_LIGHT_GREEN}Clear Drush cache in case of update.${COLOR_NC}"
-$DRUSH cache:clear drush
-
 echo -e "${COLOR_LIGHT_GREEN}Database backup.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" sql:dump --result-file="${PROJECT_PATH}/backups/${DRUPAL_SITE_DEFAULT_FOLDER_NAME}-${CURRENT_DATE}.sql" --gzip --structure-tables-key="common"
 
@@ -32,11 +29,8 @@ $DRUSH site:install "${DRUPAL_SITE_DEFAULT_INSTALLATION_PROFILE}" \
 #. $SCRIPTS_PATH/tasks/migrate_imports.sh
 #. $SCRIPTS_PATH/tasks/update_translations.sh
 
-echo -e "${COLOR_LIGHT_GREEN}Rebuild Drupal paranoia.${COLOR_NC}"
-composer drupal:paranoia --working-dir="${PROJECT_PATH}"
+echo -e "${COLOR_LIGHT_GREEN}Flush caches to be clean.${COLOR_NC}"
+$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
 
 echo -e "${COLOR_LIGHT_GREEN}Run CRON.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" core:cron
-
-echo -e "${COLOR_LIGHT_GREEN}Flush caches to be clean.${COLOR_NC}"
-$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild

@@ -9,10 +9,6 @@ echo -e "${COLOR_LIGHT_GREEN}Put the site in maintenance mode.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 1
 
 . $SCRIPTS_PATH/tasks/composer_install.sh
-
-echo -e "${COLOR_LIGHT_GREEN}Clear cache to be sure cache are cleared even if there is no update or Drush has been updated.${COLOR_NC}"
-$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
-
 . $SCRIPTS_PATH/tasks/update_database.sh
 
 #echo -e "${COLOR_LIGHT_GREEN}Export prod config split in case of overrides.${COLOR_NC}"
@@ -28,11 +24,11 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
 
 #. $SCRIPTS_PATH/tasks/update_translations.sh
 
-echo -e "${COLOR_LIGHT_GREEN}Rebuild Drupal paranoia.${COLOR_NC}"
-composer drupal:paranoia --working-dir="${PROJECT_PATH}"
-
 echo -e "${COLOR_LIGHT_GREEN}Remove the maintenance mode.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" state:set system.maintenance_mode 0
+
+echo -e "${COLOR_LIGHT_GREEN}Flush caches to be clean.${COLOR_NC}"
+$DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
 
 echo -e "${COLOR_LIGHT_GREEN}Run CRON.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" core:cron
