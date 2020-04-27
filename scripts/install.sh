@@ -26,8 +26,8 @@ $DRUSH site:install "${DRUPAL_SITE_DEFAULT_INSTALLATION_PROFILE}" \
 . ${SCRIPTS_PATH}/tasks/update_database.sh
 #. ${SCRIPTS_PATH}/tasks/import_configuration.sh
 . ${SCRIPTS_PATH}/tasks/development_modules.sh
-#. ${SCRIPTS_PATH}/tasks/migrate_imports.sh
 . ${SCRIPTS_PATH}/tasks/update_translations.sh
+. ${SCRIPTS_PATH}/tasks/import_default_content.sh
 
 echo -e "${COLOR_LIGHT_GREEN}Flush caches to be clean.${COLOR_NC}"
 $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild

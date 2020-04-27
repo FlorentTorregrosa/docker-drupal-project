@@ -21,9 +21,9 @@ $DRUSH "${DRUPAL_SITE_DEFAULT_DRUSH_ALIAS}" cache:rebuild
 
 # For update.sh import only content if the environment is dev to not risk
 # breaking prod.
-#if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
-#  . ${SCRIPTS_PATH}/tasks/migrate_imports.sh
-#fi
+if [ "${ENVIRONMENT_MODE}" = "dev" ]; then
+  . ${SCRIPTS_PATH}/tasks/import_default_content.sh
+fi
 
 . ${SCRIPTS_PATH}/tasks/update_translations.sh
 
