@@ -8700,7 +8700,8 @@
             "homepage": "https://www.drupal.org/project/pistachio",
             "support": {
                 "source": "https://git.drupalcode.org/project/pistachio"
-            }
+            },
+            "time": "2017-01-30T17:04:25+00:00"
         },
         {
             "name": "drupal/renderviz",

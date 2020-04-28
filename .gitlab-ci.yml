@@ -1,0 +1,24 @@
+image: "florenttorregrosa/ci-php:7.3-cli-alpine"
+
+stages:
+  - test
+
+before_script:
+  - composer install --ignore-platform-reqs --no-progress --no-suggest
+
+test:phpcs:
+  stage: test
+  script:
+    - ./vendor/bin/phpcs
+
+test:drupal-check:
+  stage: test
+  script:
+    - ./vendor/bin/drupal-check app/modules/custom app/profiles/custom app/themes/custom
+
+workflow:
+  rules:
+    # Execute jobs in merge request context.
+    - if: $CI_MERGE_REQUEST_ID
+    # Execute jobs when a new commit is pushed to 8.x branch.
+    - if: $CI_COMMIT_BRANCH == '8.x'
