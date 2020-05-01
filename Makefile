@@ -1,6 +1,6 @@
 include .env
 
-.PHONY: help docker-pull docker-up docker-stop docker-down docker-prune docker-shell-web docker-shell-web-cmd docker-drush docker-site-install docker-site-update
+.PHONY: help docker-pull docker-up docker-stop docker-down docker-prune docker-shell-web docker-shell-web-cmd docker-drush docker-site-install docker-site-update docker-contrib-update
 
 default: help
 
@@ -45,6 +45,9 @@ docker-site-install: ## Install Drupal website.
 
 docker-site-update: ## Update Drupal website.
 	@docker-compose exec web bash -c "cd $(PROJECT_PATH) && ./scripts/update.sh"
+
+docker-contrib-update: ## Update contrib.
+	@docker-compose exec web bash -c "cd $(PROJECT_PATH) && ./scripts/contrib-update.sh"
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
