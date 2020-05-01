@@ -63,6 +63,7 @@
         "drupal/pistachio": "1.*",
         "drupal/renderviz": "1.*",
         "drupal/speedboxes": "1.*",
+        "mglaman/drupal-check": "1.*",
         "phpmd/phpmd": "2.*",
         "roave/security-advisories": "dev-master",
         "zaporylie/composer-drupal-optimizations": "^1.1"
