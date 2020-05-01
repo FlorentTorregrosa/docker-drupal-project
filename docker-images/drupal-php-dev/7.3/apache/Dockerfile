@@ -15,9 +15,9 @@ RUN composer global require \
         dealerdirect/phpcodesniffer-composer-installer \
         mglaman/drupalorg-cli \
         mglaman/drupal-check \
-    && echo 'alias drupalcs="phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"' >> $HOME/.bashrc \
-    && echo 'alias drupalcsp="phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"' >> $HOME/.bashrc \
-    && echo 'alias drupalcbf="phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md,yml'"' >> $HOME/.bashrc \
+    && echo 'alias drupalcs="phpcs --standard=Drupal --extensions='css,inc,info,install,md,module,php,profile,test,theme,txt,yml'"' >> $HOME/.bashrc \
+    && echo 'alias drupalcsp="phpcs --standard=DrupalPractice --extensions='css,inc,info,install,md,module,php,profile,test,theme,txt,yml'"' >> $HOME/.bashrc \
+    && echo 'alias drupalcbf="phpcbf --standard=Drupal --extensions='css,inc,info,install,md,module,php,profile,test,theme,txt,yml'"' >> $HOME/.bashrc \
     && composer clear-cache
 
 WORKDIR /project

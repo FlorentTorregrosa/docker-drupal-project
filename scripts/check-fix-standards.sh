@@ -32,11 +32,11 @@ echo -e "${COLOR_LIGHT_GREEN}Change temporarily directory to scripts/quality to 
 cd ${SCRIPTS_PATH}/quality
 
 echo -e "${COLOR_LIGHT_GREEN}PHP Code Sniffer${COLOR_NC}"
-phpcs --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md' ${PATH_TO_CHECK}
+phpcs --standard=Drupal,DrupalPractice --extensions='css,inc,info,install,md,module,php,profile,test,theme,txt,yml' ${PATH_TO_CHECK}
 
 echo -e "${COLOR_LIGHT_GREEN}PHP Code Beautifier${COLOR_NC}"
 # TODO: Files are not modified.
-phpcbf --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md' ${PATH_TO_CHECK}
+phpcbf --standard=Drupal,DrupalPractice --extensions='css,inc,info,install,md,module,php,profile,test,theme,txt,yml' ${PATH_TO_CHECK}
 
 echo -e "${COLOR_LIGHT_GREEN}ESLint${COLOR_NC}"
 # TODO: The inclusion of eslint-config-airbnb does not work.
