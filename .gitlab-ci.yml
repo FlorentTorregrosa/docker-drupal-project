@@ -1,23 +1,31 @@
 image: "florenttorregrosa/ci-php:7.3-cli-alpine"
 
 stages:
+  - build dev
   - test
 
-# Cache libraries in between jobs.
+# Cache downloaded files and built files in between jobs.
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
+    - app/
     - vendor/
 
-before_script:
-  - composer install --ignore-platform-reqs --no-progress --no-suggest
+# Build sources once and for all jobs and stages.
+# This build is done with development tools included.
+# Warning: if there are stages to deploy on one or more environments, You should
+# include a new stage to remove tests and tools dependencies.
+build dev:
+  stage: build dev
+  script:
+    - composer install --ignore-platform-reqs --no-progress --no-suggest
 
-test:phpcs:
+'Code quality: PHP CS':
   stage: test
   script:
     - ./vendor/bin/phpcs
 
-test:drupal-check:
+'Code quality: Drupal check':
   stage: test
   script:
     - ./vendor/bin/drupal-check app/modules/custom app/profiles/custom app/themes/custom
