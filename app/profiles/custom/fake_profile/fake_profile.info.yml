@@ -1,0 +1,4 @@
+name: 'Fake profile'
+description: "Fake profile used to have coding standards tests failing."
+type: profile
+core_version_requirement: ^8 || ^9
