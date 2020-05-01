@@ -3,6 +3,12 @@ image: "florenttorregrosa/ci-php:7.3-cli-alpine"
 stages:
   - test
 
+# Cache libraries in between jobs.
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - vendor/
+
 before_script:
   - composer install --ignore-platform-reqs --no-progress --no-suggest
 
