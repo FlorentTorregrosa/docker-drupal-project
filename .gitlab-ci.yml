@@ -6,7 +6,8 @@ stages:
 
 # Cache downloaded and built files in between jobs.
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
+  # Cache per commit so two pipelines won't interfere.
+  key: ${CI_COMMIT_SHORT_SHA}
   paths:
     - app/
     - vendor/
