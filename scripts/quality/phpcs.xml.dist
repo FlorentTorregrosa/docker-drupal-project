@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<ruleset name="ddp">
+<ruleset name="project">
   <description>Scan custom code.</description>
 
-  <file>app/modules/custom</file>
-  <file>app/profiles/custom</file>
-  <file>app/themes/custom</file>
+  <file>../../app/modules/custom</file>
+  <file>../../app/profiles/custom</file>
+  <file>../../app/themes/custom</file>
 
   <arg name="basepath" value="."/>
   <arg name="colors"/>

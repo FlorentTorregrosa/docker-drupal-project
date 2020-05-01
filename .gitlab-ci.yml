@@ -4,7 +4,7 @@ stages:
   - build dev
   - test
 
-# Cache downloaded files and built files in between jobs.
+# Cache downloaded and built files in between jobs.
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
@@ -23,7 +23,12 @@ build dev:
 'Code quality: PHP CS':
   stage: test
   script:
-    - ./vendor/bin/phpcs
+    - ./vendor/bin/phpcs --standard=./scripts/quality/phpcs.xml.dist
+
+'Code quality: PHP MD':
+  stage: test
+  script:
+    - ./vendor/bin/phpmd ./app/modules/custom,./app/profiles/custom,./app/themes/custom ansi ./scripts/quality/phpmd.xml.dist --suffixes inc,info,install,module,php,profile,test,theme
 
 'Code quality: Drupal check':
   stage: test
